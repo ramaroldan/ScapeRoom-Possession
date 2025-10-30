@@ -1,0 +1,11 @@
+# Source: Metascan 2.9.4
+# Device: iPhone 13 Pro
+#
+# Exported: 2023-12-09T14:55:56.374620Z
+#
+
+newmtl material_0
+illum 1
+map_Kd metascan_20230727-0817_Mycelium_Jar_tex0.jpeg
+norm metascan_20230727-0817_Mycelium_Jar_norm0.jpeg
+map_ao metascan_20230727-0817_Mycelium_Jar_ao0.jpeg
