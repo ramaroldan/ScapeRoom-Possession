@@ -1617,7 +1617,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 39d6f7fbd85b4c64a962eb1774e8aacd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3830,8 +3830,8 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 0.5058824, g: 0, b: 1, a: 1}
-  m_Intensity: 5
-  m_Range: 4.01
+  m_Intensity: 10
+  m_Range: 15
   m_SpotAngle: 179
   m_InnerSpotAngle: 179
   m_CookieSize: 10
@@ -6424,7 +6424,7 @@ Transform:
   m_GameObject: {fileID: 1440528722}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.0573, y: 0.0019, z: -0.0117}
+  m_LocalPosition: {x: -0.0031, y: 0.0019, z: -0.0032}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6464,8 +6464,8 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 0.5058824, g: 0, b: 1, a: 1}
-  m_Intensity: 5
-  m_Range: 4.01
+  m_Intensity: 10
+  m_Range: 15
   m_SpotAngle: 179
   m_InnerSpotAngle: 179
   m_CookieSize: 10
@@ -8429,7 +8429,7 @@ Light:
   m_Type: 0
   m_Color: {r: 0.5049739, g: 0, b: 1, a: 1}
   m_Intensity: 10
-  m_Range: 7.99
+  m_Range: 15
   m_SpotAngle: 179
   m_InnerSpotAngle: 179
   m_CookieSize: 10
@@ -9683,7 +9683,7 @@ Light:
   m_Type: 0
   m_Color: {r: 0.5058824, g: 0, b: 1, a: 1}
   m_Intensity: 10
-  m_Range: 7.99
+  m_Range: 15
   m_SpotAngle: 179
   m_InnerSpotAngle: 179
   m_CookieSize: 10
