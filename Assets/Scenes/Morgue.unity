@@ -1617,7 +1617,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 39d6f7fbd85b4c64a962eb1774e8aacd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2186,6 +2186,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2600357660607969126, guid: 4e669dd45e00fb74cb635a357d8827bc, type: 3}
+      propertyPath: m_Size.z
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2600357660607969126, guid: 4e669dd45e00fb74cb635a357d8827bc, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3951254236106124256, guid: 4e669dd45e00fb74cb635a357d8827bc, type: 3}
+      propertyPath: m_Size.z
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3951254236106124256, guid: 4e669dd45e00fb74cb635a357d8827bc, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7917475276227408721, guid: 4e669dd45e00fb74cb635a357d8827bc, type: 3}
       propertyPath: m_Name
       value: Door
@@ -2193,8 +2209,52 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4705396769519567646, guid: 4e669dd45e00fb74cb635a357d8827bc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 490150665}
+    - targetCorrespondingSourceObject: {fileID: 781477311016080987, guid: 4e669dd45e00fb74cb635a357d8827bc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 490150667}
   m_SourcePrefab: {fileID: 100100000, guid: 4e669dd45e00fb74cb635a357d8827bc, type: 3}
+--- !u!1 &490150664 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4705396769519567646, guid: 4e669dd45e00fb74cb635a357d8827bc, type: 3}
+  m_PrefabInstance: {fileID: 490150663}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &490150665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490150664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b1f7368c3166274781bde564c1e37a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextSceneName: Museum
+  playerTag: Player
+--- !u!1 &490150666 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 781477311016080987, guid: 4e669dd45e00fb74cb635a357d8827bc, type: 3}
+  m_PrefabInstance: {fileID: 490150663}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &490150667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490150666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b1f7368c3166274781bde564c1e37a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextSceneName: Museum
+  playerTag: Player
 --- !u!1 &503712061 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2956811380757467286, guid: d70710cf2a459ea428cb89c12bb63aeb, type: 3}
@@ -3770,8 +3830,8 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 0.5058824, g: 0, b: 1, a: 1}
-  m_Intensity: 5
-  m_Range: 4.01
+  m_Intensity: 10
+  m_Range: 15
   m_SpotAngle: 179
   m_InnerSpotAngle: 179
   m_CookieSize: 10
@@ -6364,7 +6424,7 @@ Transform:
   m_GameObject: {fileID: 1440528722}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.0573, y: 0.0019, z: -0.0117}
+  m_LocalPosition: {x: -0.0031, y: 0.0019, z: -0.0032}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6404,8 +6464,8 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 0.5058824, g: 0, b: 1, a: 1}
-  m_Intensity: 5
-  m_Range: 4.01
+  m_Intensity: 10
+  m_Range: 15
   m_SpotAngle: 179
   m_InnerSpotAngle: 179
   m_CookieSize: 10
@@ -8369,7 +8429,7 @@ Light:
   m_Type: 0
   m_Color: {r: 0.5049739, g: 0, b: 1, a: 1}
   m_Intensity: 10
-  m_Range: 7.99
+  m_Range: 15
   m_SpotAngle: 179
   m_InnerSpotAngle: 179
   m_CookieSize: 10
@@ -9623,7 +9683,7 @@ Light:
   m_Type: 0
   m_Color: {r: 0.5058824, g: 0, b: 1, a: 1}
   m_Intensity: 10
-  m_Range: 7.99
+  m_Range: 15
   m_SpotAngle: 179
   m_InnerSpotAngle: 179
   m_CookieSize: 10
