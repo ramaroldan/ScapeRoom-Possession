@@ -1,145 +1,150 @@
 ﻿using UnityEngine;
 
+[DisallowMultipleComponent]
+[RequireComponent(typeof(Light))]
 public class ElectricTorchOnOff : MonoBehaviour
 {
-    EmissionMaterialGlassTorchFadeOut _emissionMaterialFade;
-    BatteryPowerPickup _batteryPower;
-    //
+    // === Seguimiento de la cámara ===
+    [Header("Seguimiento")]
+    [Tooltip("Normalmente la Main Camera o la cámara del jugador")]
+    [SerializeField] private Transform followTarget;
+    [Tooltip("Desfase local respecto a la cámara")]
+    [SerializeField] private Vector3 localOffset = new Vector3(0f, -0.05f, 0.25f);
+    [Tooltip("Rotación adicional (grados)")]
+    [SerializeField] private Vector3 localEulerOffset = Vector3.zero;
+    [Tooltip("Suavizado de posición/rotación")]
+    [SerializeField] private float followLerp = 20f;
 
-    public enum LightChoose
+    // === Entrada ===
+    [Header("Entrada")]
+    [SerializeField] private string onOffLightKey = "F"; // acepta nombres de KeyCode ("F","E","Mouse1", etc.)
+    private KeyCode _toggleKey = KeyCode.F;
+
+    // === Intensidad y fade ===
+    [Header("Luz")]
+    [Min(0f)][SerializeField] private float onIntensity = 2.5f;
+    [SerializeField] private float fadeSpeed = 15f; // mayor = más rápido
+
+    // === Audio (opcional) ===
+    [Header("Audio (opcional)")]
+    [SerializeField] private AudioSource audioSource; // si no hay, se crea uno
+    [SerializeField] private AudioClip onClip;
+    [SerializeField] private AudioClip offClip;
+    [Range(0f, 1f)] public float audioVolume = 0.9f;
+
+    // === Estado interno ===
+    private Light _light;
+    private bool _isOn;
+    private float _currentIntensity;
+    private LightShadows _originalShadows;
+
+    private void Reset()
     {
-        noBattery,
-        withBattery
+        // Se llama al crear/añadir el componente
+        _light = GetComponent<Light>();
+        _light.type = LightType.Spot;
+        _light.intensity = 0f;
+        _light.spotAngle = 55f;   // valores razonables
+        _light.range = 15f;
+        _light.shadows = LightShadows.Soft;
+
+        if (!audioSource) audioSource = GetComponent<AudioSource>();
+        if (!audioSource)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+            audioSource.spatialBlend = 1f; // 3D
+            audioSource.rolloffMode = AudioRolloffMode.Linear;
+            audioSource.maxDistance = 12f;
+        }
     }
-
-    public LightChoose modoLightChoose;
-    [Space]
-    [Space]
-    public string onOffLightKey = "F";
-    private KeyCode _kCode;
-    [Space]
-    [Space]
-    public bool _PowerPickUp = false;
-    [Space]
-    public float intensityLight = 2.5F;
-    private bool _flashLightOn = false;
-    [SerializeField] float _lightTime = 0.05f;
-
-    private Light _light; // Referencia al componente Light
 
     private void Awake()
     {
-        _batteryPower = FindObjectOfType<BatteryPowerPickup>();
-    }
+        _light = GetComponent<Light>();
+        _originalShadows = _light.shadows;
 
-    void Start()
-    {
-        GameObject _scriptControllerEmissionFade = GameObject.Find("default");
+        // Inicia apagada
+        _isOn = false;
+        _currentIntensity = 0f;
+        _light.intensity = 0f;
+        _light.shadows = LightShadows.None;
 
-        if (_scriptControllerEmissionFade != null)
+        TryParseKey(onOffLightKey);
+
+        // Si no asignaste la cámara, intenta auto-detectar la principal
+        if (!followTarget && Camera.main) followTarget = Camera.main.transform;
+
+        // Asegurar AudioSource si el usuario no lo puso
+        if (!audioSource)
         {
-            _emissionMaterialFade = _scriptControllerEmissionFade.GetComponent<EmissionMaterialGlassTorchFadeOut>();
-        }
-        if (_scriptControllerEmissionFade == null) { Debug.Log("Cannot find 'EmissionMaterialGlassTorchFadeOut' script"); }
-
-        _kCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), onOffLightKey);
-
-        _light = GetComponent<Light>(); // Obtener el componente Light
-    }
-
-    void Update()
-    {
-        // Detectar error de análisis de la tecla
-        if (System.Enum.TryParse(onOffLightKey, out _kCode))
-        {
-            _kCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), onOffLightKey);
-        }
-        //
-
-        switch (modoLightChoose)
-        {
-            case LightChoose.noBattery:
-                NoBatteryLight();
-                break;
-            case LightChoose.withBattery:
-                WithBatteryLight();
-                break;
-        }
-
-        FollowMouse(); // Llamar al método para seguir el mouse
-    }
-
-    void InputKey()
-    {
-        if (Input.GetKeyDown(_kCode) && _flashLightOn == true)
-        {
-            _flashLightOn = false;
-
-        }
-        else if (Input.GetKeyDown(_kCode) && _flashLightOn == false)
-        {
-            _flashLightOn = true;
-
+            audioSource = gameObject.GetComponent<AudioSource>();
+            if (!audioSource)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+                audioSource.playOnAwake = false;
+                audioSource.spatialBlend = 1f;
+                audioSource.rolloffMode = AudioRolloffMode.Linear;
+                audioSource.maxDistance = 12f;
+            }
         }
     }
 
-    void NoBatteryLight()
+    private void OnValidate()
     {
-        if (_flashLightOn)
+        // Mantener claves y límites correctos incluso en edición
+        if (!_light) _light = GetComponent<Light>();
+        onIntensity = Mathf.Max(0f, onIntensity);
+        TryParseKey(onOffLightKey);
+    }
+
+    private void Update()
+    {
+        // 1) Seguir cámara/mouse
+        FollowCamera();
+
+        // 2) Toggle
+        if (Input.GetKeyDown(_toggleKey))
         {
-            _light.intensity = intensityLight;
-            _emissionMaterialFade.OnEmission();
+            _isOn = !_isOn;
+            PlayToggleSfx(_isOn);
+            _light.shadows = _isOn ? _originalShadows : LightShadows.None;
         }
+
+        // 3) Fade de intensidad
+        float target = _isOn ? onIntensity : 0f;
+        _currentIntensity = Mathf.Lerp(_currentIntensity, target, Time.deltaTime * fadeSpeed);
+        _light.intensity = _currentIntensity;
+    }
+
+    // ===== Utilidades =====
+
+    private void FollowCamera()
+    {
+        if (!followTarget) return;
+
+        // Posición con offset local de la cámara
+        Vector3 targetPos = followTarget.TransformPoint(localOffset);
+        transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * followLerp);
+
+        // Rotación hacia donde mira la cámara, con offset
+        Quaternion targetRot = followTarget.rotation * Quaternion.Euler(localEulerOffset);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * followLerp);
+    }
+
+    private void PlayToggleSfx(bool turningOn)
+    {
+        if (!audioSource) return;
+        AudioClip clip = turningOn ? onClip : offClip;
+        if (clip) audioSource.PlayOneShot(clip, audioVolume);
+    }
+
+    private void TryParseKey(string key)
+    {
+        // Permite escribir "F", "E", "Mouse1", etc. Si falla, usa F.
+        if (System.Enum.TryParse(key, out KeyCode parsed))
+            _toggleKey = parsed;
         else
-        {
-            _light.intensity = 0.0f;
-            _emissionMaterialFade.OffEmission();
-        }
-        InputKey();
-    }
-
-    void WithBatteryLight()
-    {
-
-        if (_flashLightOn)
-        {
-            _light.intensity = intensityLight;
-            intensityLight -= Time.deltaTime * _lightTime;
-            _emissionMaterialFade.TimeEmission(_lightTime);
-
-            if (intensityLight < 0)
-            {
-                intensityLight = 0;
-            }
-            if (_PowerPickUp == true)
-            {
-                intensityLight = _batteryPower.PowerIntensityLight;
-            }
-        }
-        else
-        {
-            _light.intensity = 0.0f;
-            _emissionMaterialFade.OffEmission();
-
-            if (_PowerPickUp == true)
-            {
-                intensityLight = _batteryPower.PowerIntensityLight;
-            }
-        }
-
-        InputKey();
-    }
-
-    void FollowMouse()
-    {
-        if (_flashLightOn) // Solo seguir el mouse si la linterna está encendida
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); // Crear un rayo desde la posición del mouse
-            if (Physics.Raycast(ray, out RaycastHit hit))
-            {
-                Vector3 direction = hit.point - transform.position; // Calcular la dirección hacia el punto de impacto
-                transform.forward = direction.normalized; // Ajustar la dirección del objeto
-            }
-        }
+            _toggleKey = KeyCode.F;
     }
 }
