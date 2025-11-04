@@ -1557,6 +1557,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Linterna
       objectReference: {fileID: 0}
+    - target: {fileID: 2676685722413383845, guid: 1443ad59d3410fa4a847fc1d2c5b13f5, type: 3}
+      propertyPath: followTarget
+      value: 
+      objectReference: {fileID: 9175881551505809850}
     - target: {fileID: 8444819373797893657, guid: 1443ad59d3410fa4a847fc1d2c5b13f5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.482
