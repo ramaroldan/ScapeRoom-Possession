@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: c38123978e9efa64a843e27ab0c136b5, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: a61477b456fdf9647a0c3d0e5cca1651, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -2280,6 +2280,10 @@ PrefabInstance:
     - target: {fileID: 1861384022245174195, guid: 417ef058e21cc094b8e0f36af4ad3e08, type: 3}
       propertyPath: m_Intensity
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1861384022245174195, guid: 417ef058e21cc094b8e0f36af4ad3e08, type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2213075450927748820, guid: 417ef058e21cc094b8e0f36af4ad3e08, type: 3}
       propertyPath: m_Name
@@ -7882,6 +7886,10 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 0.03
       objectReference: {fileID: 0}
+    - target: {fileID: 8944143213691472231, guid: c994195bbfbf8814ca32ab6b71e252d3, type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8524,6 +8532,10 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 0.03
       objectReference: {fileID: 0}
+    - target: {fileID: 8944143213691472231, guid: c994195bbfbf8814ca32ab6b71e252d3, type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8608,6 +8620,10 @@ PrefabInstance:
     - target: {fileID: 4916620033961416064, guid: 41972016b1bdea3488dbf7dc020af529, type: 3}
       propertyPath: m_Intensity
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4916620033961416064, guid: 41972016b1bdea3488dbf7dc020af529, type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4964915666262348567, guid: 41972016b1bdea3488dbf7dc020af529, type: 3}
       propertyPath: m_Volume
@@ -11259,6 +11275,10 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 1861384022245174195, guid: 417ef058e21cc094b8e0f36af4ad3e08, type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2213075450927748820, guid: 417ef058e21cc094b8e0f36af4ad3e08, type: 3}
       propertyPath: m_Name
       value: Vefects Candle 10 (3)
@@ -11836,6 +11856,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1861384022245174195, guid: 417ef058e21cc094b8e0f36af4ad3e08, type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2213075450927748820, guid: 417ef058e21cc094b8e0f36af4ad3e08, type: 3}
       propertyPath: m_Name
       value: Vefects Candle 10
@@ -12070,6 +12094,10 @@ PrefabInstance:
     - target: {fileID: 8944143213691472231, guid: c994195bbfbf8814ca32ab6b71e252d3, type: 3}
       propertyPath: m_Intensity
       value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 8944143213691472231, guid: c994195bbfbf8814ca32ab6b71e252d3, type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13055,6 +13083,10 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 0.03
       objectReference: {fileID: 0}
+    - target: {fileID: 4916620033961416064, guid: 41972016b1bdea3488dbf7dc020af529, type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4964915666262348567, guid: 41972016b1bdea3488dbf7dc020af529, type: 3}
       propertyPath: m_Volume
       value: 0.1
@@ -13574,7 +13606,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 0.5
@@ -14231,6 +14263,10 @@ PrefabInstance:
     - target: {fileID: 8944143213691472231, guid: c994195bbfbf8814ca32ab6b71e252d3, type: 3}
       propertyPath: m_Intensity
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8944143213691472231, guid: c994195bbfbf8814ca32ab6b71e252d3, type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16268,6 +16304,10 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 0.03
       objectReference: {fileID: 0}
+    - target: {fileID: 8944143213691472231, guid: c994195bbfbf8814ca32ab6b71e252d3, type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16358,6 +16398,10 @@ PrefabInstance:
     - target: {fileID: 1861384022245174195, guid: 417ef058e21cc094b8e0f36af4ad3e08, type: 3}
       propertyPath: m_Intensity
       value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1861384022245174195, guid: 417ef058e21cc094b8e0f36af4ad3e08, type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2213075450927748820, guid: 417ef058e21cc094b8e0f36af4ad3e08, type: 3}
       propertyPath: m_Name
@@ -22398,6 +22442,10 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 8944143213691472231, guid: c994195bbfbf8814ca32ab6b71e252d3, type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23768,6 +23816,10 @@ PrefabInstance:
     - target: {fileID: 8944143213691472231, guid: c994195bbfbf8814ca32ab6b71e252d3, type: 3}
       propertyPath: m_Intensity
       value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 8944143213691472231, guid: c994195bbfbf8814ca32ab6b71e252d3, type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25709,6 +25761,10 @@ PrefabInstance:
     - target: {fileID: 4964915666262348567, guid: c994195bbfbf8814ca32ab6b71e252d3, type: 3}
       propertyPath: m_Volume
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8944143213691472231, guid: c994195bbfbf8814ca32ab6b71e252d3, type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
