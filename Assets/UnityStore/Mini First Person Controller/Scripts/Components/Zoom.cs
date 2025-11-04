@@ -3,7 +3,7 @@
 [ExecuteInEditMode]
 public class Zoom : MonoBehaviour
 {
-    Camera camera;
+    Camera cam;
     public float defaultFOV = 60;
     public float maxZoomFOV = 15;
     [Range(0, 1)]
@@ -13,19 +13,19 @@ public class Zoom : MonoBehaviour
 
     void Awake()
     {
-        // Get the camera on this gameObject and the defaultZoom.
-        camera = GetComponent<Camera>();
-        if (camera)
+        // Get the cam on this gameObject and the defaultZoom.
+        cam = GetComponent<Camera>();
+        if (cam)
         {
-            defaultFOV = camera.fieldOfView;
+            defaultFOV = cam.fieldOfView;
         }
     }
 
     void Update()
     {
-        // Update the currentZoom and the camera's fieldOfView.
+        // Update the currentZoom and the cam's fieldOfView.
         currentZoom += Input.mouseScrollDelta.y * sensitivity * .05f;
         currentZoom = Mathf.Clamp01(currentZoom);
-        camera.fieldOfView = Mathf.Lerp(defaultFOV, maxZoomFOV, currentZoom);
+        cam.fieldOfView = Mathf.Lerp(defaultFOV, maxZoomFOV, currentZoom);
     }
 }
