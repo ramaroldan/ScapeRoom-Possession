@@ -3584,7 +3584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b1f7368c3166274781bde564c1e37a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: Morgue
+  nextSceneName: HospitalRoom
   playerTag: Player
 --- !u!65 &1872039450
 BoxCollider:
