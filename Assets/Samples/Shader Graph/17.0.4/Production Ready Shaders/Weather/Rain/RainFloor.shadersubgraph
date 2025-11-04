@@ -847,7 +847,7 @@
     "m_DefaultValue": {
         "x": 0.0,
         "y": 0.0,
-        "z": 0.0
+        "z": 1.0
     },
     "m_Labels": []
 }
@@ -2944,8 +2944,8 @@
     "m_ObjectId": "bba2217e31924831a716272cd6985cac",
     "m_Title": "Wetness Mask",
     "m_Position": {
-        "x": -161.99993896484376,
-        "y": 272.0000915527344
+        "x": -252.0,
+        "y": 272.0
     }
 }
 
@@ -3421,8 +3421,8 @@
     "m_ObjectId": "d9eddfd6f7884b03ace769483bab90b7",
     "m_Title": "Permeability Approximation",
     "m_Position": {
-        "x": -1507.333251953125,
-        "y": 250.666748046875
+        "x": -1507.0,
+        "y": 236.0
     }
 }
 
@@ -3502,8 +3502,8 @@
     "m_ObjectId": "eb26a749e7184d2cb48f8cd098685387",
     "m_Title": "Drops and Puddle Normals - No Drips",
     "m_Position": {
-        "x": -1231.0,
-        "y": -519.0000610351563
+        "x": -989.0,
+        "y": -520.0
     }
 }
 
@@ -3706,7 +3706,7 @@
     "m_DefaultValue": {
         "x": 0.0,
         "y": 0.0,
-        "z": 0.0
+        "z": 1.0
     },
     "m_Labels": []
 }

@@ -34,7 +34,7 @@ public class LightFlicker : MonoBehaviour
     void Awake()
     {
         _light = GetComponent<Light>();
-        if (_light.lightmapBakeType == LightmapBakeType.Baked)
+        if (_light.bakingOutput.lightmapBakeType == LightmapBakeType.Baked)
             Debug.LogWarning($"{name}: esta luz es Baked: el parpadeo no ser� visible en runtime. Usa Mixed/Realtime o el script de Emission.", this);
 
         if (noiseSeed == 0f) noiseSeed = Random.value * 1000f;
