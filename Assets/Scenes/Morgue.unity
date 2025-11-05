@@ -6427,13 +6427,13 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 5
+  m_Intensity: 7.48
   m_Range: 4.28
   m_SpotAngle: 34.1
   m_InnerSpotAngle: 22.35
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -6458,7 +6458,7 @@ Light:
       e32: 0
       e33: 1
     m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
+  m_Cookie: {fileID: 2800000, guid: 09d968a638e798f43a448752108d402d, type: 3}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
@@ -6490,7 +6490,7 @@ Transform:
   m_GameObject: {fileID: 1382741202}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49347335, y: -0, z: -0, w: 0.86976093}
-  m_LocalPosition: {x: -1.434, y: 6.074, z: -0.612}
+  m_LocalPosition: {x: -1.434, y: 6.067, z: -0.608}
   m_LocalScale: {x: 0.7291009, y: 0.7291009, z: 0.7291009}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7749,13 +7749,13 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 5
+  m_Intensity: 5.95
   m_Range: 4.28
   m_SpotAngle: 34.1
   m_InnerSpotAngle: 22.35
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -7780,7 +7780,7 @@ Light:
       e32: 0
       e33: 1
     m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
+  m_Cookie: {fileID: 2800000, guid: 09d968a638e798f43a448752108d402d, type: 3}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
@@ -7870,13 +7870,13 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 5
+  m_Intensity: 7.08
   m_Range: 4.28
   m_SpotAngle: 34.1
   m_InnerSpotAngle: 22.35
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -7901,7 +7901,7 @@ Light:
       e32: 0
       e33: 1
     m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
+  m_Cookie: {fileID: 2800000, guid: 09d968a638e798f43a448752108d402d, type: 3}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
@@ -9610,7 +9610,7 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 5
+  m_Intensity: 6.65
   m_Range: 4.28
   m_SpotAngle: 34.1
   m_InnerSpotAngle: 22.35
@@ -9641,7 +9641,7 @@ Light:
       e32: 0
       e33: 1
     m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
+  m_Cookie: {fileID: 2800000, guid: 09d968a638e798f43a448752108d402d, type: 3}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
