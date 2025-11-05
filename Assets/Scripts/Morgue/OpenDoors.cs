@@ -9,6 +9,9 @@ public class OpenDoors:MonoBehaviour
     [SerializeField] private GameObject[] mistPrefabs;
     [SerializeField] private Light[] lightsToActivate;
     private bool hasTriggered = false;
+    [SerializeField] private Renderer[] emissiveObjects;
+    [SerializeField] private Color emissionColor = Color.magenta;
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -43,6 +46,18 @@ public class OpenDoors:MonoBehaviour
                 if (luz != null)
                     luz.gameObject.SetActive(true);
             }
+            foreach (Renderer rend in emissiveObjects)
+            {
+                if (rend != null)
+                {
+                    Material mat = rend.material;
+
+                    // Activar Emission (clave en URP)
+                    mat.EnableKeyword("_EMISSION"); // en HDRP no hace falta, pero en URP sí
+                    mat.SetColor("_EmissionColor", emissionColor);
+                }
+            }
+
 
         }
     }
