@@ -12,10 +12,14 @@ public class HUDManager : MonoBehaviour
     [SerializeField] int startingMinutes = 30;
     private float timeRemaining;
     private bool timerRunning = false;
+    private bool gameEnded = false;
     public float TimeRemaining => timeRemaining;
     [Header("Panels")]
     [SerializeField] GameObject hudPanel;
     [SerializeField] private GameObject panelPausa;
+    [SerializeField] private GameObject panelVictoria;
+    [SerializeField] private GameObject panelDerrota;
+  
 
 
     [SerializeField] private MonoBehaviour cameraControlScript;
@@ -41,6 +45,7 @@ public class HUDManager : MonoBehaviour
 
     private void Update()
     {
+        if (gameEnded) return;
         if (timerRunning)
         {
             if (timeRemaining > 0)
@@ -53,8 +58,9 @@ public class HUDManager : MonoBehaviour
                 timerRunning = false;
                 timeRemaining = 0;
                 UpdateTimerUI();
-                HideHUD();
-                SceneManager.LoadScene("Lost");
+                GameOver();
+                //HideHUD();
+                //SceneManager.LoadScene("Lost");
             }
         }
 
@@ -115,6 +121,8 @@ public class HUDManager : MonoBehaviour
 
     public void TogglePause()
     {
+        if (gameEnded) return;
+
         isPaused = !isPaused;
 
         // Mostrar/ocultar paneles
@@ -129,7 +137,23 @@ public class HUDManager : MonoBehaviour
         Cursor.visible = isPaused;
         Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
     }
+    private void GameOver()
+    {
+        gameEnded = true;
+        isPaused = !isPaused;
+        hudPanel.SetActive(!isPaused);
+        if (panelDerrota != null)
+            panelDerrota.SetActive(true);
 
+        Time.timeScale = 0f; // Pausamos todo
+
+        cameraControlScript.enabled = !isPaused;
+
+        Cursor.visible = isPaused;
+        Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
+
+      
+    }
     public void ShowExitConfirmation()
     {
         if (exitModal != null)
@@ -141,6 +165,16 @@ public class HUDManager : MonoBehaviour
     public void SaveVictoryTime()
     {
         PlayerPrefs.SetFloat("VictoryTime", timeRemaining);
+    }
+
+    public void ShowVictoryPanel()
+    {
+        HideHUD(); // Oculta el HUD normal (timer, etc)
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
+        if (panelVictoria != null)
+            panelVictoria.SetActive(true);
     }
 
 }

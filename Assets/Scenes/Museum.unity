@@ -1489,6 +1489,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3877179342609465310, guid: 983102a4b315f0e4286be9af5732dc0d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2081945092}
+    - targetCorrespondingSourceObject: {fileID: 3877179342609465310, guid: 983102a4b315f0e4286be9af5732dc0d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2081945093}
     - targetCorrespondingSourceObject: {fileID: 4130833257251837314, guid: 983102a4b315f0e4286be9af5732dc0d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 660864544}
@@ -25523,13 +25526,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2081945087}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b1f7368c3166274781bde564c1e37a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneName: Lobby
   playerTag: Player
+--- !u!114 &2081945093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081945087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1018f842227231147b04c1d1d24f3818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  victorySceneName: Lobby
 --- !u!1001 &2086634740
 PrefabInstance:
   m_ObjectHideFlags: 0
