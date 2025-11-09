@@ -1,19 +1,27 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Michsky.UI.Dark;
 
 public class HUDManager : MonoBehaviour
 {
     public static HUDManager Instance;
 
     [Header("Timer Settings")]
-    public TextMeshProUGUI timerText;
-    public GameObject hudPanel;
-    public int startingMinutes = 30;
-
+    [SerializeField] TextMeshProUGUI timerText;
+    [SerializeField] int startingMinutes = 30;
     private float timeRemaining;
     private bool timerRunning = false;
+    public float TimeRemaining => timeRemaining;
+    [Header("Panels")]
+    [SerializeField] GameObject hudPanel;
+    [SerializeField] private GameObject panelPausa;
 
+
+    [SerializeField] private MonoBehaviour cameraControlScript;
+    [SerializeField] private ModalWindowManager exitModal;
+
+    private bool isPaused = false;
     private void Awake()
     {
         // Singleton para evitar duplicados
@@ -48,6 +56,11 @@ public class HUDManager : MonoBehaviour
                 HideHUD();
                 SceneManager.LoadScene("Lost");
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePause();
         }
     }
 
@@ -99,4 +112,35 @@ public class HUDManager : MonoBehaviour
     {
         timerRunning = false;
     }
+
+    public void TogglePause()
+    {
+        isPaused = !isPaused;
+
+        // Mostrar/ocultar paneles
+        panelPausa.SetActive(isPaused);
+        hudPanel.SetActive(!isPaused);
+
+        // Pausar o reanudar el tiempo
+        Time.timeScale = isPaused ? 0f : 1f;
+
+        cameraControlScript.enabled = !isPaused;
+
+        Cursor.visible = isPaused;
+        Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
+    }
+
+    public void ShowExitConfirmation()
+    {
+        if (exitModal != null)
+        {
+            exitModal.gameObject.SetActive(true); // Asegura que esté visible
+            exitModal.ModalWindowInTest();            // Llama la animación
+        }
+    }
+    public void SaveVictoryTime()
+    {
+        PlayerPrefs.SetFloat("VictoryTime", timeRemaining);
+    }
+
 }
