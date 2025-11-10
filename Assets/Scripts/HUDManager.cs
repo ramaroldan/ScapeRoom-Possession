@@ -14,18 +14,20 @@ public class HUDManager : MonoBehaviour
     private bool timerRunning = false;
     private bool gameEnded = false;
     public float TimeRemaining => timeRemaining;
+
     [Header("Panels")]
     [SerializeField] GameObject hudPanel;
     [SerializeField] private GameObject panelPausa;
     [SerializeField] private GameObject panelVictoria;
     [SerializeField] private GameObject panelDerrota;
-  
-
+    [SerializeField] private GameObject panelInventory; // Nuevo panel de inventario
 
     [SerializeField] private MonoBehaviour cameraControlScript;
     [SerializeField] private ModalWindowManager exitModal;
 
     private bool isPaused = false;
+    private bool isInventoryOpen = false; // Estado del inventario
+
     private void Awake()
     {
         // Singleton para evitar duplicados
@@ -59,14 +61,18 @@ public class HUDManager : MonoBehaviour
                 timeRemaining = 0;
                 UpdateTimerUI();
                 GameOver();
-                //HideHUD();
-                //SceneManager.LoadScene("Lost");
             }
         }
 
         if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
         {
             TogglePause();
+        }
+
+        // Mostrar/ocultar el panel de inventario con la tecla "I"
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            ToggleInventory();
         }
     }
 
@@ -137,6 +143,24 @@ public class HUDManager : MonoBehaviour
         Cursor.visible = isPaused;
         Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
     }
+
+    public void ToggleInventory()
+    {
+        if (panelInventory == null) return;
+
+        isInventoryOpen = !isInventoryOpen;
+
+        // Mostrar/ocultar el panel de inventario
+        panelInventory.SetActive(isInventoryOpen);
+
+        // Pausar el juego mientras el inventario está abierto
+        Time.timeScale = isInventoryOpen ? 0f : 1f;
+
+        // Mostrar/ocultar el cursor
+        Cursor.visible = isInventoryOpen;
+        Cursor.lockState = isInventoryOpen ? CursorLockMode.None : CursorLockMode.Locked;
+    }
+
     private void GameOver()
     {
         gameEnded = true;
@@ -151,9 +175,8 @@ public class HUDManager : MonoBehaviour
 
         Cursor.visible = isPaused;
         Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
-
-      
     }
+
     public void ShowExitConfirmation()
     {
         if (exitModal != null)
@@ -162,6 +185,7 @@ public class HUDManager : MonoBehaviour
             exitModal.ModalWindowInTest();            // Llama la animación
         }
     }
+
     public void SaveVictoryTime()
     {
         PlayerPrefs.SetFloat("VictoryTime", timeRemaining);
@@ -176,5 +200,4 @@ public class HUDManager : MonoBehaviour
         if (panelVictoria != null)
             panelVictoria.SetActive(true);
     }
-
 }
