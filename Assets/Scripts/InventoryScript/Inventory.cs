@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public static Inventory Instance;
+
     private bool inventoryEnabled;
     public GameObject inventory;
 
@@ -11,6 +13,19 @@ public class Inventory : MonoBehaviour
 
     private GameObject[] slot;
     public GameObject slotHolder;
+
+    private void Awake()
+    {
+        // Singleton para evitar duplicados
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
     void Start()
     {
