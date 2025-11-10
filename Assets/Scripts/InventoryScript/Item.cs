@@ -43,7 +43,7 @@ public class Item : MonoBehaviour
     {
         if (equipped)
         {
-            if(Input.GetKeyDown(KeyCode.E))
+            if(Input.GetKeyDown(KeyCode.U))
             {
                 equipped = false;
             }
