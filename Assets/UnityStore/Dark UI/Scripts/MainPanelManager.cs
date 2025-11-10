@@ -60,8 +60,8 @@ namespace Michsky.UI.Dark
 
                 currentPanelIndex = newPanel;
                 nextPanel = panels[currentPanelIndex];
-
-                currentPanelAnimator = currentPanel.GetComponent<Animator>();
+                nextPanel.SetActive(true);
+                currentPanelAnimator = currentPanel.GetComponent<Animator>();                
                 nextPanelAnimator = nextPanel.GetComponent<Animator>();
                 currentPanelAnimator.Play(panelFadeOut);
                 nextPanelAnimator.Play(panelFadeIn);
