@@ -43,27 +43,31 @@ public class Inventory : MonoBehaviour
         }
 
     }
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            inventoryEnabled = !inventoryEnabled;
+            OpenInventory();
+        }
+    }
 
-            // Mostrar/ocultar el inventario
-            inventory.SetActive(inventoryEnabled);
+    public void OpenInventory()
+    {
+        inventoryEnabled = !inventoryEnabled;
 
-            // Asegurar que el cursor sea visible al abrir el inventario
-            if (inventoryEnabled)
-            {
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-            }
-            else
-            {
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Locked;
-            }
+        // Mostrar/ocultar el inventario
+        inventory.SetActive(inventoryEnabled);
+
+        // Asegurar que el cursor sea visible al abrir el inventario
+        if (inventoryEnabled)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 

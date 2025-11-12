@@ -35,7 +35,7 @@ public class MouseLook : MonoBehaviour
     public bool working = true;
     [Tooltip("if cutscene mode, player can still look but it'll pull back automatically")]
     public bool cutSceneMode = false;
-
+    public bool overrideCursorLock ;
     public static float ClampAngle(float angle, float min, float max)
     {
         angle = angle % 360;
@@ -67,20 +67,25 @@ public class MouseLook : MonoBehaviour
                 Cursor.visible = false;
             #endif
         }
+        overrideCursorLock = false;
     }
 
+
     void LateUpdate()
-    {
+    {        
+        if (overrideCursorLock)
+            return;
+
         if (lockCursor)
         {
-            #if UNITY_STANDALONE
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-            #endif
-            #if UNITY_EDITOR
-                Cursor.lockState = CursorLockMode.Confined;
-                Cursor.visible = false;
-            #endif
+#if UNITY_STANDALONE
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+#endif
+#if UNITY_EDITOR
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = false;
+#endif
         }
 
         if (working)
