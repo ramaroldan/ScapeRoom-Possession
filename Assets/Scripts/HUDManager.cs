@@ -22,7 +22,8 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private GameObject panelDerrota;
     [SerializeField] private GameObject panelInventory; // Nuevo panel de inventario
 
-    [SerializeField] private MonoBehaviour cameraControlScript;
+    [SerializeField] private MouseLook mouseLookPlayer;
+    [SerializeField] private MouseLook mouseLookCamera;
     [SerializeField] private ModalWindowManager exitModal;
 
     private bool isPaused = false;
@@ -44,6 +45,7 @@ public class HUDManager : MonoBehaviour
         // Inicializa el tiempo
         timeRemaining = startingMinutes * 60f;
     }
+
 
     private void Update()
     {
@@ -91,14 +93,14 @@ public class HUDManager : MonoBehaviour
         {
             HideHUD();
         }
-        else if (sceneName == "Lobby")
+        else if (sceneName == "Museum")
         {
             ShowHUD();
             StartTimer(); // Reinicia si querés que empiece de nuevo al entrar
         }
         else
         {
-            ShowHUD();
+            HideHUD();
         }
     }
 
@@ -138,11 +140,27 @@ public class HUDManager : MonoBehaviour
         // Pausar o reanudar el tiempo
         Time.timeScale = isPaused ? 0f : 1f;
 
-        cameraControlScript.enabled = !isPaused;
+        SetPlayerControl(isPaused);
 
-        Cursor.visible = isPaused;
-        Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
     }
+    public void SetPlayerControl(bool isUIActive)
+    {      
+        if (mouseLookPlayer != null)
+        {           
+            mouseLookPlayer.overrideCursorLock = isUIActive;
+           // Debug.Log("Override cursor lock seteado a: " + mouseLookPlayer.overrideCursorLock);
+        }
+        if (mouseLookCamera != null)
+        {          
+            mouseLookCamera.overrideCursorLock = isUIActive;
+           // Debug.Log("Override cursor lock seteado a: " + mouseLookCamera.overrideCursorLock);
+        }
+
+        Cursor.visible = isUIActive;
+        Cursor.lockState = isUIActive ? CursorLockMode.None : CursorLockMode.Locked;
+    }
+
+
 
     public void ToggleInventory()
     {
@@ -154,11 +172,11 @@ public class HUDManager : MonoBehaviour
         panelInventory.SetActive(isInventoryOpen);
 
         // Pausar el juego mientras el inventario está abierto
-        Time.timeScale = isInventoryOpen ? 0f : 1f;
-
+        // Time.timeScale = isInventoryOpen ? 0f : 1f;
+        SetPlayerControl(isInventoryOpen);
         // Mostrar/ocultar el cursor
-        Cursor.visible = isInventoryOpen;
-        Cursor.lockState = isInventoryOpen ? CursorLockMode.None : CursorLockMode.Locked;
+        //Cursor.visible = isInventoryOpen;
+        //Cursor.lockState = isInventoryOpen ? CursorLockMode.None : CursorLockMode.Locked;
     }
 
     private void GameOver()
@@ -171,10 +189,10 @@ public class HUDManager : MonoBehaviour
 
         Time.timeScale = 0f; // Pausamos todo
 
-        cameraControlScript.enabled = !isPaused;
-
-        Cursor.visible = isPaused;
-        Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
+        //cameraControlScript.enabled = !isPaused;
+        SetPlayerControl(gameEnded);
+        //Cursor.visible = isPaused;
+        //Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
     }
 
     public void ShowExitConfirmation()
@@ -194,8 +212,7 @@ public class HUDManager : MonoBehaviour
     public void ShowVictoryPanel()
     {
         HideHUD(); // Oculta el HUD normal (timer, etc)
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        SetPlayerControl(true);
 
         if (panelVictoria != null)
             panelVictoria.SetActive(true);
