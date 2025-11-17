@@ -12,7 +12,7 @@ using UnityEngine.UI;
  */
 public class Interact : MonoBehaviour
 {
-
+    public static Interact Instance;
     private Vector3 fwd;
     [HideInInspector]
     public bool hover = false;
@@ -31,6 +31,18 @@ public class Interact : MonoBehaviour
     public GameObject currentObj = null;
     private GameObject storedIntObj;
 
+    private void Awake()
+    {
+        // Singleton para evitar duplicados
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
     void Start()
     {
         anim = InteractionUI.GetComponent<Animation>();

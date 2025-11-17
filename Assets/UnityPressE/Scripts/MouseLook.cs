@@ -36,6 +36,8 @@ public class MouseLook : MonoBehaviour
     [Tooltip("if cutscene mode, player can still look but it'll pull back automatically")]
     public bool cutSceneMode = false;
     public bool overrideCursorLock ;
+
+
     public static float ClampAngle(float angle, float min, float max)
     {
         angle = angle % 360;

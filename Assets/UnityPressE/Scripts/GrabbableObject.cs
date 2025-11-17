@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /* 
@@ -52,6 +53,7 @@ public class GrabbableObject : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        AutoAssignPlayerReferences();
         rigid = gameObject.GetComponent<Rigidbody>();
         MainCam = GameObject.FindWithTag("MainCamera");
         if (MainCam == null)
@@ -63,7 +65,60 @@ public class GrabbableObject : MonoBehaviour {
         originColor = rend.material.color;
         StartCoroutine(SetOriginTrans());
     }
+    void AutoAssignPlayerReferences()
+    {
+        //---------------------------------------------
+        // ✓ 1. Buscar Player (DontDestroyOnLoad incluido)
+        //---------------------------------------------
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player == null)
+        {
+            Debug.LogError("❌ No se encontró el Player (tag='Player').");
+            return;
+        }
 
+        //---------------------------------------------
+        // ✓ 2. Buscar HoldPos dentro del Player
+        //---------------------------------------------
+        HoldPos = player
+            .GetComponentsInChildren<Transform>(true)
+            .FirstOrDefault(t => t.name == "HoldPos");
+
+        if (HoldPos == null)
+            Debug.LogError("❌ No encontré HoldPos dentro del Player.");
+        else
+            Debug.Log("✅ HoldPos asignado automáticamente.");
+
+        //---------------------------------------------
+        // ✓ 3. Buscar MouseLook de MainCamera
+        //---------------------------------------------
+        var mainCameraLook = player
+            .GetComponentsInChildren<MouseLook>(true)
+            .FirstOrDefault(m => m.gameObject.name == "MainCamera");
+
+        if (mainCameraLook == null)
+            Debug.LogError("❌ No encontré MouseLook en MainCamera.");
+        else
+            lookScript[0] = mainCameraLook;
+
+        //---------------------------------------------
+        // ✓ 4. Buscar MouseLook del Player (raíz)
+        //---------------------------------------------
+        var playerLook = player.GetComponent<MouseLook>();
+        if (playerLook == null)
+        {
+            Debug.LogError("❌ Player no tiene MouseLook.");
+        }
+        else
+        {
+            lookScript[1] = playerLook;
+        }
+
+        //---------------------------------------------
+        // ✓ 5. Resultado final
+        //---------------------------------------------
+        Debug.Log("🎉 LookScripts asignados (MainCamera + Player) en orden correcto.");
+    }
     public void Hovering()
     {
         over = true;

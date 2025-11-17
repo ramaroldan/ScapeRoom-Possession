@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -40,6 +40,29 @@ public class InspectNote : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (noteUI == null)
+        {
+            // Busca en TODAS las escenas cargadas, incluso en DontDestroyOnLoad
+            Image[] imgs = Resources.FindObjectsOfTypeAll<Image>();
+
+            foreach (var img in imgs)
+            {
+                if (img.name == "Note" )
+                {
+                    noteUI = img;
+                    break;
+                }
+            }
+
+            if (targetImage == null)
+            {
+                Debug.LogError("❌ No se encontró NoteUI en DontDestroyOnLoad. Verifica el nombre.");
+            }
+            else
+            {
+                Debug.Log("✅ Note UI encontrado automáticamente.");
+            }
+        }
         MainCam = GameObject.FindWithTag("MainCamera");
         if (MainCam == null)
         {
