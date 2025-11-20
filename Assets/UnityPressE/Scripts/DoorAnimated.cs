@@ -73,19 +73,44 @@ public class DoorAnimated : MonoBehaviour
 
     // ----------------------------------------------------------------------
 
+    //public void Interacting()
+    //{
+    //    if (!canInteract) return;
+
+    //    if (source != null)
+    //    {
+    //        source.pitch = Random.Range(.9f, 1.3f);
+    //        source.clip = clips.Length > 0 ? clips[showUI ? 1 : 0] : null;
+    //        source.Play();
+    //    }
+
+    //    StartCoroutine(ToggleUI());
+    //    showUI = !showUI;
+    //    canInteract = false;
+    //}
     public void Interacting()
     {
         if (!canInteract) return;
 
-        if (source != null)
+        // Estado actual antes de cambiar
+        bool doorIsOpen = showUI;
+
+        // Elegir clip según ESTADO ACTUAL
+        if (source != null && clips.Length > 0)
         {
             source.pitch = Random.Range(.9f, 1.3f);
-            source.clip = clips.Length > 0 ? clips[showUI ? 1 : 0] : null;
+
+            // 0 = open, 1 = close
+            source.clip = clips[doorIsOpen ? 1 : 0];
             source.Play();
         }
 
-        StartCoroutine(ToggleUI());
+        // Cambiamos el estado de la puerta
         showUI = !showUI;
+
+        // Ahora sí, ejecutamos la corrutina con el NUEVO estado
+        StartCoroutine(ToggleUI());
+
         canInteract = false;
     }
 
@@ -113,6 +138,31 @@ public class DoorAnimated : MonoBehaviour
 
     // ----------------------------------------------------------------------
 
+    //IEnumerator ToggleUI()
+    //{
+    //    if (showUI)
+    //    {
+    //        Debug.Log("Abrir puerta");
+    //        if (animator != null)
+    //            animator.SetBool(animatorBool, true);
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("Cierra puerta");
+    //        if (animator != null)
+    //            animator.SetBool(animatorBool, false);
+
+    //    }
+
+    //    // tiempo de audio
+    //    if (source != null && source.clip != null)
+    //        yield return new WaitForSeconds(source.clip.length);
+    //    else
+    //        yield return new WaitForSeconds(.3f);
+
+    //    canInteract = true;
+    //}
+
     IEnumerator ToggleUI()
     {
         if (showUI)
@@ -126,7 +176,6 @@ public class DoorAnimated : MonoBehaviour
             Debug.Log("Cierra puerta");
             if (animator != null)
                 animator.SetBool(animatorBool, false);
-
         }
 
         // tiempo de audio
@@ -137,9 +186,8 @@ public class DoorAnimated : MonoBehaviour
 
         canInteract = true;
     }
-   
 
-   
+
     private IEnumerator FindPlayerReferences()
     {
         // Espera hasta que exista el PlayerMovement
