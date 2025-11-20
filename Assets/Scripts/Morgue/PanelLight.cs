@@ -1,15 +1,15 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 
-public class DoorAnimated : InteractableBase
+public class PanelLight : InteractableBase
 {
     [Header("Animation")]
     public Animator animator;
-    public string animatorBool = "isOpen";
+    public string animatorBool = "isOn";
 
     protected override IEnumerator DoInteraction()
     {
-        Debug.Log(state ? "Abriendo puerta" : "Cerrando puerta");
+        Debug.Log(state ? "Prender Luz" : "Apagar Luz");
 
         if (animator != null)
             animator.SetBool(animatorBool, state);

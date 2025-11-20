@@ -18,7 +18,9 @@ public class PcController : MonoBehaviour
 
     [Header("Audio")]
     public AudioSource audioSource;
-    public AudioClip audioClip;
+    public AudioClip audioClipComputerSound;
+    public AudioClip audioClipClick;
+    public AudioClip audioClipError;
 
     [Header("Password Settings")]
     public string correctPassword = "1234";
@@ -43,10 +45,12 @@ public class PcController : MonoBehaviour
             Debug.Log("✔ Password correcta");
             panelLogin.SetActive(false);
             panelDesk.SetActive(true);
+            
         }
         else
         {
             Debug.Log("❌ Password incorrecta");
+            PlayError();
         }
     }
 
@@ -54,16 +58,35 @@ public class PcController : MonoBehaviour
     public void ExitDesk()
     {
         // Volver al login pero sin cerrar el canvas completo
+        passwordInput.text = "";
         panelDesk.SetActive(false);
         panelLogin.SetActive(true);
+        panelLogin.SetActive(false);
+        
     }
 
     // --------------------------------------------------------------------
     void PlayAudio()
     {
-        if (audioSource != null && audioClip != null)
+        if (audioSource != null && audioClipComputerSound != null)
         {
-            audioSource.clip = audioClip;
+            audioSource.clip = audioClipComputerSound;
+            audioSource.Play();
+        }
+    }
+    public void PlayClick()
+    {
+        if (audioSource != null && audioClipClick != null)
+        {
+            audioSource.clip = audioClipClick;
+            audioSource.Play();
+        }
+    }
+    public void PlayError()
+    {
+        if (audioSource != null && audioClipError != null)
+        {
+            audioSource.clip = audioClipError;
             audioSource.Play();
         }
     }
