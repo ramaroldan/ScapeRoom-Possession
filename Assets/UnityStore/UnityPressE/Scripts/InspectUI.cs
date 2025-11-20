@@ -2,165 +2,68 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InspectPanel : MonoBehaviour
+public class InspectPanel : InteractableBase
 {
-    [Header("Interaction")]
-    private bool showUI;
-    private bool canInteract = true;
-
-    [Header("Audio")]
-    [Tooltip("0 = open UI, 1 = close UI")]
-    public AudioClip[] clips;
-    public AudioSource source;
-
-    [Header("Mesh Highlight")]
-    public Renderer pageRend;
-    public Color targetColor = Color.yellow;
-    private Color originColor;
-
-    private bool over = false;
-
-    [Header("Prompt Message (Interact HUD)")]
-    public string[] prompts = { "Use Computer", "" };
-
-    [Header("UI Panel to Show")]
-    public GameObject panelUI;  // Canvas o panel propio de esa escena
+    [Header("UI Panel To Toggle")]
+    public GameObject panelUI;
     public Image targetImage;
     public Sprite displayedSprite;
 
-    private Interact interactScript;
-    private PlayerMovement playerScript;
-    private MouseLook[] lookScripts;
-
-    private Camera cam;
-
-    [SerializeField] private MouseLook mouseLookPlayer;
-    [SerializeField] private MouseLook mouseLookCamera;
-
-    void Start()
+    protected override void Start()
     {
-        StartCoroutine(FindPlayerReferences());
-        // detectar cámara correctamente (compatible con DontDestroyOnLoad)
-        cam = Camera.main;
-        if (cam == null)
-        {
-            cam = FindFirstObjectByType<Camera>();
-        }
-
-        interactScript = cam.GetComponent<Interact>();
-
-        playerScript = FindFirstObjectByType<PlayerMovement>();
-        lookScripts = FindObjectsOfType<MouseLook>();
-
-        if (pageRend != null)
-            originColor = pageRend.material.color;
+        base.Start();
 
         if (panelUI != null)
             panelUI.SetActive(false);
     }
 
-    // ----------------------------------------------------------------------
-
-    public void Hovering()
+    // -------------------------------------------------------------------
+    // 🔥 Acción principal al interactuar (abre/cierra la UI)
+    // -------------------------------------------------------------------
+    protected override IEnumerator DoInteraction()
     {
-        over = true;
-        StartCoroutine(Fadeout());
-
-        if (!showUI)
-            interactScript.message = prompts[0];
-        else
-            interactScript.message = prompts[1];
-    }
-
-    // ----------------------------------------------------------------------
-
-    public void Interacting()
-    {
-        if (!canInteract) return;
-
-        if (source != null)
+        if (state)   // abrir UI
         {
-            source.pitch = Random.Range(.9f, 1.3f);
-            source.clip = clips.Length > 0 ? clips[showUI ? 1 : 0] : null;
-            source.Play();
-        }
-
-        StartCoroutine(ToggleUI());
-        showUI = !showUI;
-        canInteract = false;
-    }
-
-    // ----------------------------------------------------------------------
-
-    void FixedUpdate()
-    {
-        if (pageRend == null) return;
-
-        if (over)
-        {
-            pageRend.material.color = Color.Lerp(pageRend.material.color, targetColor, Time.deltaTime * 4);
-        }
-        else
-        {
-            pageRend.material.color = Color.Lerp(pageRend.material.color, originColor, Time.deltaTime * 2);
-        }
-    }
-
-    IEnumerator Fadeout()
-    {
-        yield return new WaitForSeconds(1);
-        over = false;
-    }
-
-    // ----------------------------------------------------------------------
-
-    IEnumerator ToggleUI()
-    {
-        if (showUI)
-        {
-            // abrir panel
+            // setear imagen si corresponde
             if (targetImage != null && displayedSprite != null)
                 targetImage.sprite = displayedSprite;
 
             if (panelUI != null)
                 panelUI.SetActive(true);
 
-            // bloquear movimiento
+            // bloquear control del player
             foreach (var look in lookScripts)
                 look.working = false;
 
             if (playerScript != null)
                 playerScript.SetWorking(false);
 
-            // BLOQUEAR interacción
-            if (interactScript != null) interactScript.enabled = false;
+            // bloquear el Interact para que no detecte raycasts mientras UI está abierta
+            if (interactScript != null)
+                interactScript.enabled = false;
 
-            // Activar cursor
+            // activar mouse
             SetPlayerControl(true);
-
         }
-        else
+        else // cerrar UI
         {
-            // cerrar panel
             if (panelUI != null)
                 panelUI.SetActive(false);
 
-            // restaurar control
             foreach (var look in lookScripts)
                 look.working = true;
 
             if (playerScript != null)
                 playerScript.SetWorking(true);
 
-            // REACTIVAR interacción
-            if (interactScript != null) interactScript.enabled = true;
+            // restaurar interacción
+            if (interactScript != null)
+                interactScript.enabled = true;
 
-            // Bloquear cursor otra vez
             SetPlayerControl(false);
-
         }
 
-        // tiempo de audio
+        // esperar fin del audio
         if (source != null && source.clip != null)
             yield return new WaitForSeconds(source.clip.length);
         else
@@ -169,58 +72,31 @@ public class InspectPanel : MonoBehaviour
         canInteract = true;
     }
 
-    public void CloseUI()
-    {
-        //if (showUI)
-            StartCoroutine(ToggleUI());
-    }
-
-
-    public void SetPlayerControl(bool isUIActive)
+    // -------------------------------------------------------------------
+    // 🔥 Control del mouse/cursor (misma lógica que tu script original)
+    // -------------------------------------------------------------------
+    private void SetPlayerControl(bool isUIActive)
     {
         if (mouseLookPlayer != null)
-        {
             mouseLookPlayer.overrideCursorLock = isUIActive;
-            // Debug.Log("Override cursor lock seteado a: " + mouseLookPlayer.overrideCursorLock);
-        }
+
         if (mouseLookCamera != null)
-        {
             mouseLookCamera.overrideCursorLock = isUIActive;
-            // Debug.Log("Override cursor lock seteado a: " + mouseLookCamera.overrideCursorLock);
-        }
 
         Cursor.visible = isUIActive;
         Cursor.lockState = isUIActive ? CursorLockMode.None : CursorLockMode.Locked;
     }
-    private IEnumerator FindPlayerReferences()
+
+    // -------------------------------------------------------------------
+    // 🔥 Acción llamada desde botón “Cerrar” del panel
+    // -------------------------------------------------------------------
+    public void CloseUI()
     {
-        // Espera hasta que exista el PlayerMovement
-        while ((playerScript = FindFirstObjectByType<PlayerMovement>()) == null)
-            yield return null;
-
-        // Espera hasta que exista la main camera correcta
-        while ((cam = Camera.main) == null)
-            yield return null;
-
-        // Busca MouseLook del jugador y cámara
-        MouseLook[] allLooks = FindObjectsOfType<MouseLook>(true);
-
-        foreach (var ml in allLooks)
+        if (state) // si está abierta
         {
-            if (ml.gameObject.CompareTag("Player"))
-                mouseLookPlayer = ml;
-
-            if (ml.gameObject.CompareTag("MainCamera"))
-                mouseLookCamera = ml;
+            state = false;
+            StartCoroutine(DoInteraction());
         }
-
-        // Busca el script Interact
-        interactScript = cam.GetComponent<Interact>();
-
-        // Guarda todos los looks
-        lookScripts = allLooks;
-
-        Debug.Log("✅ Referencias del Player encontradas correctamente por InspectPanel.");
     }
-
 }
+
