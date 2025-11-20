@@ -31,7 +31,7 @@ public class DoorAnimated : MonoBehaviour
     private Interact interactScript;
     private PlayerMovement playerScript;
     private MouseLook[] lookScripts;
-
+    
     private Camera cam;
 
     [SerializeField] private MouseLook mouseLookPlayer;
