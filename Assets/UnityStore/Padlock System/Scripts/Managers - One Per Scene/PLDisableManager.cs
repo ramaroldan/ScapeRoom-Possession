@@ -8,7 +8,7 @@ namespace PadlockSystem
     {
         public static PLDisableManager instance;
 
-        [SerializeField] private FirstPersonController player = null;
+        [SerializeField] private UnityStandardAssets.Characters.FirstPerson.FirstPersonController player = null;
         [SerializeField] private PadlockRaycast mainCameraRaycast = null;
         [SerializeField] private Image crosshair = null; 
 
