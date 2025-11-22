@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using static Unity.Cinemachine.IInputAxisOwner.AxisDescriptor;
 
 public class RoomHintProvider : MonoBehaviour
 {
@@ -72,27 +73,35 @@ public class RoomHintProvider : MonoBehaviour
     }
 
 
+    //public string GetCurrentHint()
+    //{
+    //    if (currentPuzzleIndex >= orderedHints.Count)
+    //        return "Ya resolviste todos los puzzles de este cuarto.";
+
+    //    var current = orderedHints[currentPuzzleIndex];
+
+    //    if (current.IsComplete)
+    //        return "No hay más pistas para este puzzle.";
+
+    //    // ✅ Elegir una pista aleatoria restante
+    //    int start = current.progress;
+    //    int remaining = current.hints.Count - start;
+
+    //    int randomOffset = Random.Range(0, remaining);
+    //    string hint = current.hints[start + randomOffset];
+
+    //    // ✅ Avanzamos el índice general para que la siguiente sea distinta
+    //    current.Advance();
+
+    //    return hint;
+    //}
     public string GetCurrentHint()
     {
-        if (currentPuzzleIndex >= orderedHints.Count)
-            return "Ya resolviste todos los puzzles de este cuarto.";
-
         var current = orderedHints[currentPuzzleIndex];
-
-        if (current.IsComplete)
-            return "No hay más pistas para este puzzle.";
-
-        // ✅ Elegir una pista aleatoria restante
-        int start = current.progress;
-        int remaining = current.hints.Count - start;
-
-        int randomOffset = Random.Range(0, remaining);
-        string hint = current.hints[start + randomOffset];
-
-        // ✅ Avanzamos el índice general para que la siguiente sea distinta
-        current.Advance();
-
-        return hint;
+        int randomIndex = Random.Range(0, current.hints.Count);
+        return current.hints[randomIndex];
     }
+
+
 
 }

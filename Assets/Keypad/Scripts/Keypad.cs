@@ -57,9 +57,9 @@ namespace NavKeypad
             hintProvider = FindObjectOfType<RoomHintProvider>();
 
             // Registramos las pistas para esta puerta
-            hintProvider.RegisterPuzzleHints(1, "candadopuzzle", new List<string>
+            hintProvider.RegisterPuzzleHints(2, nameof(PcController), new List<string>
             {
-                 "pista 1, puzze 2",
+                "pista 1, puzze 2",
                 "pista 2, puzze 2",
                 "pista 3, puzze 2"
             });
@@ -135,6 +135,7 @@ namespace NavKeypad
         private void AccessGranted()
         {
             accessWasGranted = true;
+            hintProvider.AdvancePuzzleHint(nameof(PcController));
             keypadDisplayText.text = accessGrantedText;
             onAccessGranted?.Invoke();
             panelMesh.material.SetVector("_EmissionColor", screenGrantedColor * screenIntensity);
