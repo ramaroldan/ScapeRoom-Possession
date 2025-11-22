@@ -66,9 +66,13 @@ public class HUDManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             TogglePause();
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            HintGameManager.Instance.ShowHint();
         }
 
         // Mostrar/ocultar el panel de inventario con la tecla "I"

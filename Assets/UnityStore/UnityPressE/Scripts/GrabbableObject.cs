@@ -24,10 +24,14 @@ public class GrabbableObject : MonoBehaviour {
     [Tooltip("0 pickup, 1 throw, 2 crash soft, 3 crash hard")]
     public AudioClip[] clips;
     private AudioSource source;
+
     [Tooltip("Primary renderer of this object")]
     public Renderer rend;
+    
+
     private Color originColor;
     private bool over = false;
+
     [Tooltip("Color when hovered over (looked at)")]
     public Color targetColor = Color.yellow;
     private GameObject MainCam;
@@ -50,7 +54,7 @@ public class GrabbableObject : MonoBehaviour {
     private float distToOrigin;
     //mute collision sounds on start (so things can fall down and set silently)
     private bool muteCollSound = true;
-
+    public Renderer pbRend;
     // Use this for initialization
     void Start () {
         AutoAssignPlayerReferences();
@@ -62,6 +66,18 @@ public class GrabbableObject : MonoBehaviour {
         }
         InteractionScript = MainCam.GetComponent<Interact>();
         source = gameObject.GetComponent<AudioSource>();
+
+        // Obtener renderer normal
+        if (rend == null)
+            rend = GetComponent<Renderer>();
+
+        // Si sigue sin existir, buscar ProBuilderMeshRenderer
+        if (rend == null)
+        {
+            pbRend = GetComponent("ProBuilderMeshRenderer") as Renderer;
+            if (pbRend != null)
+                rend = pbRend;
+        }
         originColor = rend.material.color;
         StartCoroutine(SetOriginTrans());
     }

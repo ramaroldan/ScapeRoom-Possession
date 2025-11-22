@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,6 +9,8 @@ namespace NavKeypad
 {
     public class Keypad : MonoBehaviour
     {
+        private RoomHintProvider hintProvider;
+
         [Header("Events")]
         [SerializeField] private UnityEvent onAccessGranted;
         [SerializeField] private UnityEvent onAccessDenied;
@@ -49,7 +52,18 @@ namespace NavKeypad
             panelMesh.material.SetVector("_EmissionColor", screenNormalColor * screenIntensity);
         }
 
+        private void Start()
+        {
+            hintProvider = FindObjectOfType<RoomHintProvider>();
 
+            // Registramos las pistas para esta puerta
+            hintProvider.RegisterPuzzleHints(1, "candadopuzzle", new List<string>
+            {
+                 "pista 1, puzze 2",
+                "pista 2, puzze 2",
+                "pista 3, puzze 2"
+            });
+        }
         //Gets value from pressedbutton
         public void AddInput(string input)
         {

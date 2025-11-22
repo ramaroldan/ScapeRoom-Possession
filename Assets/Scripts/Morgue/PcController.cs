@@ -1,9 +1,12 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using System.Collections.Generic;
 using TMPro; // si usás TMP. Si no, usá UnityEngine.UI con InputField
+using UnityEngine;
+using UnityEngine.UI;
 
 public class PcController : MonoBehaviour
 {
+    private RoomHintProvider hintProvider;
+
     [Header("Panels")]
     public GameObject panelLogin;     // PanelPc
     public GameObject panelDesk;      // PanelDesk
@@ -35,6 +38,16 @@ public class PcController : MonoBehaviour
         loginButton.onClick.AddListener(ValidatePassword);
         exitButton.onClick.AddListener(ExitDesk);
         playButton.onClick.AddListener(PlayAudio);
+
+        hintProvider = FindObjectOfType<RoomHintProvider>();
+
+        // Registramos las pistas para esta puerta
+        hintProvider.RegisterPuzzleHints(0, nameof(PcController), new List<string>
+        {
+                "Esos objetos que se repiten en la habitación... ¿no te suenan de los posters?",
+                "Contá cuántas veces aparece cada objeto del poster en la sala.",
+                "Poné los números en el mismo orden en el que están los posters."
+        });
     }
 
     // --------------------------------------------------------------------
@@ -42,6 +55,7 @@ public class PcController : MonoBehaviour
     {
         if (passwordInput.text == correctPassword)
         {
+            hintProvider.AdvancePuzzleHint(nameof(PcController));
             Debug.Log("✔ Password correcta");
             panelLogin.SetActive(false);
             panelDesk.SetActive(true);
