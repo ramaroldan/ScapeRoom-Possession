@@ -8867,7 +8867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b1f7368c3166274781bde564c1e37a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: Morgue
+  nextSceneName: Museum
   playerTag: Player
 --- !u!1 &1331190441
 GameObject:
@@ -15262,7 +15262,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 331975135888247207, guid: 6f9628dd1f3904043b5e264e48f97af8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 16
+      value: 16.00003
       objectReference: {fileID: 0}
     - target: {fileID: 582262385331876690, guid: 6f9628dd1f3904043b5e264e48f97af8, type: 3}
       propertyPath: m_AnchorMax.y
@@ -15283,6 +15283,10 @@ PrefabInstance:
     - target: {fileID: 582262385331876690, guid: 6f9628dd1f3904043b5e264e48f97af8, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -32.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 986626506388756665, guid: 6f9628dd1f3904043b5e264e48f97af8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1213397305584417558, guid: 6f9628dd1f3904043b5e264e48f97af8, type: 3}
       propertyPath: m_AnchoredPosition.x
