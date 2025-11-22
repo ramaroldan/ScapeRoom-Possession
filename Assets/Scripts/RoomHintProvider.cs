@@ -56,45 +56,18 @@ public class RoomHintProvider : MonoBehaviour
 
         var current = orderedHints[currentPuzzleIndex];
 
-        // Solo avanzar si el ID corresponde al puzzle actual
         if (current.id != id)
         {
             Debug.LogWarning($"⛔ El puzzle '{id}' no es el actual. Se espera: '{current.id}'");
             return;
         }
 
-        current.Advance();
-
-        if (current.IsComplete)
-        {
-            Debug.Log($"✅ Puzzle '{id}' completado. Avanzando al siguiente.");
-            currentPuzzleIndex++;
-        }
+        Debug.Log($"✅ Puzzle '{id}' completado. Avanzando al siguiente.");
+        currentPuzzleIndex++;
+       
     }
 
 
-    //public string GetCurrentHint()
-    //{
-    //    if (currentPuzzleIndex >= orderedHints.Count)
-    //        return "Ya resolviste todos los puzzles de este cuarto.";
-
-    //    var current = orderedHints[currentPuzzleIndex];
-
-    //    if (current.IsComplete)
-    //        return "No hay más pistas para este puzzle.";
-
-    //    // ✅ Elegir una pista aleatoria restante
-    //    int start = current.progress;
-    //    int remaining = current.hints.Count - start;
-
-    //    int randomOffset = Random.Range(0, remaining);
-    //    string hint = current.hints[start + randomOffset];
-
-    //    // ✅ Avanzamos el índice general para que la siguiente sea distinta
-    //    current.Advance();
-
-    //    return hint;
-    //}
     public string GetCurrentHint()
     {
         var current = orderedHints[currentPuzzleIndex];
@@ -103,8 +76,7 @@ public class RoomHintProvider : MonoBehaviour
         if (current.IsComplete)
         {
             currentPuzzleIndex++;
-            //if (currentPuzzleIndex >= orderedHints.Count)
-            //    return "Ya resolviste todos los puzzles de este cuarto.";
+           
 
             current = orderedHints[currentPuzzleIndex];
         }
