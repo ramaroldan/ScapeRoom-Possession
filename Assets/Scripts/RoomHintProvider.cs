@@ -98,6 +98,17 @@ public class RoomHintProvider : MonoBehaviour
     public string GetCurrentHint()
     {
         var current = orderedHints[currentPuzzleIndex];
+
+        // Si el puzzle ya fue completado, pasar automáticamente al siguiente
+        if (current.IsComplete)
+        {
+            currentPuzzleIndex++;
+            //if (currentPuzzleIndex >= orderedHints.Count)
+            //    return "Ya resolviste todos los puzzles de este cuarto.";
+
+            current = orderedHints[currentPuzzleIndex];
+        }
+
         int randomIndex = Random.Range(0, current.hints.Count);
         return current.hints[randomIndex];
     }
