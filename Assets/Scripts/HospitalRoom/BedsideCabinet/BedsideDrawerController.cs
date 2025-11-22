@@ -44,7 +44,7 @@ public class BedsideDrawerController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Triggered entered by " + other.name);
+            //Debug.Log("Triggered entered by " + other.name);
             if (Input.GetKeyDown(KeyCode.F))
             {
                 Debug.Log("pressed F");
@@ -54,7 +54,7 @@ public class BedsideDrawerController : MonoBehaviour
                 }
                 if (isOpen)
                 {
-                    Debug.Log("attempting to close drawer");
+                    //Debug.Log("attempting to close drawer");
                     CloseDrawer();
                 }
             }
