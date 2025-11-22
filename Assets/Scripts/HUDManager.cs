@@ -26,6 +26,10 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private MouseLook mouseLookCamera;
     [SerializeField] private ModalWindowManager exitModal;
 
+    [SerializeField] private PlayerMovement playerScript;
+    [SerializeField] private Interact interactScript;
+
+
     private bool isPaused = false;
     private bool isInventoryOpen = false; // Estado del inventario
 
@@ -44,7 +48,9 @@ public class HUDManager : MonoBehaviour
 
         // Inicializa el tiempo
         timeRemaining = startingMinutes * 60f;
-    }
+
+      
+}
 
 
     private void Update()
@@ -177,6 +183,17 @@ public class HUDManager : MonoBehaviour
 
         // Pausar el juego mientras el inventario está abierto
         // Time.timeScale = isInventoryOpen ? 0f : 1f;
+        // bloquear control del player
+        mouseLookPlayer.working = !isInventoryOpen;
+        mouseLookCamera.working = !isInventoryOpen;
+       
+        if (playerScript != null)
+            playerScript.SetWorking(!isInventoryOpen);
+
+        // bloquear el Interact para que no detecte raycasts mientras UI está abierta
+        if (interactScript != null)
+            interactScript.enabled = !isInventoryOpen;
+
         SetPlayerControl(isInventoryOpen);
         // Mostrar/ocultar el cursor
         //Cursor.visible = isInventoryOpen;

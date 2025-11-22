@@ -1,3 +1,4 @@
+using Michsky.UI.Dark;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -14,6 +15,14 @@ public class Inventory : MonoBehaviour
     private GameObject[] slot;
     public GameObject slotHolder;
 
+    [SerializeField] private MouseLook mouseLookPlayer;
+    [SerializeField] private MouseLook mouseLookCamera;
+    
+
+    [SerializeField] private PlayerMovement playerScript;
+    [SerializeField] private Interact interactScript;
+
+
     private void Awake()
     {
         // Singleton para evitar duplicados
@@ -29,6 +38,7 @@ public class Inventory : MonoBehaviour
 
     void Start()
     {
+        
         allSlots = slotHolder.transform.childCount;
         slot = new GameObject[allSlots];
 
@@ -41,6 +51,14 @@ public class Inventory : MonoBehaviour
                 slot[i].GetComponent<Slot>().empty = true;
             }
         }
+        inventoryEnabled = true;
+
+        // Mostrar/ocultar el inventario
+        inventory.SetActive(true);
+        inventoryEnabled =false;
+
+        // Mostrar/ocultar el inventario
+        inventory.SetActive(false);
 
     }
     void Update()
@@ -58,17 +76,36 @@ public class Inventory : MonoBehaviour
         // Mostrar/ocultar el inventario
         inventory.SetActive(inventoryEnabled);
 
-        // Asegurar que el cursor sea visible al abrir el inventario
-        if (inventoryEnabled)
+        // bloquear control del player
+        mouseLookPlayer.working = !inventoryEnabled;
+        mouseLookCamera.working = !inventoryEnabled;
+
+        if (playerScript != null)
+            playerScript.SetWorking(!inventoryEnabled);
+
+        // bloquear el Interact para que no detecte raycasts mientras UI está abierta
+        if (interactScript != null)
+            interactScript.enabled = !inventoryEnabled;
+
+        SetPlayerControl(inventoryEnabled);
+
+
+    }
+    public void SetPlayerControl(bool isUIActive)
+    {
+        if (mouseLookPlayer != null)
         {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
+            mouseLookPlayer.overrideCursorLock = isUIActive;
+            // Debug.Log("Override cursor lock seteado a: " + mouseLookPlayer.overrideCursorLock);
         }
-        else
+        if (mouseLookCamera != null)
         {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
+            mouseLookCamera.overrideCursorLock = isUIActive;
+            // Debug.Log("Override cursor lock seteado a: " + mouseLookCamera.overrideCursorLock);
         }
+
+        Cursor.visible = isUIActive;
+        Cursor.lockState = isUIActive ? CursorLockMode.None : CursorLockMode.Locked;
     }
 
     private void OnTriggerEnter(Collider other)
