@@ -69,9 +69,6 @@ PrefabInstance:
       addedObject: {fileID: 4755100284282812096}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: df2864e7ee11c3d419a97375487205ae, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8706028001252110408}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: df2864e7ee11c3d419a97375487205ae, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2231539347060592415}
   m_SourcePrefab: {fileID: 100100000, guid: df2864e7ee11c3d419a97375487205ae, type: 3}
 --- !u!1 &7463494124318060494 stripped
@@ -100,29 +97,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0034035398, y: 0.004074534, z: 0.00015315952}
   m_Center: {x: 0.000025348461, y: 0.0000071829318, z: 0.000057280857}
---- !u!114 &8706028001252110408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7463494124318060494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eacaa5a93fe7e1a42b5ddc92828eda12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Source: {fileID: 2231539347060592415}
-  clips:
-  - {fileID: 8300000, guid: df4a2921dcf24364892b31f9462f404b, type: 3}
-  - {fileID: 8300000, guid: 1da99549be366254ab3b2291e6f312e1, type: 3}
-  pageRend: {fileID: 8976611034154323483}
-  targetColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  prompts:
-  - Read Page
-  - 
-  noteUI: {fileID: 0}
-  targetImage: {fileID: 21300000, guid: 2fc4eb1feea27664fbc54d4b2d4e48f0, type: 3}
 --- !u!82 &2231539347060592415
 AudioSource:
   m_ObjectHideFlags: 0
@@ -220,8 +194,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!23 &8976611034154323483 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: df2864e7ee11c3d419a97375487205ae, type: 3}
-  m_PrefabInstance: {fileID: 7733456322476921503}
-  m_PrefabAsset: {fileID: 0}
