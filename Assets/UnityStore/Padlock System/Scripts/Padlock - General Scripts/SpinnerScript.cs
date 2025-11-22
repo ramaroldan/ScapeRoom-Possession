@@ -21,7 +21,23 @@ namespace PadlockSystem
             spinnerNumber = 1;
             spinnerLimit = 9;
         }
-
+        private void Start()
+        {
+            // Si no está asignado manualmente, buscarlo en la escena
+            if (_padlockController == null)
+            {
+                GameObject padlockGO = GameObject.Find("Padlock_Controller_A1");
+                if (padlockGO != null)
+                {
+                    _padlockController = padlockGO.GetComponent<PadlockController>();
+                    Debug.Log("<color=green>✔ PadlockController asignado dinámicamente.</color>");
+                }
+                else
+                {
+                    Debug.LogError("❌ No se encontró 'Padlock_Controller_A1' en la escena.");
+                }
+            }
+        }
         void OnMouseDown()
         {
             transform.Rotate(0, 0, transform.rotation.z + 40);
