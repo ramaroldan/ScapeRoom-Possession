@@ -1,0 +1,9 @@
+newmtl lambert1
+Kd 0.2075472 0.2075472 0.2075472
+d 1
+
+newmtl link01
+map_Kd imgterror2.gif
+Kd 1 1 1
+d 1
+
