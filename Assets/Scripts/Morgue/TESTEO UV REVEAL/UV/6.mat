@@ -38,7 +38,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: a3ac47e6838b675409bdb14f7c46e0d7, type: 3}
+        m_Texture: {fileID: 2800000, guid: ed92b86c5feb7a24681088225fb8fa10, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -114,7 +114,7 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Intensity: 0
-    - _LightAngle: 45
+    - _LightAngle: 30
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -133,8 +133,8 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LightDirection: {r: 0, g: 0, b: 1, a: 0}
-    - _LightPosition: {r: 0, g: 0, b: 0, a: 0}
+    - _LightDirection: {r: -0.26416087, g: -0.18738708, b: 0.94610035, a: 0}
+    - _LightPosition: {r: 33.24724, g: 1.6652945, b: -22.472666, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

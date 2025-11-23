@@ -5,6 +5,7 @@ public class PowerBoxCover : MonoBehaviour
 {
     private bool hasFallen = false;
     private RoomHintProvider hintProvider;
+    public GameObject stichesluz = null;
 
     private void Start()
     {
@@ -26,8 +27,7 @@ public class PowerBoxCover : MonoBehaviour
 
         hintProvider.AdvancePuzzleHint(nameof(PcController));
 
-        EnableInteractables enableInteractables = FindObjectOfType<EnableInteractables>();
-        enableInteractables.EnableItemsInteractables();
+        stichesluz.GetComponent<EnableInteractables>().EnableItemsInteractables();
 
 
         Rigidbody rb = gameObject.AddComponent<Rigidbody>();

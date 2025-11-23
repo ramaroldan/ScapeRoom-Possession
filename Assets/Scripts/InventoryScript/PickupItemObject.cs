@@ -58,12 +58,14 @@ public class PickupItemObject : InteractableBase
             }
         }
 
-        // Lanzar eventos (aquí puedes enganchar tu Inventory.AddItem())
-        //onItemPicked?.Invoke();
+       
         GameObject itemPickedUp = this.gameObject;
 
         //Item item = itemPickedUp.GetComponent<Item>();
         inventory.AddItem(itemPickedUp, itemData.ID, itemData.type, itemData.description, itemData.icon);
+
+        // Lanzar eventos 
+        onItemPicked?.Invoke();
 
         // Desactivar objeto del mundo si corresponde
         if (disableWorldObject)
@@ -76,6 +78,8 @@ public class PickupItemObject : InteractableBase
             yield return new WaitForSeconds(source.clip.length);
         else
             yield return new WaitForSeconds(0.2f);
+
+       
 
         canInteract = true;
     }

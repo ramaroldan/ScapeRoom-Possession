@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PanelLight : InteractableBase
@@ -13,6 +14,7 @@ public class PanelLight : InteractableBase
     public GameObject[] emissiveObjects; // 🚀 (Opcional) Objetos con material emisivo
 
     public bool apagartodo = true; // true = encender, false = apagar
+    public GameObject itemsUV = null;
 
 
 
@@ -63,6 +65,7 @@ public class PanelLight : InteractableBase
             // Activar linterna violeta al encender
             Debug.Log("🔦 Activando linterna violeta.");
             ActivarLinternaVioleta();
+            itemsUV.GetComponent<EnableInteractables>().EnableItemsInteractables();
         }
 
         // ---------------------
