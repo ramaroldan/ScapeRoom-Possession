@@ -33,13 +33,13 @@ public class HintGameManager : MonoBehaviour
         SetDifficulty();
     }
 
-    public void SetDifficulty(Difficulty diff= Difficulty.Normal)
+    public void SetDifficulty(Difficulty diff= Difficulty.Easy)
     {
         CurrentDifficulty = diff;
 
         remainingHints = diff switch
         {
-            Difficulty.Easy => 10,
+            Difficulty.Easy => 20,
             Difficulty.Normal => 4,
             Difficulty.Hard => 2,
             Difficulty.Nightmare => 0,

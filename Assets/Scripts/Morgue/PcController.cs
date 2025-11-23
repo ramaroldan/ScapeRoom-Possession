@@ -56,10 +56,13 @@ public class PcController : MonoBehaviour
         if (passwordInput.text == correctPassword)
         {
             hintProvider.AdvancePuzzleHint(nameof(PcController));
+
             Debug.Log("✔ Password correcta");
             panelLogin.SetActive(false);
             panelDesk.SetActive(true);
+
             
+
         }
         else
         {
