@@ -18,10 +18,10 @@ public class BedsideDrawerController : MonoBehaviour
 
     public void OpenDrawer()
     {
-        if (!isOpen)
-        {
-            _bedsideDrawerAnimator.SetTrigger("OpenDrawer");
-        }
+        
+        
+        _bedsideDrawerAnimator.SetTrigger("OpenDrawer");
+        
     }
 
     public void CloseDrawer()
