@@ -59,8 +59,8 @@ namespace NavKeypad
             // Registramos las pistas para esta puerta
             hintProvider.RegisterPuzzleHints(2, nameof(PcController), new List<string>
             {
-                "pista 1, puzze 2",
-                "pista 2, puzze 2",
+                "Con la linterna mira las paredes",
+                "Conta las cosas en la pared",
                 "pista 3, puzze 2"
             });
         }

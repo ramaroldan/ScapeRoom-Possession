@@ -7,7 +7,8 @@ namespace PadlockSystem
 {
     public class PadlockController : MonoBehaviour
     {
-        private RoomHintProvider hintProvider;
+        
+
         [Header("Your Inputs")]
         [SerializeField] private string yourCombination = "1234";
         private string playerCombi;
@@ -40,6 +41,7 @@ namespace PadlockSystem
         private Camera playerCamera;
 
         [SerializeField] private PowerBoxCover powerBoxCover;
+
         private void Start()
         {
             // Obtener el animator directamente del GameObject referenciado
@@ -58,15 +60,7 @@ namespace PadlockSystem
             combinationRow3 = 1;
             combinationRow4 = 1;
 
-            hintProvider = FindObjectOfType<RoomHintProvider>();
-
-            // Registramos las pistas para esta puerta
-            hintProvider.RegisterPuzzleHints(1, nameof(PcController), new List<string>
-            {
-                "Parece que hay una secuencia numérica en esa grabación...",
-                "Ese audio no está ahí por casualidad. Presta atención a los detalles.",
-               
-            });
+            
         }
         void Awake()
         {
@@ -156,14 +150,17 @@ namespace PadlockSystem
             UnlockSound();
 
             yield return new WaitForSeconds(1.2f);
-            powerBoxCover.DropCover();
+
+            if(powerBoxCover!=null)
+                powerBoxCover.DropCover();
             cameraPadlock.SetActive(false);
             OnPadlockClosed?.Invoke();
             interactableLock.SetActive(false);
             unlock.Invoke();
           
             gameObject.SetActive(false);
-            hintProvider.AdvancePuzzleHint(nameof(PcController));
+
+            
         }
 
         void Update()

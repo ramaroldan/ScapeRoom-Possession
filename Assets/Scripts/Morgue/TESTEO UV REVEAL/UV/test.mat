@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Reveal
-  m_Shader: {fileID: 4800000, guid: 31402f43edfc86b41b4c9147f3bd2610, type: 3}
+  m_Name: test
+  m_Shader: {fileID: 4800000, guid: 4b1b1b3d2af24304f84ad1caae39b8af, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -24,12 +24,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - MyMainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _BaseMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: f383ec3c4d169854ba87186d4bbe2c4b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -86,10 +82,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - MyGlossiness: 0.5
-    - MyLightAngle: 179
-    - MyMetallic: 0
-    - MyStrengthScalor: 50
     - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
     - _AlphaToMask: 0
@@ -108,6 +100,8 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _Intensity: 2.5
+    - _LightAngle: 30
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -118,20 +112,20 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
+    - _StrengthScalor: 50
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - MyColor: {r: 0.8679245, g: 0.30704877, b: 0.30704877, a: 1}
-    - MyLightDirection: {r: -0, g: 1.0000002, b: 0.00000023841858, a: 0}
-    - MyLightPosition: {r: 32.360065, g: 3.4746258, b: -21.293842, a: 0}
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor: {r: 0.8113207, g: 0.27171582, b: 0.27171582, a: 0.6156863}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _LightDirection: {r: -0.4483855, g: -0.12013729, b: -0.8857299, a: 0}
+    - _LightPosition: {r: 32.696747, g: 1.6699116, b: -19.866182, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &2950553767477923317
+--- !u!114 &2593014115720616145
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
