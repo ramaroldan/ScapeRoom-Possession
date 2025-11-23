@@ -9232,6 +9232,7 @@ GameObject:
   - component: {fileID: 639208874}
   - component: {fileID: 639208872}
   - component: {fileID: 639208873}
+  - component: {fileID: 639208875}
   m_Layer: 0
   m_Name: polySurface13.002
   m_TagString: Interactable
@@ -9468,7 +9469,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 639208863}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3beb653d7d9dbd4cb6b4d113f24d547, type: 3}
   m_Name: 
@@ -9493,7 +9494,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 639208863}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2aa3aa3b42140dd4c86202c99d8ee526, type: 3}
   m_Name: 
@@ -9501,12 +9502,34 @@ MonoBehaviour:
   ID: 3
   type: Tool
   description: Foto 2
-  icon: {fileID: 21300000, guid: 903c2245c11a0ce4ea402065fe5e63be, type: 3}
+  icon: {fileID: 21300000, guid: 251f80f0e25ce8b4caaf9a62ee9bb231, type: 3}
   pickedUp: 0
   equipped: 0
   toolManager: {fileID: 0}
   tool: {fileID: 0}
   playerTool: 0
+--- !u!114 &639208875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639208863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14b2bd920dd132498fe8fc6647c023d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightRenderer: {fileID: 639208865}
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  source: {fileID: 0}
+  clips: []
+  prompts:
+  - Recoge la foto
+  - 
+  photoPiece: {fileID: 639208872}
+  renderersToHide: []
+  collidersToDisable: []
 --- !u!1001 &645492940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10578,6 +10601,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 046f2eb87aae7cf47b5e1e3823f6a3f7, type: 3}
   m_PrefabInstance: {fileID: 680352479}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &683351851 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3270834789232462163, guid: a635369aaad5e9947977eef4cf10d1dc, type: 3}
+  m_PrefabInstance: {fileID: 916549192}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &687121130
 GameObject:
   m_ObjectHideFlags: 0
@@ -10909,6 +10937,7 @@ GameObject:
   - component: {fileID: 711530425}
   - component: {fileID: 711530423}
   - component: {fileID: 711530424}
+  - component: {fileID: 711530426}
   m_Layer: 0
   m_Name: polySurface13.001
   m_TagString: Interactable
@@ -11145,7 +11174,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 711530413}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3beb653d7d9dbd4cb6b4d113f24d547, type: 3}
   m_Name: 
@@ -11170,7 +11199,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 711530413}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2aa3aa3b42140dd4c86202c99d8ee526, type: 3}
   m_Name: 
@@ -11184,6 +11213,28 @@ MonoBehaviour:
   toolManager: {fileID: 0}
   tool: {fileID: 0}
   playerTool: 0
+--- !u!114 &711530426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711530413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14b2bd920dd132498fe8fc6647c023d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightRenderer: {fileID: 711530415}
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  source: {fileID: 0}
+  clips: []
+  prompts:
+  - Recoge la foto
+  - 
+  photoPiece: {fileID: 711530423}
+  renderersToHide: []
+  collidersToDisable: []
 --- !u!1001 &714377692
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13936,6 +13987,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalPieces: 8
   puzzleBoardInspect: {fileID: 916549195}
+  boardCollider: {fileID: 916549196}
+  boardRoot: {fileID: 916549194}
   boardLockedHint: {fileID: 2029323792}
 --- !u!1001 &865963604
 PrefabInstance:
@@ -14496,11 +14549,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7286273653001405491, guid: a635369aaad5e9947977eef4cf10d1dc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6406259816885360417, guid: a635369aaad5e9947977eef4cf10d1dc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3737757902984381172, guid: a635369aaad5e9947977eef4cf10d1dc, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -14508,19 +14561,19 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: e8f3a882d52c12e49b2495fde1cef375, type: 2}
     - target: {fileID: -2828551580057194431, guid: a635369aaad5e9947977eef4cf10d1dc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1545784124419979368, guid: a635369aaad5e9947977eef4cf10d1dc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -958018618622061527, guid: a635369aaad5e9947977eef4cf10d1dc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -752907196576732067, guid: a635369aaad5e9947977eef4cf10d1dc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a635369aaad5e9947977eef4cf10d1dc, type: 3}
       propertyPath: m_Name
@@ -14536,16 +14589,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7596223540213726477, guid: a635369aaad5e9947977eef4cf10d1dc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9061265354394231877, guid: a635369aaad5e9947977eef4cf10d1dc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: a635369aaad5e9947977eef4cf10d1dc, type: 3}
+    - targetCorrespondingSourceObject: {fileID: -3270834789232462163, guid: a635369aaad5e9947977eef4cf10d1dc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2029323793}
     m_AddedComponents:
@@ -14907,6 +14960,7 @@ GameObject:
   - component: {fileID: 946854900}
   - component: {fileID: 946854898}
   - component: {fileID: 946854899}
+  - component: {fileID: 946854901}
   m_Layer: 0
   m_Name: polySurface13.006
   m_TagString: Interactable
@@ -15143,7 +15197,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 946854888}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3beb653d7d9dbd4cb6b4d113f24d547, type: 3}
   m_Name: 
@@ -15168,7 +15222,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 946854888}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2aa3aa3b42140dd4c86202c99d8ee526, type: 3}
   m_Name: 
@@ -15176,12 +15230,34 @@ MonoBehaviour:
   ID: 16
   type: Tool
   description: Foto 6
-  icon: {fileID: 2267314249368087281, guid: 215687feeab0b7445b4a1cd86c82c2e1, type: 3}
+  icon: {fileID: 21300000, guid: 251f80f0e25ce8b4caaf9a62ee9bb231, type: 3}
   pickedUp: 0
   equipped: 0
   toolManager: {fileID: 0}
   tool: {fileID: 0}
   playerTool: 0
+--- !u!114 &946854901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946854888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14b2bd920dd132498fe8fc6647c023d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightRenderer: {fileID: 946854890}
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  source: {fileID: 0}
+  clips: []
+  prompts:
+  - Recoge la foto
+  - 
+  photoPiece: {fileID: 946854898}
+  renderersToHide: []
+  collidersToDisable: []
 --- !u!1 &952167907 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4308863861286983702, guid: 811e4f05ef5d05b4bbd61058e32c225f, type: 3}
@@ -15337,6 +15413,7 @@ GameObject:
   - component: {fileID: 971248465}
   - component: {fileID: 971248463}
   - component: {fileID: 971248464}
+  - component: {fileID: 971248466}
   m_Layer: 0
   m_Name: polySurface13.007
   m_TagString: Interactable
@@ -15573,7 +15650,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 971248454}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3beb653d7d9dbd4cb6b4d113f24d547, type: 3}
   m_Name: 
@@ -15598,7 +15675,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 971248454}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2aa3aa3b42140dd4c86202c99d8ee526, type: 3}
   m_Name: 
@@ -15606,12 +15683,34 @@ MonoBehaviour:
   ID: 17
   type: Tool
   description: Foto 7
-  icon: {fileID: -7927273033115742964, guid: 215687feeab0b7445b4a1cd86c82c2e1, type: 3}
+  icon: {fileID: 21300000, guid: 251f80f0e25ce8b4caaf9a62ee9bb231, type: 3}
   pickedUp: 0
   equipped: 0
   toolManager: {fileID: 0}
   tool: {fileID: 0}
   playerTool: 0
+--- !u!114 &971248466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971248454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14b2bd920dd132498fe8fc6647c023d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightRenderer: {fileID: 971248456}
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  source: {fileID: 0}
+  clips: []
+  prompts:
+  - Recoge la foto
+  - 
+  photoPiece: {fileID: 971248463}
+  renderersToHide: []
+  collidersToDisable: []
 --- !u!1001 &971397014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25308,6 +25407,7 @@ GameObject:
   - component: {fileID: 1617935084}
   - component: {fileID: 1617935082}
   - component: {fileID: 1617935083}
+  - component: {fileID: 1617935085}
   m_Layer: 0
   m_Name: polySurface13.003
   m_TagString: Interactable
@@ -25544,7 +25644,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1617935073}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3beb653d7d9dbd4cb6b4d113f24d547, type: 3}
   m_Name: 
@@ -25569,7 +25669,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1617935073}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2aa3aa3b42140dd4c86202c99d8ee526, type: 3}
   m_Name: 
@@ -25577,12 +25677,34 @@ MonoBehaviour:
   ID: 4
   type: Tool
   description: Foto 3
-  icon: {fileID: 21300000, guid: 39191ba044cdfaf46ab26de181d0ccfe, type: 3}
+  icon: {fileID: 21300000, guid: 251f80f0e25ce8b4caaf9a62ee9bb231, type: 3}
   pickedUp: 0
   equipped: 0
   toolManager: {fileID: 0}
   tool: {fileID: 0}
   playerTool: 0
+--- !u!114 &1617935085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617935073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14b2bd920dd132498fe8fc6647c023d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightRenderer: {fileID: 1617935075}
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  source: {fileID: 0}
+  clips: []
+  prompts:
+  - Recoge la foto
+  - 
+  photoPiece: {fileID: 1617935082}
+  renderersToHide: []
+  collidersToDisable: []
 --- !u!1 &1619365022
 GameObject:
   m_ObjectHideFlags: 0
@@ -25609,7 +25731,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619365022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -25617,7 +25739,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11.8, y: 33.2}
+  m_AnchoredPosition: {x: 11.8, y: -0.5}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1619365024
@@ -25640,7 +25762,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Necesito todas las piezas de foto antes de usar el tablero
+  m_text: Faltan piezas
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 30560a266cb918148a4e5a9e8d27582c, type: 2}
   m_sharedMaterial: {fileID: 3168781738112040259, guid: 30560a266cb918148a4e5a9e8d27582c, type: 2}
@@ -29703,6 +29825,7 @@ GameObject:
   - component: {fileID: 1873574430}
   - component: {fileID: 1873574428}
   - component: {fileID: 1873574429}
+  - component: {fileID: 1873574431}
   m_Layer: 0
   m_Name: polySurface13.005
   m_TagString: Interactable
@@ -29939,7 +30062,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1873574419}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3beb653d7d9dbd4cb6b4d113f24d547, type: 3}
   m_Name: 
@@ -29964,7 +30087,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1873574419}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2aa3aa3b42140dd4c86202c99d8ee526, type: 3}
   m_Name: 
@@ -29978,6 +30101,28 @@ MonoBehaviour:
   toolManager: {fileID: 0}
   tool: {fileID: 0}
   playerTool: 0
+--- !u!114 &1873574431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873574419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14b2bd920dd132498fe8fc6647c023d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightRenderer: {fileID: 1873574421}
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  source: {fileID: 0}
+  clips: []
+  prompts:
+  - Recoge la foto
+  - 
+  photoPiece: {fileID: 1873574428}
+  renderersToHide: []
+  collidersToDisable: []
 --- !u!1 &1880711989
 GameObject:
   m_ObjectHideFlags: 0
@@ -32283,18 +32428,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029323792}
-  m_LocalRotation: {x: 0, y: 0.78407276, z: -0.6206689, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 5}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalRotation: {x: -0, y: 0.78407276, z: -0.620669, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.061925303}
+  m_LocalScale: {x: 0.0005555554, y: 0.0005555555, z: 0.00055555545}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1619365023}
-  m_Father: {fileID: 916549193}
+  m_Father: {fileID: 683351851}
   m_LocalEulerAnglesHint: {x: 76.73, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.02, y: 0.73}
-  m_SizeDelta: {x: 300, y: 100}
+  m_AnchoredPosition: {x: -0.0029135738, y: 0.008111119}
+  m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2029323794
 MonoBehaviour:
@@ -32376,6 +32521,7 @@ GameObject:
   - component: {fileID: 2030631088}
   - component: {fileID: 2030631086}
   - component: {fileID: 2030631087}
+  - component: {fileID: 2030631089}
   m_Layer: 0
   m_Name: polySurface13.004
   m_TagString: Interactable
@@ -32612,7 +32758,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2030631077}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3beb653d7d9dbd4cb6b4d113f24d547, type: 3}
   m_Name: 
@@ -32637,7 +32783,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2030631077}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2aa3aa3b42140dd4c86202c99d8ee526, type: 3}
   m_Name: 
@@ -32645,12 +32791,34 @@ MonoBehaviour:
   ID: 14
   type: Tool
   description: Foto 4
-  icon: {fileID: 21300000, guid: da9aa363208bf9c4f92c482ed293aa08, type: 3}
+  icon: {fileID: 21300000, guid: 251f80f0e25ce8b4caaf9a62ee9bb231, type: 3}
   pickedUp: 0
   equipped: 0
   toolManager: {fileID: 0}
   tool: {fileID: 0}
   playerTool: 0
+--- !u!114 &2030631089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030631077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14b2bd920dd132498fe8fc6647c023d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightRenderer: {fileID: 2030631079}
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  source: {fileID: 0}
+  clips: []
+  prompts:
+  - Recoge la foto
+  - 
+  photoPiece: {fileID: 2030631086}
+  renderersToHide: []
+  collidersToDisable: []
 --- !u!1001 &2032568551
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33725,6 +33893,7 @@ GameObject:
   - component: {fileID: 2086489609}
   - component: {fileID: 2086489607}
   - component: {fileID: 2086489608}
+  - component: {fileID: 2086489610}
   m_Layer: 0
   m_Name: polySurface13.008
   m_TagString: Interactable
@@ -33961,7 +34130,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2086489598}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3beb653d7d9dbd4cb6b4d113f24d547, type: 3}
   m_Name: 
@@ -33986,7 +34155,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2086489598}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2aa3aa3b42140dd4c86202c99d8ee526, type: 3}
   m_Name: 
@@ -33994,12 +34163,34 @@ MonoBehaviour:
   ID: 18
   type: Tool
   description: Foto 8
-  icon: {fileID: 1190552004, guid: 443517dfe0661da408d7bec08772d8fa, type: 3}
+  icon: {fileID: 21300000, guid: 251f80f0e25ce8b4caaf9a62ee9bb231, type: 3}
   pickedUp: 0
   equipped: 0
   toolManager: {fileID: 0}
   tool: {fileID: 0}
   playerTool: 0
+--- !u!114 &2086489610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086489598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14b2bd920dd132498fe8fc6647c023d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightRenderer: {fileID: 2086489600}
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  source: {fileID: 0}
+  clips: []
+  prompts:
+  - Recoge la foto
+  - 
+  photoPiece: {fileID: 2086489607}
+  renderersToHide: []
+  collidersToDisable: []
 --- !u!1001 &2086634740
 PrefabInstance:
   m_ObjectHideFlags: 0
