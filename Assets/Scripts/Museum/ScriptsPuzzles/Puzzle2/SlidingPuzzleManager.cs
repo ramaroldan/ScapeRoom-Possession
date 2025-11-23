@@ -1,42 +1,80 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 using UnityEngine.Events;
 
 public class SlidingPuzzleManager : MonoBehaviour
 {
-    [Header("TamaÒo del puzzle")]
+    [Header("Tama√±o del puzzle")]
     public int rows = 3;
     public int cols = 3;
 
-    [Header("Slots (posiciones en pantalla)")]
-    [Tooltip("9 slots (RectTransform) donde pueden estar las fichas. Ordenados 0..8")]
-    public RectTransform[] slots;   // tamaÒo = 9
+    [Header("Slots (posiciones UI)")]
+    [Tooltip("9 slots RectTransform ordenados en el orden 0..8")]
+    public RectTransform[] slots;   // tama√±o = 9
 
-    [Header("Fichas (tiles)")]
-    [Tooltip("Fichas del puzzle. En los Ìndices donde no haya ficha, se deja null (hueco).")]
-    public SlidingTile[] tiles;     // tamaÒo = 9, con 1 elemento null para el hueco
+    [Header("Fichas")]
+    [Tooltip("Las 8 fichas, en orden del 0 al 7 (su posici√≥n correcta final)")]
+    public SlidingTile[] allTiles;  // tama√±o = 8
 
-    [Header("ResoluciÛn del puzzle")]
-    [Tooltip("Õndice del slot que empieza vacÌo (0-8)")]
-    public int emptySlotIndex = 8;  // por ejemplo, el ˙ltimo
+    // mapa l√≥gico actual del puzzle (slots = 9 posiciones; 1 estar√° vac√≠o)
+    [HideInInspector] public SlidingTile[] tiles;
 
-    public UnityEvent onPuzzleSolved;   // jumpscare, activar objetos, etc.
+    [HideInInspector] public int emptySlotIndex = 8;
+
+    [Header("Eventos al resolver")]
+    public UnityEvent onPuzzleSolved;
 
     private bool solved = false;
 
+    [Header("Debug")]
+    [Tooltip("Permite usar la tecla secreta para resolver el puzzle")]
+    public bool enableDebugHotkey = true;
+
+    [Tooltip("La tecla secreta para resolver instant√°neamente")]
+    public KeyCode debugSolveKey = KeyCode.F10;
+
     private void Start()
     {
-        // Inicializar referencias cruzadas y posiciones
-        for (int i = 0; i < tiles.Length; i++)
+        // preparar estructura l√≥gica
+        tiles = new SlidingTile[rows * cols];
+
+        // generar layout aleatorio resolvible
+        int[] layout = GenerateSolvableLayout();
+
+        // asignar fichas a slots seg√∫n el layout
+        for (int slotIndex = 0; slotIndex < layout.Length; slotIndex++)
         {
-            SlidingTile tile = tiles[i];
-            if (tile != null)
+            int tileIndex = layout[slotIndex];
+
+            if (tileIndex == -1)
             {
-                tile.Init(this, i);
-                tile.MoveToSlot(slots[i]); // colocarla visualmente en su slot inicial
+                tiles[slotIndex] = null;
+                emptySlotIndex = slotIndex;
+            }
+            else
+            {
+                SlidingTile tile = allTiles[tileIndex];
+                tiles[slotIndex] = tile;
+
+                tile.Init(this, slotIndex);
+                tile.MoveToSlot(slots[slotIndex]);
             }
         }
     }
 
+    private void Update()
+    {
+        if (enableDebugHotkey && !solved)
+        {
+            if (Input.GetKeyDown(debugSolveKey))
+            {
+                SolveInstantly();
+            }
+        }
+    }
+
+    // -----------------------------------------------
+    // üîπ Intentar mover una ficha al hueco
+    // -----------------------------------------------
     public void TryMoveTile(SlidingTile tile)
     {
         if (solved) return;
@@ -46,13 +84,14 @@ public class SlidingPuzzleManager : MonoBehaviour
         if (!IsAdjacent(tileIndex, emptySlotIndex))
             return;
 
-        // Mover visualmente la ficha al slot vacÌo
+        // mover visualmente
         tile.MoveToSlot(slots[emptySlotIndex]);
 
-        // Actualizar mapa lÛgico
+        // actualizar estado l√≥gico
         tiles[emptySlotIndex] = tile;
         tiles[tileIndex] = null;
 
+        // intercambiar √≠ndices
         int previousEmpty = emptySlotIndex;
         emptySlotIndex = tileIndex;
         tile.currentSlotIndex = previousEmpty;
@@ -60,6 +99,9 @@ public class SlidingPuzzleManager : MonoBehaviour
         CheckSolved();
     }
 
+    // -----------------------------------------------
+    // üîπ Revisar si dos slots son adyacentes (arriba/abajo/izq/der)
+    // -----------------------------------------------
     private bool IsAdjacent(int indexA, int indexB)
     {
         int rowA = indexA / cols;
@@ -71,26 +113,131 @@ public class SlidingPuzzleManager : MonoBehaviour
         int rowDiff = Mathf.Abs(rowA - rowB);
         int colDiff = Mathf.Abs(colA - colB);
 
-        // Adyacente si est· justo arriba/abajo o izquierda/derecha
         return (rowDiff + colDiff) == 1;
     }
 
+    // -----------------------------------------------
+    // üîπ Revisar si el puzzle est√° resuelto
+    // -----------------------------------------------
     private void CheckSolved()
     {
-        for (int i = 0; i < tiles.Length; i++)
+        for (int slotIndex = 0; slotIndex < tiles.Length; slotIndex++)
         {
-            SlidingTile tile = tiles[i];
-            if (tile == null)
-                continue;
+            SlidingTile tile = tiles[slotIndex];
+            if (tile == null) continue;
 
             if (tile.currentSlotIndex != tile.correctSlotIndex)
-                return; // a˙n no est· resuelto
+                return;
         }
 
-        // Si llegamos ac·, todas las fichas est·n en su posiciÛn correcta
         solved = true;
-        Debug.Log("Puzzle2: °rompecabezas resuelto!");
+        Debug.Log("Puzzle2: ¬°RESUELTO!");
+        onPuzzleSolved?.Invoke();
+    }
 
+    // -----------------------------------------------
+    // üü™ Generar un layout aleatorio pero resolvible
+    // -----------------------------------------------
+    private int[] GenerateSolvableLayout()
+    {
+        int[] arr = new int[rows * cols];
+
+        // cargar fichas 0..7 y hueco -1
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (i < allTiles.Length)
+                arr[i] = i;
+            else
+                arr[i] = -1; // hueco
+        }
+
+        // mezclar hasta que sea solvible y no est√© resuelto
+        do
+        {
+            Shuffle(arr);
+        }
+        while (!IsSolvable(arr) || IsTriviallySolved(arr));
+
+        return arr;
+    }
+
+    // Fisher‚ÄìYates shuffle
+    private void Shuffle(int[] array)
+    {
+        for (int i = array.Length - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            int temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+    }
+
+    // solvible si el n√∫mero de inversiones es PAR (para puzzle 3x3)
+    private bool IsSolvable(int[] array)
+    {
+        int[] flat = new int[array.Length];
+        int idx = 0;
+
+        // copiar solo fichas, ignorar hueco
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] != -1)
+            {
+                flat[idx++] = array[i];
+            }
+        }
+
+        int inversions = 0;
+        for (int i = 0; i < idx; i++)
+        {
+            for (int j = i + 1; j < idx; j++)
+            {
+                if (flat[i] > flat[j])
+                    inversions++;
+            }
+        }
+
+        return (inversions % 2) == 0;
+    }
+
+    // evitar puzzle ya resuelto
+    private bool IsTriviallySolved(int[] array)
+    {
+        for (int i = 0; i < array.Length; i++)
+        {
+            int expected = (i < allTiles.Length) ? i : -1;
+            if (array[i] != expected)
+                return false;
+        }
+        return true;
+    }
+
+    // -----------------------------------------------
+    // üü© Resolver el puzzle autom√°ticamente (tecla secreta o bot√≥n)
+    // -----------------------------------------------
+    public void SolveInstantly()
+    {
+        if (solved) return;
+
+        Debug.Log("Puzzle2: RESUELTO con hotkey (DEBUG)");
+
+        for (int i = 0; i < allTiles.Length; i++)
+        {
+            SlidingTile tile = allTiles[i];
+            int correctIndex = tile.correctSlotIndex;
+
+            tile.MoveToSlot(slots[correctIndex]);
+            tiles[correctIndex] = tile;
+            tile.currentSlotIndex = correctIndex;
+        }
+
+        // localizar hueco
+        for (int i = 0; i < tiles.Length; i++)
+            if (tiles[i] == null)
+                emptySlotIndex = i;
+
+        solved = true;
         onPuzzleSolved?.Invoke();
     }
 }
