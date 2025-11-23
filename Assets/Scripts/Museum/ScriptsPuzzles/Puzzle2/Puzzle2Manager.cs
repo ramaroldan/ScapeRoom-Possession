@@ -1,8 +1,9 @@
-using UnityEngine;
+﻿using UnityEngine;
+using TMPro; // 👈 importante si usas TextMeshPro
 
 public class Puzzle2Manager : MonoBehaviour
 {
-    [Header("Configuraci�n")]
+    [Header("Configuración")]
     public int totalPieces = 8;
 
     [Header("Referencias")]
@@ -15,38 +16,32 @@ public class Puzzle2Manager : MonoBehaviour
     [Tooltip("Root visual del tablero (solo por si quieres ocultarlo totalmente al inicio)")]
     public GameObject boardRoot;
 
-    [Tooltip("Texto u objeto que diga 'Faltan piezas' (opcional)")]
+    [Tooltip("Objeto que contiene el mensaje de 'faltan piezas' (puede ser un panel o un texto)")]
     public GameObject boardLockedHint;
+
+    [Tooltip("Texto donde se muestra cuántas piezas faltan")]
+    public TextMeshProUGUI boardHintText;
 
     private int collectedPieces = 0;
 
     private void Start()
     {
         LockBoard();
+        UpdateHintText(); // mostrar "Faltan X piezas" al inicio
     }
 
     private void LockBoard()
     {
         Debug.Log("Puzzle2: tablero bloqueado al inicio");
 
-        // 1) Deshabilitar el InspectPanel (para que no abra el panel)
         if (puzzleBoardInspect != null)
             puzzleBoardInspect.enabled = false;
 
-        // 2) Deshabilitar el collider para que el raycast no lo detecte
         if (boardCollider != null)
             boardCollider.enabled = false;
 
-        // 3) Mostrar mensaje de "bloqueado", si hay
         if (boardLockedHint != null)
             boardLockedHint.SetActive(true);
-
-        // 4) (Opcional) ocultar completamente el tablero al inicio
-        //    Si quieres que se vea, deja esto comentado
-        /*
-        if (boardRoot != null)
-            boardRoot.SetActive(false);
-        */
     }
 
     public void RegisterPieceCollected()
@@ -57,6 +52,10 @@ public class Puzzle2Manager : MonoBehaviour
         if (collectedPieces >= totalPieces)
         {
             UnlockBoard();
+        }
+        else
+        {
+            UpdateHintText();
         }
     }
 
@@ -72,11 +71,26 @@ public class Puzzle2Manager : MonoBehaviour
 
         if (boardLockedHint != null)
             boardLockedHint.SetActive(false);
+    }
 
-        // Si decidiste ocultar el tablero al inicio, aqu� lo muestras
-        /*
-        if (boardRoot != null)
-            boardRoot.SetActive(true);
-        */
+    private void UpdateHintText()
+    {
+        if (boardHintText == null)
+            return;
+
+        int remaining = Mathf.Clamp(totalPieces - collectedPieces, 0, totalPieces);
+
+        if (remaining <= 0)
+        {
+            boardHintText.text = "Ya tienes todas las piezas.";
+        }
+        else if (remaining == 1)
+        {
+            boardHintText.text = "Falta 1 pieza para utilizar el tablero.";
+        }
+        else
+        {
+            boardHintText.text = $"Faltan {remaining} piezas para utilizar el tablero.";
+        }
     }
 }
