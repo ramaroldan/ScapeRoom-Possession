@@ -8,6 +8,7 @@ TagManager:
   - ToolManager
   - Interactable
   - Flashlight
+  - UsedObject
   layers:
   - Default
   - TransparentFX
