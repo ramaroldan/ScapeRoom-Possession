@@ -99,7 +99,7 @@ public class HUDManager : MonoBehaviour
     {
         string sceneName = scene.name;
 
-        if (sceneName == "Main Menu")
+        if (sceneName == "Main Menu" || sceneName=="Lobby")
         {
             HideHUD();
         }
@@ -108,10 +108,7 @@ public class HUDManager : MonoBehaviour
             ShowHUD();
             StartTimer(); // Reinicia si querés que empiece de nuevo al entrar
         }
-        else
-        {
-            HideHUD();
-        }
+       
     }
 
     public void ShowHUD()

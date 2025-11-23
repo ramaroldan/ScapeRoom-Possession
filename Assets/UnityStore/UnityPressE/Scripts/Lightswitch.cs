@@ -35,6 +35,7 @@ public class Lightswitch : MonoBehaviour {
     [Tooltip("Light Renderer, the bulb, must have emissive color not black!")]
     public Renderer lightRend;
     
+
     void Start()
     {
         MainCam = GameObject.FindWithTag("MainCamera");

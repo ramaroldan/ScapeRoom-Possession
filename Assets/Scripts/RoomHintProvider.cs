@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using static Unity.Cinemachine.IInputAxisOwner.AxisDescriptor;
 
 public class RoomHintProvider : MonoBehaviour
 {
@@ -55,44 +56,35 @@ public class RoomHintProvider : MonoBehaviour
 
         var current = orderedHints[currentPuzzleIndex];
 
-        // Solo avanzar si el ID corresponde al puzzle actual
         if (current.id != id)
         {
             Debug.LogWarning($"⛔ El puzzle '{id}' no es el actual. Se espera: '{current.id}'");
             return;
         }
 
-        current.Advance();
-
-        if (current.IsComplete)
-        {
-            Debug.Log($"✅ Puzzle '{id}' completado. Avanzando al siguiente.");
-            currentPuzzleIndex++;
-        }
+        Debug.Log($"✅ Puzzle '{id}' completado. Avanzando al siguiente.");
+        currentPuzzleIndex++;
+       
     }
 
 
     public string GetCurrentHint()
     {
-        if (currentPuzzleIndex >= orderedHints.Count)
-            return "Ya resolviste todos los puzzles de este cuarto.";
-
         var current = orderedHints[currentPuzzleIndex];
 
+        // Si el puzzle ya fue completado, pasar automáticamente al siguiente
         if (current.IsComplete)
-            return "No hay más pistas para este puzzle.";
+        {
+            currentPuzzleIndex++;
+           
 
-        // ✅ Elegir una pista aleatoria restante
-        int start = current.progress;
-        int remaining = current.hints.Count - start;
+            current = orderedHints[currentPuzzleIndex];
+        }
 
-        int randomOffset = Random.Range(0, remaining);
-        string hint = current.hints[start + randomOffset];
-
-        // ✅ Avanzamos el índice general para que la siguiente sea distinta
-        current.Advance();
-
-        return hint;
+        int randomIndex = Random.Range(0, current.hints.Count);
+        return current.hints[randomIndex];
     }
+
+
 
 }
