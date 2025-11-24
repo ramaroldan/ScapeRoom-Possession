@@ -448,7 +448,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
@@ -1482,7 +1482,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.010067338, y: 0.021960663, z: 0.003991269}
   m_Center: {x: 0.0021594316, y: 0.0003693447, z: 0.008039863}
@@ -6768,7 +6768,8 @@ MonoBehaviour:
   highlightRenderer: {fileID: 1659148261}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   source: {fileID: 1659148267}
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: ab262cdae3cea8242b89e60b174ea7a7, type: 3}
   prompts:
   - Toma el suero
   - Saraza
@@ -12514,7 +12515,7 @@ MonoBehaviour:
   equipped: 0
   toolManager: {fileID: 0}
   tool: {fileID: 0}
-  playerTool: 1
+  playerTool: 0
 --- !u!82 &5713743614590979974
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12635,9 +12636,9 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &5713743614590979976
 BoxCollider:
@@ -12658,8 +12659,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.3714805, y: 0.09876726, z: 0.4856249}
-  m_Center: {x: -0.093835354, y: 1.18573, z: -0.0058637112}
+  m_Size: {x: 0.5763066, y: 0.19337936, z: 0.4856249}
+  m_Center: {x: -0.19624595, y: 1.2330605, z: -0.0058638197}
 --- !u!4 &5742672708090989751
 Transform:
   m_ObjectHideFlags: 0
