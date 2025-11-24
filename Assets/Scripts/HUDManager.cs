@@ -103,7 +103,7 @@ public class HUDManager : MonoBehaviour
         {
             HideHUD();
         }
-        else if (sceneName == "Morgue")
+        else if (sceneName == "HospitalRoom")
         {
             ShowHUD();
             StartTimer(); // Reinicia si querés que empiece de nuevo al entrar
