@@ -2512,6 +2512,7 @@ GameObject:
   - component: {fileID: 672463689}
   - component: {fileID: 672463691}
   - component: {fileID: 672463690}
+  - component: {fileID: 672463692}
   m_Layer: 0
   m_Name: DoorFrame (1)
   m_TagString: Untagged
@@ -2588,6 +2589,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 672463688}
   m_Mesh: {fileID: 6274059880062070182, guid: 57c70b8d0ada1b648a566e0fa9a04980, type: 3}
+--- !u!65 &672463692
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672463688}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0015000013, y: 0.011999999, z: 0.020999994}
+  m_Center: {x: 0.00075000775, y: 0.005999996, z: 0.010499997}
 --- !u!4 &678162608 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d76e68a1fca565748af158b157e452bd, type: 3}
@@ -3352,6 +3374,7 @@ GameObject:
   - component: {fileID: 925467042}
   - component: {fileID: 925467044}
   - component: {fileID: 925467043}
+  - component: {fileID: 925467045}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -3609,6 +3632,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &925467045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925467036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ec86708d0175642b4bc5088a342679, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 925467036}
 --- !u!114 &937523294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4615,7 +4651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1222406287800139974, guid: 6dfcd3ba4db967141a863b37a5063379, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.98
+      value: 16.51
       objectReference: {fileID: 0}
     - target: {fileID: 1222406287829146665, guid: 6dfcd3ba4db967141a863b37a5063379, type: 3}
       propertyPath: m_IsActive
@@ -7140,7 +7176,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ab262cdae3cea8242b89e60b174ea7a7, type: 3}
   prompts:
   - Toma el suero
-  - Saraza
+  - Toma el suero
   itemData: {fileID: 1659148264}
   disableWorldObject: 1
   autoUseOnPickup: 0
@@ -8165,7 +8201,7 @@ Transform:
   m_GameObject: {fileID: 1826702496}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.92387956, z: 0, w: 0.38268343}
-  m_LocalPosition: {x: 4.989, y: 1.053, z: -9.311}
+  m_LocalPosition: {x: 4.658, y: 1.053, z: -8.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10203,7 +10239,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 89d62380470be9e47ba7cf3f97105142, type: 3}
   prompts:
   - Apagar
-  - 
+  - Apagar
   _videoPlayer: {fileID: 1708546047165111028}
   onItemUsed:
     m_PersistentCalls:
@@ -12497,7 +12533,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ab262cdae3cea8242b89e60b174ea7a7, type: 3}
   prompts:
   - Toma el control
-  - Saraza
+  - Toma el control
   itemData: {fileID: 4926471651199513934}
   disableWorldObject: 1
   autoUseOnPickup: 0
@@ -13033,7 +13069,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ab262cdae3cea8242b89e60b174ea7a7, type: 3}
   prompts:
   - Tomar Llave
-  - Saraza
+  - Tomar Llave
   itemData: {fileID: 5713743614590979973}
   disableWorldObject: 1
   autoUseOnPickup: 0
@@ -13043,6 +13079,18 @@ MonoBehaviour:
       - m_Target: {fileID: 925467042}
         m_TargetAssemblyTypeName: TagChange, Assembly-CSharp
         m_MethodName: SetInteractable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 925467045}
+        m_TargetAssemblyTypeName: DoorPrimeraSala, Assembly-CSharp
+        m_MethodName: ArrancarSalas
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15475,7 +15523,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ab262cdae3cea8242b89e60b174ea7a7, type: 3}
   prompts:
   - Colocar Suero
-  - Saraza
+  - Colocar Suero
   _object1: {fileID: 8171080647810007243}
   _object2: {fileID: 919132148884849930}
   _object3: {fileID: 5713743614590979971}
