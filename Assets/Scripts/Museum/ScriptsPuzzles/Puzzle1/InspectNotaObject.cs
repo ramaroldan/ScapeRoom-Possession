@@ -115,6 +115,7 @@ public class InspectNotaObject : InteractableBase
     // -------------------------------------------------------------------
     public void CloseNota()
     {
+        Debug.Log("Intentando apagar panel");
         if (state) // si internamente está en estado "abierto"
         {
             state = false;
