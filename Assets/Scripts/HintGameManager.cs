@@ -2,7 +2,13 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-public enum Difficulty { Easy, Normal, Hard, Nightmare }
+public enum Difficulty
+{
+    Easy = 0,
+    Normal = 1,
+    Hard = 2,
+    Nightmare = 3
+}
 
 public class HintGameManager : MonoBehaviour
 {
@@ -29,8 +35,13 @@ public class HintGameManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        //setear cuando selecione la dificultad
-        SetDifficulty();
+       
+        // Obtiene lo guardado (default = 0 si no existe aún)
+        int savedDiff = PlayerPrefs.GetInt("Difficulty", 0);
+        Difficulty diff = (Difficulty)savedDiff;
+
+        // Lo aplica a tu sistema
+        SetDifficulty(diff);
     }
 
     public void SetDifficulty(Difficulty diff= Difficulty.Easy)

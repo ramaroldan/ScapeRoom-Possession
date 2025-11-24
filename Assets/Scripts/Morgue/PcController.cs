@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using TMPro; // si usás TMP. Si no, usá UnityEngine.UI con InputField
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class PcController : MonoBehaviour
@@ -27,6 +28,9 @@ public class PcController : MonoBehaviour
 
     [Header("Password Settings")]
     public string correctPassword = "1234";
+
+    [Header("Desbloquea")]
+    [SerializeField] private UnityEvent unlock = null;
 
     private void Start()
     {
@@ -56,7 +60,7 @@ public class PcController : MonoBehaviour
         if (passwordInput.text == correctPassword)
         {
             hintProvider.AdvancePuzzleHint(nameof(PcController));
-
+            unlock.Invoke();
             Debug.Log("✔ Password correcta");
             panelLogin.SetActive(false);
             panelDesk.SetActive(true);
