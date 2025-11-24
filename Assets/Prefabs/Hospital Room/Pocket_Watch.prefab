@@ -75,6 +75,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c12d1286e069f8c42abba74249b92bfc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9032992251092170622}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c12d1286e069f8c42abba74249b92bfc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2927842430088029771}
   m_SourcePrefab: {fileID: 100100000, guid: c12d1286e069f8c42abba74249b92bfc, type: 3}
 --- !u!23 &5621792626405009215 stripped
 MeshRenderer:
@@ -164,10 +167,10 @@ AudioSource:
   m_GameObject: {fileID: 6126130156859311850}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: a165cccc787b5c94881c6ad7ee67dfdd, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -212,7 +215,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -268,13 +271,49 @@ MonoBehaviour:
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   source: {fileID: 1389206386374881736}
   clips:
-  - {fileID: 8300000, guid: ab262cdae3cea8242b89e60b174ea7a7, type: 3}
+  - {fileID: 8300000, guid: 9981534a85bc39f48802d63c1a1813ad, type: 3}
   prompts:
   - Tomar Reloj Bolsillo
   - 
-  itemData: {fileID: 0}
+  itemData: {fileID: 8022850625928989666}
   disableWorldObject: 1
   autoUseOnPickup: 0
   onItemPicked:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2927842430088029771}
+        m_TargetAssemblyTypeName: PocketWatchHint, Assembly-CSharp
+        m_MethodName: AdvanceHint
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: TagChange, Assembly-CSharp
+        m_MethodName: SetInteractable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2927842430088029771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126130156859311850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0abfcc6dad8fe42a21a415c1118c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
