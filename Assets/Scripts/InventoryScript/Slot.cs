@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -24,20 +24,27 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         if (slotIconGameObject != null)
         {
             Image image = slotIconGameObject.GetComponent<Image>();
-            if (image != null && icon != null)
+            if (image != null)
             {
                 image.sprite = icon;
+                image.enabled = icon != null;
             }
         }
     }
 
     public void UseItem()
     {
-        item.GetComponent<Item>().ItemUsage();
+        if (item != null)
+            item.GetComponent<Item>().ItemUsage();
     }
 
+    // 🔹 Click en el slot: avisar al Inventory qué slot fue clickeado
     public void OnPointerClick(PointerEventData eventData)
     {
-        UseItem();
+        if (Inventory.Instance != null)
+        {
+            Inventory.Instance.SetSelectedSlot(this);
+            Debug.Log("Slot clickeado: " + name);
+        }
     }
 }

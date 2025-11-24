@@ -1,6 +1,6 @@
-
+﻿
 using Unity.VisualScripting;
-using UnityEngine;
+using UnityEngine;  
 
 public class Inventory : MonoBehaviour
 {
@@ -17,15 +17,18 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] private MouseLook mouseLookPlayer;
     [SerializeField] private MouseLook mouseLookCamera;
-    
 
     [SerializeField] private PlayerMovement playerScript;
     [SerializeField] private Interact interactScript;
 
+    // 🔹 NUEVO: selección de slots + dropPoint
+    [Header("Selección y uso de items")]
+    public Slot selectedSlot;          // Último slot clickeado
+    public Transform dropPoint;        // Punto donde se coloca el objeto al usarlo
 
     private void Awake()
     {
-        // Singleton para evitar duplicados
+        // Singleton
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -38,7 +41,6 @@ public class Inventory : MonoBehaviour
 
     void Start()
     {
-        
         allSlots = slotHolder.transform.childCount;
         slot = new GameObject[allSlots];
 
@@ -47,33 +49,24 @@ public class Inventory : MonoBehaviour
             slot[i] = slotHolder.transform.GetChild(i).gameObject;
 
             if (slot[i].GetComponent<Slot>().item == null)
-            {
                 slot[i].GetComponent<Slot>().empty = true;
-            }
         }
-        inventoryEnabled = true;
 
-        // Mostrar/ocultar el inventario
+        // Inicializar inventario apagado
         inventory.SetActive(true);
-        inventoryEnabled =false;
-
-        // Mostrar/ocultar el inventario
+        inventoryEnabled = false;
         inventory.SetActive(false);
-
     }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.I))
-        {
             OpenInventory();
-        }
     }
 
     public void OpenInventory()
     {
         inventoryEnabled = !inventoryEnabled;
-
-        // Mostrar/ocultar el inventario
         inventory.SetActive(inventoryEnabled);
 
         // bloquear control del player
@@ -83,37 +76,36 @@ public class Inventory : MonoBehaviour
         if (playerScript != null)
             playerScript.SetWorking(!inventoryEnabled);
 
-        // bloquear el Interact para que no detecte raycasts mientras UI est� abierta
         if (interactScript != null)
             interactScript.enabled = !inventoryEnabled;
 
         SetPlayerControl(inventoryEnabled);
-
-
     }
+
     public void SetPlayerControl(bool isUIActive)
     {
         if (mouseLookPlayer != null)
-        {
             mouseLookPlayer.overrideCursorLock = isUIActive;
-            // Debug.Log("Override cursor lock seteado a: " + mouseLookPlayer.overrideCursorLock);
-        }
+
         if (mouseLookCamera != null)
-        {
             mouseLookCamera.overrideCursorLock = isUIActive;
-            // Debug.Log("Override cursor lock seteado a: " + mouseLookCamera.overrideCursorLock);
-        }
 
         Cursor.visible = isUIActive;
         Cursor.lockState = isUIActive ? CursorLockMode.None : CursorLockMode.Locked;
     }
 
+    // 🔹 llamado desde Slot.OnPointerClick
+    public void SetSelectedSlot(Slot slotToSelect)
+    {
+        selectedSlot = slotToSelect;
+        Debug.Log("Slot seleccionado: " + selectedSlot.name);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Item")
+        if (other.CompareTag("Item"))
         {
             GameObject itemPickedUp = other.gameObject;
-           
             Item item = itemPickedUp.GetComponent<Item>();
 
             AddItem(itemPickedUp, item.ID, item.type, item.description, item.icon);
@@ -124,27 +116,88 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < allSlots; i++)
         {
-            if (slot[i].GetComponent<Slot>().empty)
+            var s = slot[i].GetComponent<Slot>();
+
+            if (s.empty)
             {
                 itemObject.GetComponent<Item>().pickedUp = true;
 
-                slot[i].GetComponent<Slot>().item = itemObject;
-                slot[i].GetComponent<Slot>().ID = itemID;
+                s.item = itemObject;
+                s.ID = itemID;
+                s.type = itemType;
+                s.description = itemDescription;
+                s.icon = itemIcon;
 
-                slot[i].GetComponent<Slot>().type = itemType;
-                slot[i].GetComponent<Slot>().description = itemDescription;
-                slot[i].GetComponent<Slot>().icon = itemIcon;
-                
-                itemObject.transform.parent = slot[i].transform;
+                itemObject.transform.SetParent(slot[i].transform);
                 itemObject.SetActive(false);
 
-                slot[i].GetComponent<Slot>().UpdateSlot();
-
-                slot[i].GetComponent<Slot>().empty = false;
+                s.UpdateSlot();
+                s.empty = false;
                 return;
             }
-            //return;
         }
     }
 
+    // 🔹 llamado por el botón "Usar Item"
+    public void UseSelectedItem()
+    {
+        if (selectedSlot == null || selectedSlot.empty)
+        {
+            Debug.Log("No hay item seleccionado.");
+            return;
+        }
+
+        GameObject itemObject = selectedSlot.item;
+        if (itemObject == null)
+        {
+            Debug.Log("Error: el slot seleccionado no tiene item.");
+            return;
+        }
+
+        Item itemData = itemObject.GetComponent<Item>();
+
+        // 🔹 Si es un tool (linterna, etc.) usar la lógica original
+        if (itemData != null && itemData.type == "Tool")
+        {
+            selectedSlot.UseItem();
+            return;
+        }
+
+        // 🔹 OBJETOS DE PUZZLE (reloj, rosario, calavera)
+        // limpiar slot de inventario
+        selectedSlot.item = null;
+        selectedSlot.empty = true;
+        selectedSlot.icon = null;
+        selectedSlot.UpdateSlot();
+
+        // desparentar del slot
+        itemObject.transform.SetParent(null);
+
+        // poner delante del jugador y hacerlo hijo del dropPoint
+        if (dropPoint != null)
+        {
+            itemObject.transform.SetParent(dropPoint);
+            itemObject.transform.localPosition = Vector3.zero;
+            itemObject.transform.localRotation = Quaternion.identity;
+        }
+
+        itemObject.SetActive(true);
+
+        // 🔹 Desactivar PickupItemObject (para que no vuelva al inventario)
+        var pickupScript = itemObject.GetComponent<PickupItemObject>();
+        if (pickupScript != null)
+            pickupScript.enabled = false;
+
+        // habilitar collider y física
+        Collider col = itemObject.GetComponent<Collider>();
+        if (col != null) col.enabled = true;
+
+        Rigidbody rb = itemObject.GetComponent<Rigidbody>();
+        if (rb != null) rb.isKinematic = false;
+
+        if (itemData != null)
+            itemData.pickedUp = false;
+
+        Debug.Log("Item equipado: " + (itemData != null ? itemData.description : itemObject.name));
+    }
 }

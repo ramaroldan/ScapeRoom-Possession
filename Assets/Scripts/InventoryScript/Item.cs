@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    public GameObject worldRepresentation;
     public int ID;
     public string type;
     public string description;

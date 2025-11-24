@@ -1,14 +1,20 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Events;
+
 
 public class RitualBoxManager : MonoBehaviour
 {
+    [Header("Eventos")]
+    public UnityEvent onPuzzleCompleted;   // se dispara cuando aparece la llave
+
+
     [Header("Slots para colocar cada objeto")]
     public Transform slotReloj;
     public Transform slotRosario;
     public Transform slotCalavera;
 
     [Header("Prefab / Objeto de la llave final")]
-    public GameObject finalKey;  // se activa cuando los 3 est�n colocados
+    public GameObject finalKey;  // se activa cuando los 3 están colocados
 
     [Header("IDs de los objetos correctos")]
     public string relojItemID = "reloj";
@@ -25,7 +31,6 @@ public class RitualBoxManager : MonoBehaviour
             finalKey.SetActive(false); // la llave aparece solo al final
     }
 
-    // Llamado por cada objeto cuando se coloca en un slot
     public void TryPlaceItem(string itemID, GameObject worldObject)
     {
         if (itemID == relojItemID && !relojColocado)
@@ -54,23 +59,27 @@ public class RitualBoxManager : MonoBehaviour
 
     private void PlaceObject(GameObject obj, Transform slot)
     {
-        // Opcional: si el objeto tiene Rigidbody, lo fijamos
+        // 🔹 Dejar de ser hijo del dropPoint (o de lo que sea)
+        obj.transform.SetParent(null);
+
+        // Congelar física para que quede fijo en la caja
         var rb = obj.GetComponent<Rigidbody>();
         if (rb != null) rb.isKinematic = true;
 
-        // Lo colocamos en el slot
+        // Colocarlo exactamente en el slot
         obj.transform.position = slot.position;
         obj.transform.rotation = slot.rotation;
-        obj.transform.SetParent(slot);
+        obj.transform.SetParent(slot);   // ahora es hijo del slot, ya no del dropPoint
 
-        // Evitar que se vuelva a recoger / mover
+        // Evitar volver a recogerlo
         Collider col = obj.GetComponent<Collider>();
         if (col != null) col.enabled = false;
 
         var pickup = obj.GetComponent<PickupItemObject>();
         if (pickup != null)
-            pickup.enabled = false; // que no vuelva a intentar entrar al inventario
+            pickup.enabled = false; // ya no entra al inventario de nuevo
     }
+
 
     private void CheckCompletion()
     {
@@ -80,6 +89,10 @@ public class RitualBoxManager : MonoBehaviour
 
             if (finalKey != null)
                 finalKey.SetActive(true);
+
+            // 🔥 disparar sustos / sonidos / efectos
+            onPuzzleCompleted?.Invoke();
         }
     }
+
 }
