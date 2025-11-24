@@ -65,19 +65,19 @@ PrefabInstance:
       addedObject: {fileID: 8035869597632802174}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c12d1286e069f8c42abba74249b92bfc, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8022850625928989666}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c12d1286e069f8c42abba74249b92bfc, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 7665576355360727419}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c12d1286e069f8c42abba74249b92bfc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1389206386374881736}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c12d1286e069f8c42abba74249b92bfc, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 9032992251092170622}
+      addedObject: {fileID: 2722939823345883993}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c12d1286e069f8c42abba74249b92bfc, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2927842430088029771}
+      addedObject: {fileID: 8416405216006936162}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c12d1286e069f8c42abba74249b92bfc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6516348453559349603}
   m_SourcePrefab: {fileID: 100100000, guid: c12d1286e069f8c42abba74249b92bfc, type: 3}
 --- !u!23 &5621792626405009215 stripped
 MeshRenderer:
@@ -110,27 +110,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0015769, y: 0.0006747162, z: 0.0012942911}
   m_Center: {x: 0.000000802936, y: -0.00009951413, z: 0.00042601777}
---- !u!114 &8022850625928989666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6126130156859311850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2aa3aa3b42140dd4c86202c99d8ee526, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 22
-  type: Tool
-  description: Puede ser importante en el futuro
-  icon: {fileID: 21300000, guid: 0ece77ee615ef0946819c1816168ea4d, type: 3}
-  pickedUp: 0
-  equipped: 0
-  toolManager: {fileID: 0}
-  tool: {fileID: 0}
-  playerTool: 0
 --- !u!54 &7665576355360727419
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -170,16 +149,16 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: a165cccc787b5c94881c6ad7ee67dfdd, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.1
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -255,7 +234,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &9032992251092170622
+--- !u!114 &2722939823345883993
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -269,43 +248,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlightRenderer: {fileID: 5621792626405009215}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  source: {fileID: 1389206386374881736}
-  clips:
-  - {fileID: 8300000, guid: 9981534a85bc39f48802d63c1a1813ad, type: 3}
+  source: {fileID: 0}
+  clips: []
   prompts:
-  - Tomar Reloj Bolsillo
+  - Toma el reloj
   - 
-  itemData: {fileID: 8022850625928989666}
+  itemData: {fileID: 8416405216006936162}
   disableWorldObject: 1
   autoUseOnPickup: 0
   onItemPicked:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2927842430088029771}
-        m_TargetAssemblyTypeName: PocketWatchHint, Assembly-CSharp
-        m_MethodName: AdvanceHint
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TagChange, Assembly-CSharp
-        m_MethodName: SetInteractable
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &2927842430088029771
+      m_Calls: []
+--- !u!114 &8416405216006936162
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -314,6 +268,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 6126130156859311850}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e0abfcc6dad8fe42a21a415c1118c3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 2aa3aa3b42140dd4c86202c99d8ee526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  worldRepresentation: {fileID: 6126130156859311850}
+  ID: 30
+  type: Clave
+  description: Reloj
+  icon: {fileID: 21300000, guid: af42c38790a3e5e4384cd96484e8ee4d, type: 3}
+  pickedUp: 0
+  equipped: 0
+  toolManager: {fileID: 0}
+  tool: {fileID: 0}
+  playerTool: 0
+--- !u!114 &6516348453559349603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126130156859311850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c9a0ef7827e4414c9eb8435be7206ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemID: reloj

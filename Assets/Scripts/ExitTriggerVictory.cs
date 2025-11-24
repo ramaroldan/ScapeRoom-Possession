@@ -1,3 +1,4 @@
+using PixeLadder.EasyTransition;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,7 +20,7 @@ public class ExitTriggerVictory : MonoBehaviour
                 // Guardar tiempo y pasar de escena
                 HUDManager.Instance.SaveVictoryTime();
                 HUDManager.Instance.ShowVictoryPanel();
-                SceneManager.LoadScene(victorySceneName);
+                SceneTransitioner.Instance.LoadScene(victorySceneName, null);
             }
             else
             {

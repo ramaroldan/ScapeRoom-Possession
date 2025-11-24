@@ -138,7 +138,7 @@ namespace PadlockSystem
             if (playerCombi == yourCombination && !hasUnlocked)
             {
                 StartCoroutine(CorrectCombination());
-                hasUnlocked = true;
+                //hasUnlocked = true;
             }
         }
 
