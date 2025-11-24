@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +11,7 @@ namespace AdvancedHorrorFPS
         public Dropdown DropDown_Difficulty;
         public Dropdown DropDown_Quality;
         public Toggle Toggle_SoundFX;
+        public Slider Slider_SoundFX;
 
         void Start()
         {
@@ -18,6 +19,7 @@ namespace AdvancedHorrorFPS
             AddDifficultyOptions();
             GetMouseSlider();
             GetMusicToggle();
+            GetSoundSlider();
         }
 
         public void AddQualityOptions()
@@ -65,6 +67,19 @@ namespace AdvancedHorrorFPS
         {
             Toggle_SoundFX.isOn = (PlayerPrefs.GetInt("Music", 1) == 1 ? true : false);
             Toggle_SoundFX.onValueChanged.AddListener(delegate { ChangeMusic(Toggle_SoundFX); });
+        }
+        public void GetSoundSlider() // 🔄 Nuevo
+        {
+            Slider_SoundFX.value = PlayerPrefs.GetFloat("SoundVolume", 1f);
+            Slider_SoundFX.onValueChanged.AddListener(delegate { ChangeSound(Slider_SoundFX); });
+            AudioListener.volume = Slider_SoundFX.value; // aplicar al inicio
+        }
+
+        public void ChangeSound(Slider slider) // 🔄 Nuevo
+        {
+            float volume = slider.value;
+            PlayerPrefs.SetFloat("SoundVolume", volume);
+            AudioListener.volume = volume;
         }
 
         public void ChangeMusic(Toggle toggle)

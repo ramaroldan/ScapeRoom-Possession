@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using TMPro; // si usás TMP. Si no, usá UnityEngine.UI con InputField
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class PcController : MonoBehaviour
@@ -28,6 +29,9 @@ public class PcController : MonoBehaviour
     [Header("Password Settings")]
     public string correctPassword = "1234";
 
+    [Header("Desbloquea")]
+    [SerializeField] private UnityEvent unlock = null;
+
     private void Start()
     {
         // Asegurar estados iniciales
@@ -42,12 +46,12 @@ public class PcController : MonoBehaviour
         hintProvider = FindObjectOfType<RoomHintProvider>();
 
         // Registramos las pistas para esta puerta
-        hintProvider.RegisterPuzzleHints(0, nameof(PcController), new List<string>
-        {
-                "Esos objetos que se repiten en la habitación... ¿no te suenan de los posters?",
-                "Contá cuántas veces aparece cada objeto del poster en la sala.",
-                "Poné los números en el mismo orden en el que están los posters."
-        });
+        //hintProvider.RegisterPuzzleHints(0, nameof(PcController), new List<string>
+        //{
+        //        "Esos objetos que se repiten en la habitación... ¿no te suenan de los posters?",
+        //        "Contá cuántas veces aparece cada objeto del poster en la sala.",
+        //        "Poné los números en el mismo orden en el que están los posters."
+        //});
     }
 
     // --------------------------------------------------------------------
@@ -56,7 +60,7 @@ public class PcController : MonoBehaviour
         if (passwordInput.text == correctPassword)
         {
             hintProvider.AdvancePuzzleHint(nameof(PcController));
-
+            unlock.Invoke();
             Debug.Log("✔ Password correcta");
             panelLogin.SetActive(false);
             panelDesk.SetActive(true);

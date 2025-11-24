@@ -1,6 +1,7 @@
 using DialogueEditor;
-using Michsky.UI.Dark;
+
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 
@@ -16,6 +17,10 @@ public class Npc: MonoBehaviour
 
     private bool isPaused = false;
     public string playerTag = "Player";
+
+    [Header("Unlock Events")]
+    [SerializeField] private UnityEvent unlock = null;
+    [SerializeField] private GameObject linterna = null;
 
     void Update()
     {
@@ -60,5 +65,19 @@ public class Npc: MonoBehaviour
 
         Cursor.visible = isUIActive;
         Cursor.lockState = isUIActive ? CursorLockMode.None : CursorLockMode.Locked;
+    }
+
+    public void UnlockLinterna()
+    {
+        if (linterna != null)
+        {
+            linterna.SetActive(true);
+            Debug.Log("Linterna desbloqueada");
+        }
+        else
+        {
+            Debug.LogWarning("Linterna no asignada en el inspector.");
+        }
+       
     }
 }
