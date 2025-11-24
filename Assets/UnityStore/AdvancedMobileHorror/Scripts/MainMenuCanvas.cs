@@ -36,6 +36,8 @@ namespace AdvancedHorrorFPS
 
         IEnumerator StartToLoadTheGame()
         {
+            ActivePlayer.EnsurePlayerIsActiveAndUnlockCamera(this);
+
             Panel_Loading.SetActive(true);
             yield return new WaitForSeconds(1);
             asyncLoad = SceneManager.LoadSceneAsync(SceneName_GamePlay);
