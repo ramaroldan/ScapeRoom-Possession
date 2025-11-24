@@ -7247,7 +7247,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -11264,6 +11264,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1206862836}
     m_Modifications:
     - target: {fileID: 1389206386374881736, guid: 7e7ab1d144cc0924db49e457e49e7192, type: 3}
+      propertyPath: Priority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1389206386374881736, guid: 7e7ab1d144cc0924db49e457e49e7192, type: 3}
       propertyPath: MinDistance
       value: 0.1
       objectReference: {fileID: 0}
@@ -11321,12 +11325,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9032992251092170622, guid: 7e7ab1d144cc0924db49e457e49e7192, type: 3}
       propertyPath: clips.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9032992251092170622, guid: 7e7ab1d144cc0924db49e457e49e7192, type: 3}
       propertyPath: prompts.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 9032992251092170622, guid: 7e7ab1d144cc0924db49e457e49e7192, type: 3}
+      propertyPath: 'clips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ab262cdae3cea8242b89e60b174ea7a7, type: 3}
     - target: {fileID: 9032992251092170622, guid: 7e7ab1d144cc0924db49e457e49e7192, type: 3}
       propertyPath: 'clips.Array.data[1]'
       value: 
@@ -12392,7 +12400,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 0.1
   MaxDistance: 8
@@ -12486,7 +12494,6 @@ MonoBehaviour:
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   source: {fileID: 4926471651199513931}
   clips:
-  - {fileID: 8300000, guid: ab262cdae3cea8242b89e60b174ea7a7, type: 3}
   - {fileID: 8300000, guid: ab262cdae3cea8242b89e60b174ea7a7, type: 3}
   prompts:
   - Toma el control
@@ -13085,7 +13092,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 0.3
   MaxDistance: 5
