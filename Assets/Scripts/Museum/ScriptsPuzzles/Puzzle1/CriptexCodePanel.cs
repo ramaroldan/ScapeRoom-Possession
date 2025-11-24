@@ -1,9 +1,12 @@
-﻿using UnityEngine;
-using UnityEngine.Events;
+﻿using System.Collections.Generic;
 using TMPro;
+using UnityEngine;
+using UnityEngine.Events;
 
 public class CriptexCodePanel : MonoBehaviour
 {
+    private RoomHintProvider hintProvider;
+
     [Header("Configuración del código")]
     [Tooltip("Código correcto que debe ingresar el jugador (3 cifras)")]
     public string correctCode = "533";
@@ -43,6 +46,19 @@ public class CriptexCodePanel : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        hintProvider = FindObjectOfType<RoomHintProvider>();
+
+        // Registramos las pistas para esta puerta
+        hintProvider.RegisterPuzzleHints(0, nameof(PcController), new List<string>
+        {
+                "Cuenta la cantidad de cuadros en la pared",
+                "Cuenta la cantidad de alfombras en el suelo.",
+                "Cuenta la cantidad de arañas de techo."
+        });
+    }
+
     /// <summary>
     /// Llamar desde el botón OK del canvas.
     /// </summary>
@@ -54,6 +70,7 @@ public class CriptexCodePanel : MonoBehaviour
 
         if (input == correctCode)
         {
+            hintProvider.AdvancePuzzleHint(nameof(PcController));
             solved = true;
             Debug.Log("Criptex: código correcto");
 
