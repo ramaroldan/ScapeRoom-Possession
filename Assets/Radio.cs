@@ -12,16 +12,19 @@ public class Radio : InteractableBase
 
         if (audio != null)
         {
-            if (state)
-            {
-                audio.Play();
+            if (!state) {
+                audio.Play(); // Play sound when turning off
                 yield return new WaitForSeconds(.3f);
             }
-            else
+            if (state)
             {
                 audio.Stop();
                 yield return new WaitForSeconds(.3f);
             }
+            
+
+
+           
                 
         }           
 

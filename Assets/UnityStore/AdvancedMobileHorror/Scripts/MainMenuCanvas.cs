@@ -47,8 +47,9 @@ namespace AdvancedHorrorFPS
                 progress += .01f;
                 yield return new WaitForSeconds(.01f);
             }
-            ButtonStart.SetActive(true);
-            text_Progress.transform.parent.gameObject.SetActive(false);
+            asyncLoad.allowSceneActivation = true;
+           // ButtonStart.SetActive(true);
+            //text_Progress.transform.parent.gameObject.SetActive(false);
         }
 
         public void Click_Start()
