@@ -1,8 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class SlidingPuzzleManager : MonoBehaviour
 {
+    private RoomHintProvider hintProvider;
+
     [Header("Tamaño del puzzle")]
     public int rows = 3;
     public int cols = 3;
@@ -59,6 +62,15 @@ public class SlidingPuzzleManager : MonoBehaviour
                 tile.MoveToSlot(slots[slotIndex]);
             }
         }
+
+        hintProvider = FindObjectOfType<RoomHintProvider>();
+
+        // Registramos las pistas para esta puerta
+        hintProvider.RegisterPuzzleHints(1, nameof(PcController), new List<string>
+        {
+                "Recoje las fotos para activar el rompecabezas",
+                "Las piezas estan en las vitrinas y biblioteca",
+        });
     }
 
     private void Update()
@@ -129,7 +141,7 @@ public class SlidingPuzzleManager : MonoBehaviour
             if (tile.currentSlotIndex != tile.correctSlotIndex)
                 return;
         }
-
+        hintProvider.AdvancePuzzleHint(nameof(PcController));
         solved = true;
         Debug.Log("Puzzle2: ¡RESUELTO!");
         onPuzzleSolved?.Invoke();

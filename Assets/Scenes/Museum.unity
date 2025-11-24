@@ -1707,6 +1707,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 78937430}
   m_Mesh: {fileID: -8075366043140974252, guid: a304134f930664e4c9486a27c31ca100, type: 3}
+--- !u!1 &80734918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 80734920}
+  - component: {fileID: 80734919}
+  m_Layer: 0
+  m_Name: RoomHintProvider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &80734919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80734918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c850aea9c516f5e4e8a6801a283bb11a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &80734920
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80734918}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 31.453754, y: 1.6894407, z: -16.782564}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &99330671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7927,7 +7971,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 40.54656, y: 11.918123, z: 11.918124}
+  m_Size: {x: 40.88, y: 11.918123, z: 11.918124}
   m_Center: {x: 0, y: -0.0000014305115, z: -0.0000019073486}
 --- !u!114 &454653795
 MonoBehaviour:
@@ -7970,7 +8014,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 20.27328
+  m_Radius: 27.6
   m_Center: {x: 0, y: -0.0000014305115, z: -0.0000019073486}
 --- !u!23 &454653797
 MeshRenderer:
@@ -11261,7 +11305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 07e619dbcb95ace4ab4494b30436ea7a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 07e619dbcb95ace4ab4494b30436ea7a, type: 3}
       propertyPath: m_TagString
@@ -13624,6 +13668,7 @@ GameObject:
   - component: {fileID: 760239405}
   - component: {fileID: 760239404}
   - component: {fileID: 760239403}
+  - component: {fileID: 760239406}
   m_Layer: 0
   m_Name: CanvasPuzzle3Carta
   m_TagString: Untagged
@@ -13714,6 +13759,28 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &760239406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760239401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46662cdefc296c14a9ddfd1cc285d51e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightRenderer: {fileID: 0}
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  source: {fileID: 0}
+  clips: []
+  prompts:
+  - Interact
+  - 
+  notaPanel: {fileID: 1615274211}
+  notaImage: {fileID: 1615274213}
+  notaSprite: {fileID: 0}
 --- !u!1 &762060378
 GameObject:
   m_ObjectHideFlags: 0
@@ -27691,15 +27758,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37644c53e6869ae48bcad3e899f3fc0e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.189
+      value: 3.945
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37644c53e6869ae48bcad3e899f3fc0e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.58
+      value: 0.376
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37644c53e6869ae48bcad3e899f3fc0e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.084
+      value: 2.161
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37644c53e6869ae48bcad3e899f3fc0e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -27813,8 +27880,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.0019018418, y: 0.008708007, z: 0.014148457}
-  m_Center: {x: -0.00017147727, y: -0.00074713875, z: 0.019157395}
+  m_Size: {x: 0.003072401, y: 0.011409195, z: 0.022807121}
+  m_Center: {x: -0.00075675535, y: 0.0006034546, z: 0.018931333}
 --- !u!1 &1550862383
 GameObject:
   m_ObjectHideFlags: 0
@@ -28936,8 +29003,8 @@ Transform:
   m_GameObject: {fileID: 1596811324}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00052, y: 0.00056, z: 0.00009}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.00079, y: 0.00056, z: 0.00009}
+  m_LocalScale: {x: 0.95, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1893364158}
@@ -29322,7 +29389,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1615274212
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30653,9 +30720,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NoteReader, Assembly-CSharp
-        m_MethodName: MarkNoteAsRead
+      - m_Target: {fileID: 1973593539}
+        m_TargetAssemblyTypeName: InspectNotaObject, Assembly-CSharp
+        m_MethodName: CloseNota
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -30665,9 +30732,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1973593539}
-        m_TargetAssemblyTypeName: InspectNotaObject, Assembly-CSharp
-        m_MethodName: CloseNota
+      - m_Target: {fileID: 760239406}
+        m_TargetAssemblyTypeName: CloseCanvas, Assembly-CSharp
+        m_MethodName: CloseCanvasBoton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -40347,3 +40414,4 @@ SceneRoots:
   - {fileID: 323671486}
   - {fileID: 1306825452}
   - {fileID: 989453932}
+  - {fileID: 80734920}

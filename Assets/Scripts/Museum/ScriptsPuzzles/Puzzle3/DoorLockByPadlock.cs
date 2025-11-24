@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class DoorLockByPadlock : MonoBehaviour
 {
+    private RoomHintProvider hintProvider;
+
     [Header("Interacción de la puerta")]
     [Tooltip("Script que maneja la interacción de la puerta (por ejemplo InspectPanel o InteractableBase específico).")]
     public MonoBehaviour doorInteractScript;
@@ -27,6 +30,16 @@ public class DoorLockByPadlock : MonoBehaviour
             LockDoor();
         else
             UnlockDoor();
+
+        hintProvider = FindObjectOfType<RoomHintProvider>();
+
+        // Registramos las pistas para esta puerta
+        hintProvider.RegisterPuzzleHints(2, nameof(PcController), new List<string>
+        {
+                "Esos objetos que se repiten en la habitación... ¿no te suenan de los posters?",
+                "Contá cuántas veces aparece cada objeto del poster en la sala.",
+                "Poné los números en el mismo orden en el que están los posters."
+        });
     }
 
     // 🔒 Bloquear interacción (por si querés relockear en algún momento)
@@ -50,6 +63,8 @@ public class DoorLockByPadlock : MonoBehaviour
     // 🔓 Llamar a esto DESDE el evento del candado cuando se resuelve
     public void UnlockDoor()
     {
+        hintProvider.AdvancePuzzleHint(nameof(PcController));
+
         if (unlocked) return;
         unlocked = true;
 
