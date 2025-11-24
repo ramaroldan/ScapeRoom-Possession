@@ -5297,6 +5297,10 @@ PrefabInstance:
       propertyPath: m_FontData.m_Font
       value: 
       objectReference: {fileID: 12800000, guid: a5f4b7e4866a713469f2dd8463f386dc, type: 3}
+    - target: {fileID: 6420996386439477180, guid: 2731d68808bce40af89e7463b18c5c42, type: 3}
+      propertyPath: m_Text
+      value: Presiona P para pistas
+      objectReference: {fileID: 0}
     - target: {fileID: 6420996386775719948, guid: 2731d68808bce40af89e7463b18c5c42, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -5305,6 +5309,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 3f322f70ec54b1e499eafc67fdd778ef, type: 3}
+    - target: {fileID: 6420996387410281896, guid: 2731d68808bce40af89e7463b18c5c42, type: 3}
+      propertyPath: m_Text
+      value: Presiona I para el Inventario
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420996388312905037, guid: 2731d68808bce40af89e7463b18c5c42, type: 3}
+      propertyPath: m_Text
+      value: Movimiento
+      objectReference: {fileID: 0}
     - target: {fileID: 6858499894701253232, guid: 2731d68808bce40af89e7463b18c5c42, type: 3}
       propertyPath: m_Color.b
       value: 0
