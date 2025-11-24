@@ -73,21 +73,14 @@ public class PickupItemObject : InteractableBase
         // Lanzar eventos 
         onItemPicked?.Invoke();
 
-        // Esperar fin de audio (si hay) o un pequeño delay, igual que en InspectNotaObject
-        if (source != null && source.clip != null)
-            yield return new WaitForSeconds(source.clip.length);
-        else
-            yield return new WaitForSeconds(0.2f);
-
-
+        
         // Desactivar objeto del mundo si corresponde
         if (disableWorldObject)
         {
             gameObject.SetActive(false);
         }
 
-
-        
+               
 
 
         canInteract = true;
