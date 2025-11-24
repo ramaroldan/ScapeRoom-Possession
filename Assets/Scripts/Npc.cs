@@ -22,14 +22,39 @@ public class Npc: MonoBehaviour
     [SerializeField] private UnityEvent unlock = null;
     [SerializeField] private GameObject linterna = null;
 
+    private void Start()
+    {
+        StartCoroutine(FindPlayerReferences());
+    }
+    private System.Collections.IEnumerator FindPlayerReferences()
+    {
+        if(playerMovement != null)
+            yield break;
+        // Esperar hasta que PlayerMovement esté disponible
+        while (playerMovement == null)
+        {
+            playerMovement = Object.FindFirstObjectByType<PlayerMovement>();
+            yield return null;
+        }
+
+        // Buscar MouseLook en hijos de Player
+        MouseLook[] looks = Object.FindObjectsOfType<MouseLook>(true);
+        foreach (var ml in looks)
+        {
+            if (ml.CompareTag("Player"))
+                mouseLookPlayer = ml;
+            else if (ml.CompareTag("MainCamera"))
+                mouseLookCamera = ml;
+        }
+
+        if (mouseLookPlayer == null || mouseLookCamera == null)
+        {
+            Debug.LogWarning("MouseLook references no fueron encontradas correctamente.");
+        }
+    }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            Debug.Log("Forzando cursor visible");
-        }
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -52,6 +77,8 @@ public class Npc: MonoBehaviour
 
     public void SetPlayerControl(bool isUIActive)
     {
+        if(mouseLookPlayer == null) StartCoroutine(FindPlayerReferences());
+
         if (mouseLookPlayer != null)
         {
             mouseLookPlayer.overrideCursorLock = isUIActive;

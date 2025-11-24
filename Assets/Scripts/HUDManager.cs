@@ -1,6 +1,9 @@
+using System.Collections;
+using System.Threading;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
+using UnityEngine.UI;
 
 
 public class HUDManager : MonoBehaviour
@@ -13,6 +16,7 @@ public class HUDManager : MonoBehaviour
     private float timeRemaining;
     private bool timerRunning = false;
     private bool gameEnded = false;
+    AsyncOperation asyncLoad;
     public float TimeRemaining => timeRemaining;
 
     [Header("Panels")]
@@ -25,14 +29,18 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private MouseLook mouseLookPlayer;
     [SerializeField] private MouseLook mouseLookCamera;
 
-
+    [Header("Panel loading")]
+    public Image image_Progress;
+    public GameObject Panel_Loading;
+    public Text text_Progress;
+    [SerializeField] private GameObject Player;
     [SerializeField] private PlayerMovement playerScript;
     [SerializeField] private Interact interactScript;
 
 
     private bool isPaused = false;
     private bool isInventoryOpen = false; // Estado del inventario
-
+    float progress = 0f;
     private void Awake()
     {
         // Singleton para evitar duplicados
@@ -51,6 +59,10 @@ public class HUDManager : MonoBehaviour
 
       
 }
+    private void Start()
+    {
+        Time.timeScale = 1;
+    }
 
 
     private void Update()
@@ -227,5 +239,35 @@ public class HUDManager : MonoBehaviour
 
         if (panelVictoria != null)
             panelVictoria.SetActive(true);
+    }
+    public void Click_Exit()
+    {
+        Application.Quit();
+    }
+
+    public void Click_MenuPrincial()
+    {
+        panelPausa.SetActive(false);
+        Player.SetActive(false);
+        SceneManager.LoadScene("MainMenu");
+        //StartCoroutine(StartToLoadTheMenu());
+    }
+    IEnumerator StartToLoadTheMenu()
+    {
+        panelPausa.SetActive(false);
+        Panel_Loading.SetActive(true);
+       // yield return new WaitForSeconds(1);
+        asyncLoad = SceneManager.LoadSceneAsync("MainMenu");
+        asyncLoad.allowSceneActivation = false;
+        while (progress <= 1f)
+        {
+            image_Progress.fillAmount = progress;
+            text_Progress.text = "%" + Mathf.Round(progress * 100f);
+            progress += .01f;
+            yield return new WaitForSeconds(.01f);
+        }
+        asyncLoad.allowSceneActivation = true;
+        // ButtonStart.SetActive(true);
+        //text_Progress.transform.parent.gameObject.SetActive(false);
     }
 }

@@ -38,6 +38,12 @@ public class PickupItemObject : InteractableBase
     // -------------------------------------------------------------------
     protected override IEnumerator DoInteraction()
     {
+        // Esperar fin de audio (si hay) o un pequeño delay, igual que en InspectNotaObject
+        if (source != null && source.clip != null)
+            yield return new WaitForSeconds(source.clip.length);
+        else
+            yield return new WaitForSeconds(0.2f);
+
         // Si ya fue recogido, no hacemos nada
         if (itemData != null && itemData.pickedUp)
         {
@@ -67,19 +73,15 @@ public class PickupItemObject : InteractableBase
         // Lanzar eventos 
         onItemPicked?.Invoke();
 
+        
         // Desactivar objeto del mundo si corresponde
         if (disableWorldObject)
         {
             gameObject.SetActive(false);
         }
 
-        // Esperar fin de audio (si hay) o un pequeño delay, igual que en InspectNotaObject
-        if (source != null && source.clip != null)
-            yield return new WaitForSeconds(source.clip.length);
-        else
-            yield return new WaitForSeconds(0.2f);
+               
 
-       
 
         canInteract = true;
     }

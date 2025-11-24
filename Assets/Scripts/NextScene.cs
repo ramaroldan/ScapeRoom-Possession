@@ -1,3 +1,4 @@
+using PixeLadder.EasyTransition;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,7 +17,16 @@ public class NextScene:MonoBehaviour
         if (other.CompareTag(playerTag))
         {
             // Cambiar a la siguiente escena
-            SceneManager.LoadScene(nextSceneName);
+            // SceneManager.LoadScene(nextSceneName);
+
+            //if (transitionEffects.Length == 0) return;
+
+            // The "next scene" is just this same scene, which we will reload.
+            string sceneToLoad = SceneManager.GetActiveScene().name;
+           // TransitionEffect effectToUse = transitionEffects[currentSceneIndex];
+
+            // Call the SceneTransitioner to start the transition.
+            SceneTransitioner.Instance.LoadScene(nextSceneName, null);
         }
     }
 
