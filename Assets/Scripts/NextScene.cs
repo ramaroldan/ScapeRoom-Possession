@@ -18,4 +18,9 @@ public class NextScene:MonoBehaviour
             SceneManager.LoadScene(nextSceneName);
         }
     }
+
+    public void SiguienteEscena()
+    {
+        SceneManager.LoadScene(nextSceneName);
+    }
 }
