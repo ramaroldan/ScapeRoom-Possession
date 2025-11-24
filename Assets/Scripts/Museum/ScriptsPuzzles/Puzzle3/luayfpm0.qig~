@@ -1,0 +1,38 @@
+﻿using System.Collections;
+using UnityEngine;
+
+public class RitualSlotInteract : InteractableBase
+{
+    [Header("ID del ítem que este slot recibe")]
+    [Tooltip("Usa algo como: \"reloj\", \"rosario\", \"calavera\"")]
+    public string requiredItemID;
+
+    [Tooltip("Referencia al manager del puzzle final")]
+    public RitualBoxManager boxManager;
+
+    [Header("Inventario del jugador")]
+    // 👇 CAMBIA 'InventoryScript' por el nombre de tu clase de inventario si se llama distinto
+    public InventoryScript playerInventory;
+
+    protected override IEnumerator DoInteraction()
+    {
+        // ¿El jugador tiene el item correcto?
+        if (playerInventory != null && playerInventory.HasItem(requiredItemID))
+        {
+            // Sacar ítem del inventario
+            playerInventory.RemoveItem(requiredItemID);
+
+            // Informar al manager de la caja ritual
+            if (boxManager != null)
+                boxManager.PlaceItem(requiredItemID);
+
+            Debug.Log("Colocaste el item: " + requiredItemID);
+        }
+        else
+        {
+            Debug.Log("No tienes el objeto necesario: " + requiredItemID);
+        }
+
+        yield return null;
+    }
+}
