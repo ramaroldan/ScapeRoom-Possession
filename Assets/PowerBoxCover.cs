@@ -11,13 +11,7 @@ public class PowerBoxCover : MonoBehaviour
     {
         hintProvider = FindObjectOfType<RoomHintProvider>();
 
-        // Registramos las pistas para esta puerta
-        hintProvider.RegisterPuzzleHints(1, nameof(PcController), new List<string>
-            {
-                "Parece que hay una secuencia numérica en esa grabación...",
-                "Ese audio no está ahí por casualidad. Presta atención a los detalles.",
-
-            });
+       
     }
     public void DropCover()
     {
@@ -25,7 +19,7 @@ public class PowerBoxCover : MonoBehaviour
 
         hasFallen = true;
 
-        hintProvider.AdvancePuzzleHint(nameof(PcController));
+        hintProvider.AdvancePuzzleHint(nameof(PowerBoxCover));
 
         stichesluz.GetComponent<EnableInteractables>().EnableItemsInteractables();
 

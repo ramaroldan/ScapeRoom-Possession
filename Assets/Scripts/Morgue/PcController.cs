@@ -46,12 +46,12 @@ public class PcController : MonoBehaviour
         hintProvider = FindObjectOfType<RoomHintProvider>();
 
         // Registramos las pistas para esta puerta
-        hintProvider.RegisterPuzzleHints(0, nameof(PcController), new List<string>
-        {
-                "Esos objetos que se repiten en la habitación... ¿no te suenan de los posters?",
-                "Contá cuántas veces aparece cada objeto del poster en la sala.",
-                "Poné los números en el mismo orden en el que están los posters."
-        });
+        //hintProvider.RegisterPuzzleHints(0, nameof(PcController), new List<string>
+        //{
+        //        "Esos objetos que se repiten en la habitación... ¿no te suenan de los posters?",
+        //        "Contá cuántas veces aparece cada objeto del poster en la sala.",
+        //        "Poné los números en el mismo orden en el que están los posters."
+        //});
     }
 
     // --------------------------------------------------------------------

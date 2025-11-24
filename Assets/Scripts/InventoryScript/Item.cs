@@ -1,4 +1,3 @@
-using UnityEditor.EditorTools;
 using UnityEngine;
 
 public class Item : MonoBehaviour
@@ -56,6 +55,16 @@ public class Item : MonoBehaviour
 
     public void ItemUsage()
     {
+        if (type == "Tool")
+        {
+            tool.SetActive(true);
+            tool.GetComponent<Item>().equipped = true;
+        }
+    }
+
+    public void EquiparLinterna()
+    {
+        gameObject.SetActive(true);
         if (type == "Tool")
         {
             tool.SetActive(true);

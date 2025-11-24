@@ -1,4 +1,4 @@
-﻿using Michsky.UI.Dark;
+
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -83,7 +83,7 @@ public class Inventory : MonoBehaviour
         if (playerScript != null)
             playerScript.SetWorking(!inventoryEnabled);
 
-        // bloquear el Interact para que no detecte raycasts mientras UI está abierta
+        // bloquear el Interact para que no detecte raycasts mientras UI est� abierta
         if (interactScript != null)
             interactScript.enabled = !inventoryEnabled;
 

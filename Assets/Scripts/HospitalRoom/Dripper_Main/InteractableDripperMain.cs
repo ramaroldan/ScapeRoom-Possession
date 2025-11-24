@@ -7,6 +7,7 @@ public class InteractableDripperMain : InteractableBase
     [Header("Game Object to interact")]
     public GameObject _object1;
     public GameObject _object2;
+    public GameObject _object3;
     //public string _objectBool = "isOpen";
 
     [Header("Eventos")]
@@ -17,7 +18,7 @@ public class InteractableDripperMain : InteractableBase
     {
         Debug.Log(state ? "Abriendo puerta" : "Cerrando puerta");
 
-        if (_object1 != null && _object2!= null)
+        if (_object1 != null && _object2!= null && _object3!= null)
             Activate();
 
         
@@ -38,5 +39,6 @@ public class InteractableDripperMain : InteractableBase
     {
         _object1.SetActive(true);
         _object2.SetActive(true);
+        _object3.SetActive(true);
     }
 }
