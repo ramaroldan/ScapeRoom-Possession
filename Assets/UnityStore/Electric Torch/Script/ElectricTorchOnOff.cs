@@ -147,4 +147,9 @@ public class ElectricTorchOnOff : MonoBehaviour
         else
             _toggleKey = KeyCode.F;
     }
+
+    public void SetLightOn(bool on)
+    {
+        _toggleKey = KeyCode.F;
+    }
 }

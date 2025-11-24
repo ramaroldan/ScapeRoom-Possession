@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
-using Michsky.UI.Dark;
+
 
 public class HUDManager : MonoBehaviour
 {
@@ -24,7 +24,7 @@ public class HUDManager : MonoBehaviour
 
     [SerializeField] private MouseLook mouseLookPlayer;
     [SerializeField] private MouseLook mouseLookCamera;
-    [SerializeField] private ModalWindowManager exitModal;
+
 
     [SerializeField] private PlayerMovement playerScript;
     [SerializeField] private Interact interactScript;
@@ -213,14 +213,7 @@ public class HUDManager : MonoBehaviour
         //Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
     }
 
-    public void ShowExitConfirmation()
-    {
-        if (exitModal != null)
-        {
-            exitModal.gameObject.SetActive(true); // Asegura que esté visible
-            exitModal.ModalWindowInTest();            // Llama la animación
-        }
-    }
+   
 
     public void SaveVictoryTime()
     {
