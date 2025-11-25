@@ -973,11 +973,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4390438440649817149, guid: 3c974c672f0f81e4aa09fc9216bdeeb8, type: 3}
   m_PrefabInstance: {fileID: 1140173908}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &73650186 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5627895536969214769, guid: 6f9628dd1f3904043b5e264e48f97af8, type: 3}
-  m_PrefabInstance: {fileID: 6012076504774330721}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &85511592
 GameObject:
   m_ObjectHideFlags: 0
@@ -2926,7 +2921,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 997106987}
   - {fileID: 1184153375}
   - {fileID: 1816262514}
   - {fileID: 963153396}
@@ -4130,7 +4124,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 935277875}
-  m_Father: {fileID: 6012076504774330725}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5963,7 +5957,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 404807206}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -6311,7 +6305,6 @@ RectTransform:
   m_LocalScale: {x: 0.31480998, y: 0.31480998, z: 0.31480998}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 404807206}
   - {fileID: 993169500}
   - {fileID: 1739631394}
   - {fileID: 9746617}
@@ -10222,7 +10215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b1f7368c3166274781bde564c1e37a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: HospitalRoom
+  nextSceneName: Museum
   playerTag: Player
 --- !u!114 &1309165709
 MonoBehaviour:
@@ -10552,7 +10545,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 404807206}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -15867,7 +15860,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1511692384}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -18385,9 +18378,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1299316706167691848, guid: 6f9628dd1f3904043b5e264e48f97af8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 403669375}
-    - targetCorrespondingSourceObject: {fileID: 5627895536969214769, guid: 6f9628dd1f3904043b5e264e48f97af8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1511692384}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f9628dd1f3904043b5e264e48f97af8, type: 3}
 --- !u!114 &6012076504774330722 stripped
@@ -18415,11 +18405,6 @@ MonoBehaviour:
 --- !u!1 &6012076504774330724 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8614826725342464358, guid: 6f9628dd1f3904043b5e264e48f97af8, type: 3}
-  m_PrefabInstance: {fileID: 6012076504774330721}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &6012076504774330725 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1299316706167691848, guid: 6f9628dd1f3904043b5e264e48f97af8, type: 3}
   m_PrefabInstance: {fileID: 6012076504774330721}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &6012076504774330726 stripped
@@ -18529,3 +18514,7 @@ SceneRoots:
   - {fileID: 2122922874}
   - {fileID: 1550980274}
   - {fileID: 46407976}
+  - {fileID: 596938609}
+  - {fileID: 857702056}
+  - {fileID: 1360281096}
+  - {fileID: 1936231388}
