@@ -2159,6 +2159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yourCombination: 1849
+  sceneName: Museum
   combinationRow1: 0
   combinationRow2: 0
   combinationRow3: 0
@@ -2770,6 +2771,7 @@ MonoBehaviour:
   - 
   padlockController: {fileID: 125442618}
   padlockCamera: {fileID: 0}
+  sceneName: Museum
 --- !u!114 &137387654
 MonoBehaviour:
   m_ObjectHideFlags: 0

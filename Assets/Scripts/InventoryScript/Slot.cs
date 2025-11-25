@@ -47,4 +47,12 @@ public class Slot : MonoBehaviour, IPointerClickHandler
             Debug.Log("Slot clickeado: " + name);
         }
     }
+    public void OnClick()
+    {
+        if (Inventory.Instance != null)
+        {
+            Inventory.Instance.SetSelectedSlot(this);
+            Debug.Log("Slot clickeado: " + name);
+        }
+    }
 }

@@ -247,7 +247,12 @@ public class HUDManager : MonoBehaviour
 
     public void Click_MenuPrincial()
     {
+        hudPanel.SetActive(false);
         panelPausa.SetActive(false);
+        panelVictoria.SetActive(false);
+        panelDerrota.SetActive(false);
+        panelInventory.SetActive(false);
+        
         Player.SetActive(false);
         SceneManager.LoadScene("MainMenu");
         //StartCoroutine(StartToLoadTheMenu());
