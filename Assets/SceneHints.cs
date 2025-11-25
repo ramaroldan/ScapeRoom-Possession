@@ -55,7 +55,31 @@ public class SceneHints : MonoBehaviour
     }
     private void Museum()
     {
-        
+        // Registramos las pistas para esta puerta
+        hintProvider.RegisterPuzzleHints(0, nameof(CriptexCodePanel), new List<string>
+        {
+                "Cuenta la cantidad de cuadros en la pared",
+                "Cuenta la cantidad de alfombras en el suelo.",
+                "Cuenta la cantidad de arañas de techo."
+        });
+        // Registramos las pistas para esta puerta
+        hintProvider.RegisterPuzzleHints(1, nameof(SlidingPuzzleManager), new List<string>
+        {
+                "Recoje las fotos para activar el rompecabezas",
+                "Las piezas estan en las vitrinas y biblioteca",
+        });
+        // Registramos las pistas para esta puerta
+        hintProvider.RegisterPuzzleHints(2, nameof(DoorLockByPadlock), new List<string>
+        {
+                "Ve al mueble donde esta el televisor, debajo encontraras una carta.",
+                "el reloj que esta al lado de la puerta es la clave para abrir el candado.",
+        });
+        // Registramos las pistas para esta puerta
+        hintProvider.RegisterPuzzleHints(3, nameof(RitualBoxManager), new List<string>
+        {
+                "Necesitas el rosario, la calavera y el reloj.",
+                "usa la llave para abrir la puerta de salida.",
+        });
     }
     private void Morgue()
     {   // Registramos las pistas para esta puerta

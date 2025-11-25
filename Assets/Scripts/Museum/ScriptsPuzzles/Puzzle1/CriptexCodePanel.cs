@@ -51,7 +51,7 @@ public class CriptexCodePanel : MonoBehaviour
         hintProvider = FindObjectOfType<RoomHintProvider>();
 
         // Registramos las pistas para esta puerta
-        hintProvider.RegisterPuzzleHints(0, nameof(PcController), new List<string>
+        hintProvider.RegisterPuzzleHints(0, nameof(CriptexCodePanel), new List<string>
         {
                 "Cuenta la cantidad de cuadros en la pared",
                 "Cuenta la cantidad de alfombras en el suelo.",
@@ -70,7 +70,7 @@ public class CriptexCodePanel : MonoBehaviour
 
         if (input == correctCode)
         {
-            hintProvider.AdvancePuzzleHint(nameof(PcController));
+            hintProvider.AdvancePuzzleHint(nameof(CriptexCodePanel));
             solved = true;
             Debug.Log("Criptex: código correcto");
 

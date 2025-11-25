@@ -66,7 +66,7 @@ public class SlidingPuzzleManager : MonoBehaviour
         hintProvider = FindObjectOfType<RoomHintProvider>();
 
         // Registramos las pistas para esta puerta
-        hintProvider.RegisterPuzzleHints(1, nameof(PcController), new List<string>
+        hintProvider.RegisterPuzzleHints(1, nameof(SlidingPuzzleManager), new List<string>
         {
                 "Recoje las fotos para activar el rompecabezas",
                 "Las piezas estan en las vitrinas y biblioteca",
@@ -141,7 +141,7 @@ public class SlidingPuzzleManager : MonoBehaviour
             if (tile.currentSlotIndex != tile.correctSlotIndex)
                 return;
         }
-        hintProvider.AdvancePuzzleHint(nameof(PcController));
+        hintProvider.AdvancePuzzleHint(nameof(SlidingPuzzleManager));
         solved = true;
         Debug.Log("Puzzle2: ¡RESUELTO!");
         onPuzzleSolved?.Invoke();

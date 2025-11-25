@@ -34,11 +34,10 @@ public class DoorLockByPadlock : MonoBehaviour
         hintProvider = FindObjectOfType<RoomHintProvider>();
 
         // Registramos las pistas para esta puerta
-        hintProvider.RegisterPuzzleHints(2, nameof(PcController), new List<string>
+        hintProvider.RegisterPuzzleHints(2, nameof(DoorLockByPadlock), new List<string>
         {
-                "Esos objetos que se repiten en la habitación... ¿no te suenan de los posters?",
-                "Contá cuántas veces aparece cada objeto del poster en la sala.",
-                "Poné los números en el mismo orden en el que están los posters."
+                "Ve al mueble donde esta el televisor, debajo encontraras una carta.",
+                "el reloj que esta al lado de la puerta es la clave para abrir el candado.",
         });
     }
 
@@ -63,7 +62,7 @@ public class DoorLockByPadlock : MonoBehaviour
     // 🔓 Llamar a esto DESDE el evento del candado cuando se resuelve
     public void UnlockDoor()
     {
-        hintProvider.AdvancePuzzleHint(nameof(PcController));
+        hintProvider.AdvancePuzzleHint(nameof(DoorLockByPadlock));
 
         if (unlocked) return;
         unlocked = true;

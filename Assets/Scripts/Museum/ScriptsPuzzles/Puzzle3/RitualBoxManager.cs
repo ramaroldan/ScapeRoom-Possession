@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
 
 
 public class RitualBoxManager : MonoBehaviour
 {
+    private RoomHintProvider hintProvider;
+
     [Header("Eventos")]
     public UnityEvent onPuzzleCompleted;   // se dispara cuando aparece la llave
 
@@ -29,6 +32,15 @@ public class RitualBoxManager : MonoBehaviour
     {
         if (finalKey != null)
             finalKey.SetActive(false); // la llave aparece solo al final
+
+        hintProvider = FindObjectOfType<RoomHintProvider>();
+
+        // Registramos las pistas para esta puerta
+        hintProvider.RegisterPuzzleHints(3, nameof(RitualBoxManager), new List<string>
+        {
+                "Necesitas el rosario, la calavera y el reloj.",
+                "usa la llave para abrir la puerta de salida.",
+        });
     }
 
     public void TryPlaceItem(string itemID, GameObject worldObject)
@@ -85,6 +97,7 @@ public class RitualBoxManager : MonoBehaviour
     {
         if (relojColocado && rosarioColocado && calaveraColocado)
         {
+            hintProvider.AdvancePuzzleHint(nameof(RitualBoxManager));
             Debug.Log("Puzzle final completado. La llave aparece.");
 
             if (finalKey != null)
