@@ -35,12 +35,6 @@ public class RitualBoxManager : MonoBehaviour
 
         hintProvider = FindObjectOfType<RoomHintProvider>();
 
-        // Registramos las pistas para esta puerta
-        hintProvider.RegisterPuzzleHints(3, nameof(RitualBoxManager), new List<string>
-        {
-                "Necesitas el rosario, la calavera y el reloj.",
-                "usa la llave para abrir la puerta de salida.",
-        });
     }
 
     public void TryPlaceItem(string itemID, GameObject worldObject)

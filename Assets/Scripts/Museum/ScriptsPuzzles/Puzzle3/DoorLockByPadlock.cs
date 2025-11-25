@@ -33,12 +33,6 @@ public class DoorLockByPadlock : MonoBehaviour
 
         hintProvider = FindObjectOfType<RoomHintProvider>();
 
-        // Registramos las pistas para esta puerta
-        hintProvider.RegisterPuzzleHints(2, nameof(DoorLockByPadlock), new List<string>
-        {
-                "Ve al mueble donde esta el televisor, debajo encontraras una carta.",
-                "el reloj que esta al lado de la puerta es la clave para abrir el candado.",
-        });
     }
 
     // 🔒 Bloquear interacción (por si querés relockear en algún momento)

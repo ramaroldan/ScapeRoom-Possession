@@ -50,13 +50,6 @@ public class CriptexCodePanel : MonoBehaviour
     {
         hintProvider = FindObjectOfType<RoomHintProvider>();
 
-        // Registramos las pistas para esta puerta
-        hintProvider.RegisterPuzzleHints(0, nameof(CriptexCodePanel), new List<string>
-        {
-                "Cuenta la cantidad de cuadros en la pared",
-                "Cuenta la cantidad de alfombras en el suelo.",
-                "Cuenta la cantidad de arañas de techo."
-        });
     }
 
     /// <summary>

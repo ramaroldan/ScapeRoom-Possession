@@ -141,6 +141,12 @@ public class Inventory : MonoBehaviour
     // 🔹 llamado por el botón "Usar Item"
     public void UseSelectedItem()
     {
+
+        if (dropPoint.childCount>0)
+        {
+            return;
+        }
+
         if (selectedSlot == null || selectedSlot.empty)
         {
             Debug.Log("No hay item seleccionado.");

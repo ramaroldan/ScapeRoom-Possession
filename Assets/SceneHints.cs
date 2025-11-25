@@ -58,9 +58,8 @@ public class SceneHints : MonoBehaviour
         // Registramos las pistas para esta puerta
         hintProvider.RegisterPuzzleHints(0, nameof(CriptexCodePanel), new List<string>
         {
-                "Cuenta la cantidad de cuadros en la pared",
-                "Cuenta la cantidad de alfombras en el suelo.",
-                "Cuenta la cantidad de arañas de techo."
+               "En la nota arriba de la caja encontraras la respuesta",
+                "Cuenta la cantidad de cuadros en la pared, alfombras en el suelo y arañas de techo",
         });
         // Registramos las pistas para esta puerta
         hintProvider.RegisterPuzzleHints(1, nameof(SlidingPuzzleManager), new List<string>
