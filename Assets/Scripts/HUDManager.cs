@@ -1,19 +1,46 @@
+using System.Collections;
+using System.Threading;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
+using UnityEngine.UI;
+
 
 public class HUDManager : MonoBehaviour
 {
     public static HUDManager Instance;
 
     [Header("Timer Settings")]
-    public TextMeshProUGUI timerText;
-    public GameObject hudPanel;
-    public int startingMinutes = 30;
-
+    [SerializeField] TextMeshProUGUI timerText;
+    [SerializeField] int startingMinutes = 30;
     private float timeRemaining;
     private bool timerRunning = false;
+    private bool gameEnded = false;
+    AsyncOperation asyncLoad;
+    public float TimeRemaining => timeRemaining;
 
+    [Header("Panels")]
+    [SerializeField] GameObject hudPanel;
+    [SerializeField] private GameObject panelPausa;
+    [SerializeField] private GameObject panelVictoria;
+    [SerializeField] private GameObject panelDerrota;
+    [SerializeField] private GameObject panelInventory; // Nuevo panel de inventario
+
+    [SerializeField] private MouseLook mouseLookPlayer;
+    [SerializeField] private MouseLook mouseLookCamera;
+
+    [Header("Panel loading")]
+    public Image image_Progress;
+    public GameObject Panel_Loading;
+    public Text text_Progress;
+    [SerializeField] private GameObject Player;
+    [SerializeField] private PlayerMovement playerScript;
+    [SerializeField] private Interact interactScript;
+
+
+    private bool isPaused = false;
+    private bool isInventoryOpen = false; // Estado del inventario
+    float progress = 0f;
     private void Awake()
     {
         // Singleton para evitar duplicados
@@ -29,10 +56,18 @@ public class HUDManager : MonoBehaviour
 
         // Inicializa el tiempo
         timeRemaining = startingMinutes * 60f;
+
+      
+}
+    private void Start()
+    {
+        Time.timeScale = 1;
     }
+
 
     private void Update()
     {
+        if (gameEnded) return;
         if (timerRunning)
         {
             if (timeRemaining > 0)
@@ -45,9 +80,23 @@ public class HUDManager : MonoBehaviour
                 timerRunning = false;
                 timeRemaining = 0;
                 UpdateTimerUI();
-                HideHUD();
-                SceneManager.LoadScene("Lost");
+                GameOver();
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePause();
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            HintGameManager.Instance.ShowHint();
+        }
+
+        // Mostrar/ocultar el panel de inventario con la tecla "I"
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            ToggleInventory();
         }
     }
 
@@ -62,19 +111,16 @@ public class HUDManager : MonoBehaviour
     {
         string sceneName = scene.name;
 
-        if (sceneName == "Main Menu")
+        if (sceneName == "Main Menu" || sceneName=="Lobby")
         {
             HideHUD();
         }
-        else if (sceneName == "Lobby")
+        else if (sceneName == "HospitalRoom")
         {
             ShowHUD();
             StartTimer(); // Reinicia si querés que empiece de nuevo al entrar
         }
-        else
-        {
-            ShowHUD();
-        }
+       
     }
 
     public void ShowHUD()
@@ -98,5 +144,135 @@ public class HUDManager : MonoBehaviour
     public void StopTimer()
     {
         timerRunning = false;
+    }
+
+    public void TogglePause()
+    {
+        if (gameEnded) return;
+
+        isPaused = !isPaused;
+
+        // Mostrar/ocultar paneles
+        panelPausa.SetActive(isPaused);
+        hudPanel.SetActive(!isPaused);
+
+        // Pausar o reanudar el tiempo
+        Time.timeScale = isPaused ? 0f : 1f;
+
+        SetPlayerControl(isPaused);
+
+    }
+    public void SetPlayerControl(bool isUIActive)
+    {      
+        if (mouseLookPlayer != null)
+        {           
+            mouseLookPlayer.overrideCursorLock = isUIActive;
+           // Debug.Log("Override cursor lock seteado a: " + mouseLookPlayer.overrideCursorLock);
+        }
+        if (mouseLookCamera != null)
+        {          
+            mouseLookCamera.overrideCursorLock = isUIActive;
+           // Debug.Log("Override cursor lock seteado a: " + mouseLookCamera.overrideCursorLock);
+        }
+
+        Cursor.visible = isUIActive;
+        Cursor.lockState = isUIActive ? CursorLockMode.None : CursorLockMode.Locked;
+    }
+
+
+
+    public void ToggleInventory()
+    {
+        if (panelInventory == null) return;
+
+        isInventoryOpen = !isInventoryOpen;
+
+        // Mostrar/ocultar el panel de inventario
+        panelInventory.SetActive(isInventoryOpen);
+
+        // Pausar el juego mientras el inventario está abierto
+        // Time.timeScale = isInventoryOpen ? 0f : 1f;
+        // bloquear control del player
+        mouseLookPlayer.working = !isInventoryOpen;
+        mouseLookCamera.working = !isInventoryOpen;
+       
+        if (playerScript != null)
+            playerScript.SetWorking(!isInventoryOpen);
+
+        // bloquear el Interact para que no detecte raycasts mientras UI está abierta
+        if (interactScript != null)
+            interactScript.enabled = !isInventoryOpen;
+
+        SetPlayerControl(isInventoryOpen);
+        // Mostrar/ocultar el cursor
+        //Cursor.visible = isInventoryOpen;
+        //Cursor.lockState = isInventoryOpen ? CursorLockMode.None : CursorLockMode.Locked;
+    }
+
+    private void GameOver()
+    {
+        gameEnded = true;
+        isPaused = !isPaused;
+        hudPanel.SetActive(!isPaused);
+        if (panelDerrota != null)
+            panelDerrota.SetActive(true);
+
+        Time.timeScale = 0f; // Pausamos todo
+
+        //cameraControlScript.enabled = !isPaused;
+        SetPlayerControl(gameEnded);
+        //Cursor.visible = isPaused;
+        //Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
+    }
+
+   
+
+    public void SaveVictoryTime()
+    {
+        PlayerPrefs.SetFloat("VictoryTime", timeRemaining);
+    }
+
+    public void ShowVictoryPanel()
+    {
+        HideHUD(); // Oculta el HUD normal (timer, etc)
+        SetPlayerControl(true);
+
+        if (panelVictoria != null)
+            panelVictoria.SetActive(true);
+    }
+    public void Click_Exit()
+    {
+        Application.Quit();
+    }
+
+    public void Click_MenuPrincial()
+    {
+        hudPanel.SetActive(false);
+        panelPausa.SetActive(false);
+        panelVictoria.SetActive(false);
+        panelDerrota.SetActive(false);
+        panelInventory.SetActive(false);
+        
+        Player.SetActive(false);
+        SceneManager.LoadScene("MainMenu");
+        //StartCoroutine(StartToLoadTheMenu());
+    }
+    IEnumerator StartToLoadTheMenu()
+    {
+        panelPausa.SetActive(false);
+        Panel_Loading.SetActive(true);
+       // yield return new WaitForSeconds(1);
+        asyncLoad = SceneManager.LoadSceneAsync("MainMenu");
+        asyncLoad.allowSceneActivation = false;
+        while (progress <= 1f)
+        {
+            image_Progress.fillAmount = progress;
+            text_Progress.text = "%" + Mathf.Round(progress * 100f);
+            progress += .01f;
+            yield return new WaitForSeconds(.01f);
+        }
+        asyncLoad.allowSceneActivation = true;
+        // ButtonStart.SetActive(true);
+        //text_Progress.transform.parent.gameObject.SetActive(false);
     }
 }

@@ -1,0 +1,267 @@
+fileFormatVersion: 2
+guid: 6115c1f5a58de2345a3de7fe0b8b32c4
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Alcohol Btl
+    second: {fileID: 2100000, guid: d840e5eb4e369d641b42a4ae579035ba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Alcohol Cover
+    second: {fileID: 2100000, guid: 4dbe6800acb74e64aa622e7be220e13e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Alcohol Solution
+    second: {fileID: 2100000, guid: 67f5c9df20947064c8d8d595a7de59b2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Copper Sulphate Btl
+    second: {fileID: 2100000, guid: ce474f67b28d87a4a9bd0448fe80bcd4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Copper Sulphate Cap
+    second: {fileID: 2100000, guid: 4fac8845402444f4498da4c922f3198e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Copper Sulphate Cover
+    second: {fileID: 2100000, guid: f146a810ed049e446976a74654beab00, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: EthylAlcohol cover
+    second: {fileID: 2100000, guid: af1c3f7d450a83f4f8d047264c5994b6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: EthylAlcohol cover Btl
+    second: {fileID: 2100000, guid: 6fa3455b8d028fa4584cd54a803bc4c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: EthylAlcohol cover cap
+    second: {fileID: 2100000, guid: e42dd4dd926cd624bb8dd5e05aeb8387, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ferric Chloride Btl
+    second: {fileID: 2100000, guid: f537af35ceafeef419ee381e9184d830, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ferric Chloride Paper
+    second: {fileID: 2100000, guid: 2b3946c2175cc824eb1547218639a027, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ferric Chloride Solution
+    second: {fileID: 2100000, guid: 5eb213a3a35554048a06619d92b36f4a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ferric Chloride cap
+    second: {fileID: 2100000, guid: c21cfadfca1c9474cbb318f2d88353f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: b1a719182d411cb4782c2d100572d07f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hourglass
+    second: {fileID: 2100000, guid: 834110f0219737e4a9233036aead7e61, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Icecube
+    second: {fileID: 2100000, guid: a673b6b5118761c4b99340aee9566b81, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: NaOH  Cap
+    second: {fileID: 2100000, guid: 684af27c74822314ca1392e6af8a36a0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: NaOH Btl
+    second: {fileID: 2100000, guid: 8c367ebbbd96d794890bbf15e1358c08, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: NaOH Cover
+    second: {fileID: 2100000, guid: ae95e0271dd891f43987429cfe9d2620, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: NaphtholinCap
+    second: {fileID: 2100000, guid: ab29d05053bf80f4084501cbffa6abc6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Naphtholinbtl
+    second: {fileID: 2100000, guid: 3460b5b9a313f3a4aaef876f2deccab7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Phenylhydrazine cap
+    second: {fileID: 2100000, guid: 819c5c616d8cc0d40a9b6debb1090662, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Phenylhydrazine cover
+    second: {fileID: 2100000, guid: 555eb5750c19a5d44b8c21f75789539a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Phenylhydrazine cover Btl
+    second: {fileID: 2100000, guid: ae4866ff6eab891478311c044a42f33a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Saltmaterial
+    second: {fileID: 2100000, guid: 89d5f5b8c114a564e9a1b4c300b2aae7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sodium NitroPrusside Cap
+    second: {fileID: 2100000, guid: 5fbd48e483c243a46a96a3c5624da6d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sodium NitroPrusside Cover
+    second: {fileID: 2100000, guid: 277ac704911f17743900caa5e1ef24ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sodium NitroPrussideBtl
+    second: {fileID: 2100000, guid: 992417e48a81b244bb016849795526b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Water
+    second: {fileID: 2100000, guid: 4ace39b66e0b95447aa476632e857843, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: napthol Btl
+    second: {fileID: 2100000, guid: 0f331f64db2f8c24fbf42dd8a50b4e5f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: napthol Cap
+    second: {fileID: 2100000, guid: ac194f7382cc117408bd40c700db23e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: napthol cover
+    second: {fileID: 2100000, guid: 61cf0207ba2fb954b815bd0195137a65, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
