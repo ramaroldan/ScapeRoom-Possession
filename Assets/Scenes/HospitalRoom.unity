@@ -4267,6 +4267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yourCombination: 2215
+  sceneName: HospitalRoom
   combinationRow1: 0
   combinationRow2: 0
   combinationRow3: 0
@@ -8237,6 +8238,7 @@ MonoBehaviour:
   - 
   padlockController: {fileID: 1185707351}
   padlockCamera: {fileID: 0}
+  sceneName: HospitalRoom
 --- !u!114 &1820518587
 MonoBehaviour:
   m_ObjectHideFlags: 0

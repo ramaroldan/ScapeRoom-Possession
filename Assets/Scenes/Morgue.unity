@@ -21243,7 +21243,7 @@ GameObject:
   - component: {fileID: 1436839752}
   - component: {fileID: 1436839755}
   m_Layer: 0
-  m_Name: Padlock_Interactable_A1
+  m_Name: Padlock_Interactable_A2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21469,6 +21469,7 @@ MonoBehaviour:
   - 
   padlockController: {fileID: 1921442933}
   padlockCamera: {fileID: 0}
+  sceneName: Morgue
 --- !u!114 &1436839755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26966,6 +26967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yourCombination: 7329
+  sceneName: Morgue
   combinationRow1: 0
   combinationRow2: 0
   combinationRow3: 0

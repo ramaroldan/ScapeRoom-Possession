@@ -26,7 +26,23 @@ namespace PadlockSystem
             // Si no está asignado manualmente, buscarlo en la escena
             if (_padlockController == null)
             {
-                GameObject padlockGO = GameObject.Find("Padlock_Controller_A1");
+                //if ( sceneName == "HospitalRoom")
+                //{
+                    GameObject padlockGO = GameObject.Find("Padlock_Controller_A1");
+                //    break;
+                //}
+                //if (sceneName == "Morgue")
+                //{
+                //    GameObject padlockGO = GameObject.Find("Padlock_Controller_A2");
+                //    break;
+                //}
+                //if ( sceneName == "Museum")
+                //{
+                //    GameObject padlockGO = GameObject.Find("Padlock_Controller_A3");
+                //    break;
+                //}
+
+                
                 if (padlockGO != null)
                 {
                     _padlockController = padlockGO.GetComponent<PadlockController>();

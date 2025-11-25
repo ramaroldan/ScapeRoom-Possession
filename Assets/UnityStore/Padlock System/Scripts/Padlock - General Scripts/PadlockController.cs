@@ -11,6 +11,7 @@ namespace PadlockSystem
 
         [Header("Your Inputs")]
         [SerializeField] private string yourCombination = "1234";
+        [SerializeField] private string sceneName = "1234";
         private string playerCombi;
         private bool hasUnlocked;
         private bool isShowing;
@@ -76,11 +77,29 @@ namespace PadlockSystem
             playerCamera = Camera.main;
 
             Transform padlockTransform = null;
+            // 🔥 Buscar y desactivar cualquier padlock residual de escenas anteriores
+            foreach (Transform t in playerCamera.GetComponentsInChildren<Transform>(true))
+            {
+                if (t.name.StartsWith("Padlock_Camera_Mechanism_"))
+                {
+                    t.gameObject.SetActive(false);
+                }
+            }
 
             // Buscar aunque esté desactivado
             foreach (Transform t in playerCamera.GetComponentsInChildren<Transform>(true))
             {
-                if (t.name == "Padlock_Camera_Mechanism_A1")
+                if (t.name == "Padlock_Camera_Mechanism_A1" && sceneName=="HospitalRoom")
+                {
+                    padlockTransform = t;
+                    break;
+                }
+                if (t.name == "Padlock_Camera_Mechanism_A2" && sceneName == "Morgue")
+                {
+                    padlockTransform = t;
+                    break;
+                }
+                if (t.name == "Padlock_Camera_Mechanism_A3" && sceneName == "Museum")
                 {
                     padlockTransform = t;
                     break;
@@ -138,7 +157,7 @@ namespace PadlockSystem
             if (playerCombi == yourCombination && !hasUnlocked)
             {
                 StartCoroutine(CorrectCombination());
-                //hasUnlocked = true;
+                hasUnlocked = true;
             }
         }
 
@@ -153,6 +172,7 @@ namespace PadlockSystem
 
             if(powerBoxCover!=null)
                 powerBoxCover.DropCover();
+
             cameraPadlock.SetActive(false);
             OnPadlockClosed?.Invoke();
             interactableLock.SetActive(false);
@@ -161,6 +181,19 @@ namespace PadlockSystem
             gameObject.SetActive(false);
 
             
+        }
+
+        public void ResetearCandado()
+        {
+            combinationRow1 = 1;
+            combinationRow2 = 1;
+            combinationRow3 = 1;
+            combinationRow4 = 1;
+            hasUnlocked = false;
+            if (lockAnim != null)
+                lockAnim.Play("Default");
+            interactableLock.SetActive(true);
+            //gameObject.SetActive(true);
         }
 
         void Update()

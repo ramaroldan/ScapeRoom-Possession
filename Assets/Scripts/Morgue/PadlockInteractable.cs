@@ -8,7 +8,7 @@ public class PadlockInteractable : InteractableBase
     [Header("Padlock Setup")]
     [SerializeField] private PadlockController padlockController;
     [SerializeField] private GameObject padlockCamera;
-
+    [SerializeField] private string sceneName = "1234";
     private Camera playerCamera;
     private bool padlockActive = false;
 
@@ -29,11 +29,29 @@ public class PadlockInteractable : InteractableBase
         playerCamera = Camera.main;
 
         Transform padlockTransform = null;
+        // 🔥 Buscar y desactivar cualquier padlock residual de escenas anteriores
+        foreach (Transform t in playerCamera.GetComponentsInChildren<Transform>(true))
+        {
+            if (t.name.StartsWith("Padlock_Camera_Mechanism_"))
+            {
+                t.gameObject.SetActive(false);
+            }
+        }
 
         // Buscar aunque esté desactivado
         foreach (Transform t in playerCamera.GetComponentsInChildren<Transform>(true))
         {
-            if (t.name == "Padlock_Camera_Mechanism_A1")
+            if (t.name == "Padlock_Camera_Mechanism_A1" && sceneName == "HospitalRoom")
+            {
+                padlockTransform = t;
+                break;
+            }
+            if (t.name == "Padlock_Camera_Mechanism_A2" && sceneName == "Morgue")
+            {
+                padlockTransform = t;
+                break;
+            }
+            if (t.name == "Padlock_Camera_Mechanism_A3" && sceneName == "Museum")
             {
                 padlockTransform = t;
                 break;
