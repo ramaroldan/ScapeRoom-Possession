@@ -1906,6 +1906,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BrickDecal07
       objectReference: {fileID: 0}
+    - target: {fileID: 1257156354539656, guid: dbbde20e4c30f444eb8ffce6943db476, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4940301443679110, guid: dbbde20e4c30f444eb8ffce6943db476, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -7862,6 +7866,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c7d817083d4e67540b23e8f96270d77f, type: 3}
       propertyPath: m_Name
       value: SM_WallLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c7d817083d4e67540b23e8f96270d77f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32149,6 +32157,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BrickDecal04
       objectReference: {fileID: 0}
+    - target: {fileID: 1761380859225000, guid: 091ca433f359e3e4f9f24fe0ee15ce15, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4216565577905354, guid: 091ca433f359e3e4f9f24fe0ee15ce15, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -35798,6 +35810,10 @@ PrefabInstance:
     - target: {fileID: 1960730537843518, guid: 7a4b44019627c1b4fb2573e4b3124d41, type: 3}
       propertyPath: m_Name
       value: BrickDecal06
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960730537843518, guid: 7a4b44019627c1b4fb2573e4b3124d41, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4105219987780380, guid: 7a4b44019627c1b4fb2573e4b3124d41, type: 3}
       propertyPath: m_LocalScale.x
