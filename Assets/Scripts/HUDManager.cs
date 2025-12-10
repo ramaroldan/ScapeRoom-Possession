@@ -1,3 +1,4 @@
+using PixeLadder.EasyTransition;
 using System.Collections;
 using System.Threading;
 using TMPro;
@@ -247,14 +248,11 @@ public class HUDManager : MonoBehaviour
 
     public void Click_MenuPrincial()
     {
-        hudPanel.SetActive(false);
-        panelPausa.SetActive(false);
-        panelVictoria.SetActive(false);
-        panelDerrota.SetActive(false);
-        panelInventory.SetActive(false);
-        
-        Player.SetActive(false);
-        SceneManager.LoadScene("MainMenu");
+ 
+        Destroy(Player);       
+        Destroy(gameObject);
+        SceneTransitioner.Instance.LoadScene("MainMenu", null);
+       // SceneManager.LoadScene();
         //StartCoroutine(StartToLoadTheMenu());
     }
     IEnumerator StartToLoadTheMenu()

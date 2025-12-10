@@ -15,6 +15,11 @@ public class Inventory : MonoBehaviour
     private GameObject[] slot;
     public GameObject slotHolder;
 
+    public GameObject Btn_Useitem;
+    public GameObject titulo_description;
+    public GameObject icon_description;
+    public GameObject text_description;
+
     [SerializeField] private MouseLook mouseLookPlayer;
     [SerializeField] private MouseLook mouseLookCamera;
 
@@ -99,7 +104,24 @@ public class Inventory : MonoBehaviour
     {
         selectedSlot = slotToSelect;
         Debug.Log("Slot seleccionado: " + selectedSlot.name);
-    }
+
+        if (selectedSlot.description != "")
+        {
+            titulo_description.SetActive(true);
+            icon_description.SetActive(true);
+            text_description.SetActive(true);
+            //titulo_description.GetComponent<UnityEngine.UI.Text>().text = selectedSlot.description;
+            icon_description.GetComponent<UnityEngine.UI.Image>().sprite = selectedSlot.icon;
+            text_description.GetComponent<TMPro.TextMeshProUGUI>().text = selectedSlot.description;
+
+        }
+        else
+        {
+            titulo_description.SetActive(false);
+            icon_description.SetActive(false);
+            text_description.SetActive(false);
+        }
+}
 
     private void OnTriggerEnter(Collider other)
     {
@@ -131,6 +153,10 @@ public class Inventory : MonoBehaviour
                 itemObject.transform.SetParent(slot[i].transform);
                 itemObject.SetActive(false);
 
+                if (itemDescription == "Calavera")
+                {
+                    Btn_Useitem.SetActive(true);
+                }
                 s.UpdateSlot();
                 s.empty = false;
                 return;
@@ -206,4 +232,6 @@ public class Inventory : MonoBehaviour
 
         Debug.Log("Item equipado: " + (itemData != null ? itemData.description : itemObject.name));
     }
+
+   
 }
