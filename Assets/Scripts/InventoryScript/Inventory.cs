@@ -8,6 +8,7 @@ public class Inventory : MonoBehaviour
 
     private bool inventoryEnabled;
     public GameObject inventory;
+    public GameObject panel_scene;
 
     private int allSlots;
     private int enabledSlots;
@@ -72,6 +73,7 @@ public class Inventory : MonoBehaviour
     public void OpenInventory()
     {
         inventoryEnabled = !inventoryEnabled;
+        
         inventory.SetActive(inventoryEnabled);
 
         // bloquear control del player
@@ -85,6 +87,20 @@ public class Inventory : MonoBehaviour
             interactScript.enabled = !inventoryEnabled;
 
         SetPlayerControl(inventoryEnabled);
+    }
+    public void OpenScene()
+    {
+        
+        inventory.SetActive(false);
+        panel_scene.SetActive(true);
+
+    }
+    public void OpenItems()
+    {
+        panel_scene.SetActive(false);
+        inventory.SetActive(true);
+        
+
     }
 
     public void SetPlayerControl(bool isUIActive)
