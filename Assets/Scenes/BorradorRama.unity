@@ -2369,7 +2369,7 @@ MonoBehaviour:
   hoverCrosshair: {fileID: 1524851933}
   CrosshairUI: {fileID: 1524851933}
   useSystemCursor: 0
-  defaultCrosshairSize: {x: 150, y: 150}
+  defaultCrosshairSize: {x: 200, y: 200}
   hoverCrosshairSize: {x: 500, y: 500}
 --- !u!114 &361899313
 MonoBehaviour:
@@ -20732,7 +20732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 331975135888247207, guid: 6f9628dd1f3904043b5e264e48f97af8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 15.9999695
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 462598541883755827, guid: 6f9628dd1f3904043b5e264e48f97af8, type: 3}
       propertyPath: m_AnchorMax.y
