@@ -55,7 +55,7 @@ public class RoomHintProvider : MonoBehaviour
             return;
 
         var current = orderedHints[currentPuzzleIndex];
-
+        HintGameManager.Instance.ClearHints();
         if (current.id != id)
         {
             Debug.LogWarning($"⛔ El puzzle '{id}' no es el actual. Se espera: '{current.id}'");
@@ -75,6 +75,7 @@ public class RoomHintProvider : MonoBehaviour
         // Si el puzzle ya fue completado, pasar automáticamente al siguiente
         if (current.IsComplete)
         {
+           
             currentPuzzleIndex++;
            
 

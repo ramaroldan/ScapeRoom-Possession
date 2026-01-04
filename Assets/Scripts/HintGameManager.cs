@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -17,6 +18,12 @@ public class HintGameManager : MonoBehaviour
     [Header("UI de la pista")]
     [SerializeField] private GameObject hintUIObject; // Pista (objeto completo, se activa/desactiva)
     [SerializeField] private TMP_Text hintText;       // Text (TMP) interno
+
+    [Header("UI Inventory-Pistas")]
+    [SerializeField] private Transform hintListContainer; 
+    [SerializeField] private GameObject hintTextPrefab; 
+
+    private List<string> unlockedHints = new List<string>();
 
     public Difficulty CurrentDifficulty { get; private set; }
     private int remainingHints;
@@ -83,13 +90,38 @@ public class HintGameManager : MonoBehaviour
         {
             remainingHints--;
             DisplayHint(hint);
+            AddHint(hint);
         }
         else
         {
+          
             DisplayHint("No hay más pistas para este puzzle.");
         }
     }
 
+    public void AddHint(string hintText)
+    {
+        if (unlockedHints.Contains(hintText)) return; // evitar duplicados
+
+        unlockedHints.Add(hintText);
+
+        GameObject hintGO = Instantiate(hintTextPrefab, hintListContainer);
+        var tmp = hintGO.GetComponent<TextMeshProUGUI>();
+        if (tmp != null)
+        {
+            tmp.text = hintText;
+        }
+    }
+    public void ClearHints()
+    {
+        foreach (Transform child in hintListContainer)
+        {
+            if (child.gameObject == hintTextPrefab)
+                continue; // NO destruir el HUD de la pista activa
+            Destroy(child.gameObject);
+        }
+        unlockedHints.Clear();
+    }
     private void DisplayHint(string message)
     {
         if (hintCoroutine != null)
