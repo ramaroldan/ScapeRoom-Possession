@@ -25,7 +25,12 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private GameObject panelPausa;
     [SerializeField] private GameObject panelVictoria;
     [SerializeField] private GameObject panelDerrota;
-    [SerializeField] private GameObject panelInventory; // Nuevo panel de inventario
+    [SerializeField] private GameObject panelInventory;
+
+    [Header("Panel inventory Scenes")]
+    [SerializeField] private GameObject SeceneHospital;
+    [SerializeField] private GameObject SceneMorgue;
+    [SerializeField] private GameObject SceneMuseum;
 
     [SerializeField] private MouseLook mouseLookPlayer;
     [SerializeField] private MouseLook mouseLookCamera;
@@ -119,9 +124,19 @@ public class HUDManager : MonoBehaviour
         else if (sceneName == "HospitalRoom")
         {
             ShowHUD();
-            StartTimer(); // Reinicia si querés que empiece de nuevo al entrar
+            StartTimer();
+            SeceneHospital.SetActive(true);
+            
         }
-       
+        if (sceneName == "Morgue")
+        {           
+            SceneMorgue.SetActive(true);            
+        }
+        if (sceneName == "Museum")
+        {                    
+            SceneMuseum.SetActive(true);
+        }
+
     }
 
     public void ShowHUD()

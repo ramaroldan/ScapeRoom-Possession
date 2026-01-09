@@ -10,6 +10,7 @@ namespace AdvancedHorrorFPS
         public string SceneName_GamePlay = "";
         public GameObject Panel_MainMenu;
         public GameObject Panel_Settings;
+        public GameObject Panel_DificultySelector;
 
         public Image image_Progress;
         public GameObject Panel_Loading;
@@ -30,7 +31,17 @@ namespace AdvancedHorrorFPS
 
         public void Click_PlayGame()
         {
+            //Panel_MainMenu.SetActive(false);
+            //StartCoroutine(StartToLoadTheGame());
             Panel_MainMenu.SetActive(false);
+            Panel_DificultySelector.SetActive(true);
+        }
+
+
+        public void Click_SelectDificulty(string difficulty)
+        {
+            PlayerPrefs.SetString("Difficulty", difficulty);
+            Panel_DificultySelector.SetActive(false);
             StartCoroutine(StartToLoadTheGame());
         }
 
