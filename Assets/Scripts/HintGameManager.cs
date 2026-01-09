@@ -44,8 +44,8 @@ public class HintGameManager : MonoBehaviour
 
        
         // Obtiene lo guardado (default = 0 si no existe aún)
-        int savedDiff = PlayerPrefs.GetInt("Difficulty", 0);
-        Difficulty diff = (Difficulty)savedDiff;
+        string savedDiff = PlayerPrefs.GetString("Difficulty", "0");
+        Difficulty diff = (Difficulty)int.Parse(savedDiff);
 
         // Lo aplica a tu sistema
         SetDifficulty(diff);
@@ -57,8 +57,8 @@ public class HintGameManager : MonoBehaviour
 
         remainingHints = diff switch
         {
-            Difficulty.Easy => 20,
-            Difficulty.Normal => 4,
+            Difficulty.Easy => 10,
+            Difficulty.Normal => 5,
             Difficulty.Hard => 2,
             Difficulty.Nightmare => 0,
             _ => 0
