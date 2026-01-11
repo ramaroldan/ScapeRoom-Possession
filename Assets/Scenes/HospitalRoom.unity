@@ -8066,9 +8066,10 @@ GameObject:
   - component: {fileID: 1820518586}
   - component: {fileID: 1820518585}
   - component: {fileID: 1820518584}
+  - component: {fileID: 1820518590}
   m_Layer: 0
   m_Name: Padlock_Interactable_A1
-  m_TagString: Interactable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8294,6 +8295,18 @@ Transform:
   - {fileID: 916476847}
   m_Father: {fileID: 1772161489}
   m_LocalEulerAnglesHint: {x: 0, y: 89.458, z: 0}
+--- !u!114 &1820518590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820518583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 098c66dc8fda6674293465da3232610a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1826702496
 GameObject:
   m_ObjectHideFlags: 0
@@ -11417,7 +11430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2722939823345883993, guid: 7e7ab1d144cc0924db49e457e49e7192, type: 3}
       propertyPath: onItemPicked.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2722939823345883993, guid: 7e7ab1d144cc0924db49e457e49e7192, type: 3}
       propertyPath: onItemPicked.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -11425,6 +11438,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2722939823345883993, guid: 7e7ab1d144cc0924db49e457e49e7192, type: 3}
       propertyPath: onItemPicked.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722939823345883993, guid: 7e7ab1d144cc0924db49e457e49e7192, type: 3}
+      propertyPath: onItemPicked.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2722939823345883993, guid: 7e7ab1d144cc0924db49e457e49e7192, type: 3}
@@ -11436,11 +11453,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4926471651199513936}
     - target: {fileID: 2722939823345883993, guid: 7e7ab1d144cc0924db49e457e49e7192, type: 3}
+      propertyPath: onItemPicked.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1820518590}
+    - target: {fileID: 2722939823345883993, guid: 7e7ab1d144cc0924db49e457e49e7192, type: 3}
       propertyPath: onItemPicked.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2722939823345883993, guid: 7e7ab1d144cc0924db49e457e49e7192, type: 3}
       propertyPath: onItemPicked.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722939823345883993, guid: 7e7ab1d144cc0924db49e457e49e7192, type: 3}
+      propertyPath: onItemPicked.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2722939823345883993, guid: 7e7ab1d144cc0924db49e457e49e7192, type: 3}
@@ -11452,6 +11477,10 @@ PrefabInstance:
       value: SetInteractable
       objectReference: {fileID: 0}
     - target: {fileID: 2722939823345883993, guid: 7e7ab1d144cc0924db49e457e49e7192, type: 3}
+      propertyPath: onItemPicked.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetInteractable
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722939823345883993, guid: 7e7ab1d144cc0924db49e457e49e7192, type: 3}
       propertyPath: onItemPicked.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PocketWatchHint, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -11460,11 +11489,19 @@ PrefabInstance:
       value: TagChange, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2722939823345883993, guid: 7e7ab1d144cc0924db49e457e49e7192, type: 3}
+      propertyPath: onItemPicked.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: TagChange, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722939823345883993, guid: 7e7ab1d144cc0924db49e457e49e7192, type: 3}
       propertyPath: onItemPicked.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2722939823345883993, guid: 7e7ab1d144cc0924db49e457e49e7192, type: 3}
       propertyPath: onItemPicked.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722939823345883993, guid: 7e7ab1d144cc0924db49e457e49e7192, type: 3}
+      propertyPath: onItemPicked.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6126130156859311850, guid: 7e7ab1d144cc0924db49e457e49e7192, type: 3}
