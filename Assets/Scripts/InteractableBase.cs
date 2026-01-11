@@ -45,12 +45,28 @@ public abstract class InteractableBase : MonoBehaviour
     }
 
     // ---------------------------------------------------
+    //void Update()
+    //{
+    //    if (!hovering && interactScript != null && interactScript.message != "")
+    //    {
+    //        interactScript.message = "";
+    //    }
+    //}
+
     public virtual void Hovering()
     {
         hovering = true;
         StartCoroutine(HoverFade());
 
-        interactScript.message = state ? prompts[1] : prompts[0];
+        string rawText = state ? LocalizationManager.Instance.GetText(prompts[1]) : LocalizationManager.Instance.GetText(prompts[0]);
+
+        // Si el texto es nulo, vacío o tiene el formato de key no encontrada
+        if (string.IsNullOrWhiteSpace(rawText) || rawText.StartsWith("["))
+            interactScript.message = ""; // o null si preferís
+        else
+            interactScript.message = rawText;
+
+        // interactScript.message = state ? LocalizationManager.Instance.GetText(prompts[1]): LocalizationManager.Instance.GetText(prompts[0]);
     }
 
     IEnumerator HoverFade()

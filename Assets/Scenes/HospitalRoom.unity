@@ -3517,7 +3517,7 @@ MonoBehaviour:
   clips:
   - {fileID: 8300000, guid: 22aa7930008076e49bf3456b2fd7d0ca, type: 3}
   prompts:
-  - "Ir a pr\xF3xima sala"
+  - hospital_door
   - 
   _object1: {fileID: 925467036}
   onItemUsed:
@@ -6887,8 +6887,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 22aa7930008076e49bf3456b2fd7d0ca, type: 3}
   - {fileID: 8300000, guid: 26e929624a5703744830140d9b617930, type: 3}
   prompts:
-  - Abrir Puerta
-  - Cerrar Puerta
+  - open_door
+  - close_door
   animator: {fileID: 1078978791}
   animatorBool: isOpen
 --- !u!1 &1589690212 stripped
@@ -7291,8 +7291,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ab262cdae3cea8242b89e60b174ea7a7, type: 3}
   - {fileID: 8300000, guid: ab262cdae3cea8242b89e60b174ea7a7, type: 3}
   prompts:
-  - Toma el suero
-  - Toma el suero
+  - Catheter_Wire
+  - Catheter_Wire
   itemData: {fileID: 1659148264}
   disableWorldObject: 1
   autoUseOnPickup: 0
@@ -7326,7 +7326,7 @@ MonoBehaviour:
   worldRepresentation: {fileID: 0}
   ID: 2
   type: Tool
-  description: "Ondansetron: tratamiento para n\xE1useas 22:15 hs"
+  description: Catheter_Wire_description
   icon: {fileID: 21300000, guid: c9ccc39c5a4a7024b8b2b538f81fc492, type: 3}
   pickedUp: 0
   equipped: 0
@@ -8234,7 +8234,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ab262cdae3cea8242b89e60b174ea7a7, type: 3}
   - {fileID: 8300000, guid: 1c630c6672daa624992602b5623a2320, type: 3}
   prompts:
-  - Candado
+  - Padlock_Interactable_A1
   - 
   padlockController: {fileID: 1185707351}
   padlockCamera: {fileID: 0}
@@ -10299,6 +10299,10 @@ PrefabInstance:
       propertyPath: m_WaitForFirstFrame
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5534404745015160316, guid: cfaff13a677352c4fa949812067c057d, type: 3}
+      propertyPath: m_Name
+      value: tv-screen_Cube
+      objectReference: {fileID: 0}
     - target: {fileID: 8875961317772186741, guid: cfaff13a677352c4fa949812067c057d, type: 3}
       propertyPath: m_Name
       value: TvSet
@@ -10356,8 +10360,8 @@ MonoBehaviour:
   clips:
   - {fileID: 8300000, guid: 89d62380470be9e47ba7cf3f97105142, type: 3}
   prompts:
-  - Apagar
-  - Apagar
+  - tv_screen_Cube
+  - tv_screen_Cube
   _videoPlayer: {fileID: 1708546047165111028}
   onItemUsed:
     m_PersistentCalls:
@@ -11407,6 +11411,10 @@ PrefabInstance:
       propertyPath: 'clips.Array.data[0]'
       value: 
       objectReference: {fileID: 8300000, guid: ab262cdae3cea8242b89e60b174ea7a7, type: 3}
+    - target: {fileID: 2722939823345883993, guid: 7e7ab1d144cc0924db49e457e49e7192, type: 3}
+      propertyPath: 'prompts.Array.data[0]'
+      value: Pocket_Watch
+      objectReference: {fileID: 0}
     - target: {fileID: 2722939823345883993, guid: 7e7ab1d144cc0924db49e457e49e7192, type: 3}
       propertyPath: onItemPicked.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -13181,8 +13189,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ab262cdae3cea8242b89e60b174ea7a7, type: 3}
   - {fileID: 8300000, guid: ab262cdae3cea8242b89e60b174ea7a7, type: 3}
   prompts:
-  - Tomar Llave
-  - Tomar Llave
+  - LanyardKey
+  - LanyardKey
   itemData: {fileID: 5713743614590979973}
   disableWorldObject: 1
   autoUseOnPickup: 0
@@ -13228,7 +13236,7 @@ MonoBehaviour:
   worldRepresentation: {fileID: 0}
   ID: 23
   type: Tool
-  description: Unlocks Exit Door
+  description: LanyardKey_description
   icon: {fileID: 21300000, guid: 0d716c0ea9fcb994998217dd00b45cce, type: 3}
   pickedUp: 0
   equipped: 0
@@ -13584,6 +13592,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1206862836}
     m_Modifications:
+    - target: {fileID: 1356308288922477183, guid: 891ef003311f6f540b98f4236c6db793, type: 3}
+      propertyPath: 'prompts.Array.data[0]'
+      value: hospital_mirror_door_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1356308288922477183, guid: 891ef003311f6f540b98f4236c6db793, type: 3}
+      propertyPath: 'prompts.Array.data[1]'
+      value: hospital_mirror_door_1
+      objectReference: {fileID: 0}
     - target: {fileID: 1660504695159136415, guid: 891ef003311f6f540b98f4236c6db793, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
@@ -13656,6 +13672,14 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 24300002, guid: a165cccc787b5c94881c6ad7ee67dfdd, type: 2}
+    - target: {fileID: 7414127728191791126, guid: 891ef003311f6f540b98f4236c6db793, type: 3}
+      propertyPath: 'prompts.Array.data[0]'
+      value: hospital_mirror_door_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414127728191791126, guid: 891ef003311f6f540b98f4236c6db793, type: 3}
+      propertyPath: 'prompts.Array.data[1]'
+      value: hospital_mirror_door_1
+      objectReference: {fileID: 0}
     - target: {fileID: 7443803507477458341, guid: 891ef003311f6f540b98f4236c6db793, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -14538,8 +14562,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cbd0270c64e4dde47a407fd2ab718093, type: 3}
   - {fileID: 8300000, guid: a4f79b1f6d1f0a34eb69161cf3b0a4c4, type: 3}
   prompts:
-  - Abrir Puerta
-  - Cerrar Puerta
+  - open_door
+  - close_door
   animator: {fileID: 7435308435279353749}
   animatorBool: isOpen
 --- !u!82 &7435308435279353751
@@ -15674,8 +15698,8 @@ MonoBehaviour:
   clips:
   - {fileID: 8300000, guid: ab262cdae3cea8242b89e60b174ea7a7, type: 3}
   prompts:
-  - Colocar Suero
-  - Colocar Suero
+  - Dripper_Main
+  - Dripper_Main
   _object1: {fileID: 8171080647810007243}
   _object2: {fileID: 919132148884849930}
   _object3: {fileID: 5713743614590979971}
@@ -15778,7 +15802,7 @@ MonoBehaviour:
   clips:
   - {fileID: 8300000, guid: ab262cdae3cea8242b89e60b174ea7a7, type: 3}
   prompts:
-  - 'Revisar Expediente '
+  - MedicalChart
   - 
   notaPanel: {fileID: 95863820}
   notaImage: {fileID: 1758022490}
@@ -16192,8 +16216,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cbd0270c64e4dde47a407fd2ab718093, type: 3}
   - {fileID: 8300000, guid: a4f79b1f6d1f0a34eb69161cf3b0a4c4, type: 3}
   prompts:
-  - Abrir Puerta
-  - Cerrar Puerta
+  - open_door
+  - close_door
   animator: {fileID: 9038815733017777684}
   animatorBool: isOpen
 --- !u!82 &9038815733017777686

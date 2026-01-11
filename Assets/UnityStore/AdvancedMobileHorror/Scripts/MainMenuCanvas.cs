@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -18,6 +18,16 @@ namespace AdvancedHorrorFPS
         public GameObject ButtonStart;
         float progress = 0f;
         AsyncOperation asyncLoad;
+
+        void Awake()
+        {
+            if (LocalizationManager.Instance != null)
+            {
+                LocalizationManager.Instance.SetLanguage(LocalizationManager.Language.Spanish);
+            }
+        }
+
+
 
         private void Start()
         {
@@ -81,5 +91,17 @@ namespace AdvancedHorrorFPS
             Panel_Settings.SetActive(false);
             Panel_MainMenu.SetActive(true);
         }
+        public void SetLanguageToSpanish()
+        {
+            LocalizationManager.Instance.LoadLanguage(LocalizationManager.Language.Spanish);
+            PlayerPrefs.SetInt("Language", (int)LocalizationManager.Language.Spanish);
+        }
+
+        public void SetLanguageToEnglish()
+        {
+            LocalizationManager.Instance.LoadLanguage(LocalizationManager.Language.English);
+            PlayerPrefs.SetInt("Language", (int)LocalizationManager.Language.English);
+        }
+
     }
 }

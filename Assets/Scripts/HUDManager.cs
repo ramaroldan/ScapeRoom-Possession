@@ -126,7 +126,11 @@ public class HUDManager : MonoBehaviour
             ShowHUD();
             StartTimer();
             SeceneHospital.SetActive(true);
-            
+            TMP_Text hospitalInfoText = SeceneHospital.GetComponentInChildren<TMP_Text>();
+            hospitalInfoText.text = LocalizationManager.Instance.GetText("hospital_info_text");
+            hospitalInfoText.gameObject.SetActive(true);
+
+
         }
         if (sceneName == "Morgue")
         {           

@@ -140,7 +140,7 @@ public class Inventory : MonoBehaviour
             text_description.SetActive(true);
             //titulo_description.GetComponent<UnityEngine.UI.Text>().text = selectedSlot.description;
             icon_description.GetComponent<UnityEngine.UI.Image>().sprite = selectedSlot.icon;
-            text_description.GetComponent<TMPro.TextMeshProUGUI>().text = selectedSlot.description;
+            text_description.GetComponent<TMPro.TextMeshProUGUI>().text = LocalizationManager.Instance.GetText(selectedSlot.description);
 
         }
         else

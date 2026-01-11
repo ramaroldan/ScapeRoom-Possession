@@ -1,0 +1,135 @@
+# =========================
+# --- MenuPrincipal ---
+# =========================
+menu_play;Jugar
+menu_settings;Configuraciones
+menu_exit;Salir
+config_title;Configuracion
+config_language;Lenguaje
+config_spanish;Español
+config_english;Ingles
+config_sensitivity;Sensibilidad
+config_volume;Sonido
+controls_move;Movimiento
+controls_inventory;Presiona I para el Inventario
+controls_hints;Presiona P para pistas
+difficulty_easy;Facil
+difficulty_normal;Normal
+difficulty_hard;Difícil
+difficulty_nightmare;Pesadilla
+legend_easy;10 pistas disponibles
+legend_normal;5 pistas disponibles
+legend_hard;2 pistas disponibles
+legend_nightmare;0 pistas disponibles
+
+# =========================
+# INVENTARIO - GENERAL
+# =========================
+inventory_title;Inventario
+inventory_items;Items
+inventory_scenes;Escenas
+inventory_hints;Pistas
+inventory_item_label;Item
+inventory_btnuseItem;Usar Item
+inventory_description_label;Descripción
+hospital_info_text;Has llegado al hospital. Explora para encontrar pistas.
+morge_info_text;Has llegado a la morgue. Explora para encontrar pistas.
+museum_info_text;Has llegado al museo. Explora para encontrar pistas.
+
+# =========================
+# PAUSA
+# =========================
+pause_title;Pausa
+pause_resume;Continuar
+pause_main_menu;Menú Principal
+pause_exit_desktop;Salir al Escritorio
+
+# =========================
+# --- PISTAS ---
+# =========================
+# --- hospital ---
+hint_patient_decline;La salud del paciente se deteriora a cada hora. Ya no puede ni levantarse para ir al baño.
+hint_nurse_steals;Mejor que el paciente no se haya olvidado nada, o el enfermero se lo quedará.
+hint_bathroom;¿Se habrán olvidado algo en el baño?
+
+hint_hospital_pocketwatch_1;La salud del paciente se deteriora a cada hora. Ya no puede ni levantarse para ir al baño.
+hint_hospital_pocketwatch_2;Mejor que el paciente no se haya olvidado nada, o el enfermero se lo quedará.
+hint_hospital_pocketwatch_3;¿Se habrán olvidado algo en el baño?
+
+hint_hospital_tv_1;Ese maldito ruido de estática no te deja concentrar.
+hint_hospital_tv_2;Si hubiera una forma de silenciarlo...
+
+hint_hospital_drawer_1;Tiene que haber alguna información sobre el paciente... ¿pero dónde está?
+hint_hospital_drawer_2;¡Debes revisarlo todo!
+
+hint_hospital_dripper_1;¿Dónde te podría servir el suero?
+hint_hospital_dripper_2;Algún lugar donde colocar ese suero...
+
+# --- museum ---
+
+hint_museum_criptex_1;En la nota arriba de la caja encontrarás la respuesta.
+hint_museum_criptex_2;Cuenta la cantidad de cuadros en la pared, alfombras en el suelo y arañas del techo.
+
+hint_museum_sliding_1;Recoge las fotos para activar el rompecabezas.
+hint_museum_sliding_2;Las piezas están en las vitrinas y la biblioteca.
+
+hint_museum_padlock_1;Ve al mueble donde está el televisor, debajo encontrarás una carta.
+hint_museum_padlock_2;El reloj que está al lado de la puerta es la clave para abrir el candado.
+
+hint_museum_ritual_1;Necesitas el rosario, la calavera y el reloj.
+hint_museum_ritual_2;Usa la llave para abrir la puerta de salida.
+
+# --- morgue ---
+
+hint_morgue_pc_1;Esos objetos que se repiten en la habitación... ¿no te suenan de los posters?
+hint_morgue_pc_2;Contá cuántas veces aparece cada objeto del poster en la sala.
+hint_morgue_pc_3;Poné los números en el mismo orden en el que están los posters.
+
+hint_morgue_powerbox_1;Parece que hay una secuencia numérica en esa grabación...
+hint_morgue_powerbox_2;Ese audio no está ahí por casualidad. Prestá atención a los detalles.
+
+hint_morgue_keypad_1;Con la linterna mirá las paredes.
+hint_morgue_keypad_2;Contá las cosas que aparecen en la pared.
+hint_morgue_keypad_3;Ordená los números de menor a mayor.
+
+
+# =========================
+# --- Lobby ---
+# =========================
+pickup_mug;Levantar taza
+pickup_mug_alt;Inspeccionar taza
+dialogue_braian_intro;Buenas Noches, ¿estas listo para entrar a la sala?
+option_braian_yes;Sí, Estoy Listo
+option_braian_no;No, Todavia No
+dialogue_braian_01;Buenisimo, es la sala mas dificil y realista que tenemos.
+dialogue_braian_02;Los Warren te llaman por tu doble perfil: ciencia y ocultismo.
+dialogue_braian_03;Tendras 60 min para reconstruir las últimas horas de la víctima, leer los signos que otros pasan por alto y rastrear a la entidad responsable, antes de que vuelva a cobrar otra vida.
+dialogue_braian_04;Vas a poder pedir pistas presionando la tecla P.
+dialogue_braian_05;También vas a tener un inventario, presionando la tecla I. Fijate de agarrar la linterna para ingresar a la sala.
+option_braian_press_i;Presionar la tecla I
+pickup_flashlight;Levantar linterna
+item_flashlight_description;Una linterna básica para iluminar áreas oscuras.
+
+# =========================
+# --- EN COMUN	 ---
+# =========================
+open_door;Abrir puerta
+close_door;Cerrar puerta
+
+# =========================
+# --- ESCENA HOSPITAL ---
+# =========================
+hospital_mirror_door_0;Abrir puertita
+hospital_mirror_door_1;Cerrar puertita
+Pocket_Watch;Toma el reloj
+MedicalChart;Revisar Expediente Médico
+Remote;Toma el control
+Remote_description;Parece ser de una TV 
+Catheter_Wire;Toma el suero
+Catheter_Wire_description;Ondansetron: tratamiento para náuseas 22:15 hs
+tv_screen_Cube;Apagar
+Dripper_Main;Colocar suero
+LanyardKey;Tomar Llave
+LanyardKey_description;Llave de identificación del hospital
+hospital_door;Ir a próxima sala
+Padlock_Interactable_A1;Abrir candado

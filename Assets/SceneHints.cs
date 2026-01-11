@@ -29,27 +29,27 @@ public class SceneHints : MonoBehaviour
     {
         hintProvider.RegisterPuzzleHints(0, nameof(PocketWatchHint), new List<string>
         {
-                "La salud del paciente se deteriora a cada hora. Ya no puede ni levantarse para ir al baño.",
-                "Mejor que el paciente no se haya olvidado nada, o el enfermero se lo quedará.",
-                "¿Se habrán olvidado algo en el baño?"
+                "hint_patient_decline",
+                "hint_nurse_steals",
+                "hint_bathroom"
         });
 
         hintProvider.RegisterPuzzleHints(1, nameof(TvScreenHint), new List<string>
         {
-                "Ese maldito ruido de estática no te deja concentrar.",
-                "Si hubiera una forma de silenciarlo..."
+                "hint_hospital_tv_1",
+                "hint_hospital_tv_2"
         });
 
         hintProvider.RegisterPuzzleHints(2, nameof(DrawerLockHint), new List<string>
         {
-                "Tiene que haber alguna información sobre el paciente... Pero ¿Donde está?",
-                "Debes revisarlo todo!"
+                "hint_hospital_drawer_1",
+                "hint_hospital_drawer_2"
         });
 
         hintProvider.RegisterPuzzleHints(3, nameof(DripperMainHint), new List<string>
         {
-                "¿Dónde te podría servir el suero?",
-                "Algún lugar donde colocar ese suero..."
+                "hint_hospital_dripper_1",
+                "hint_hospital_dripper_2"
 
         });
     }
@@ -58,50 +58,50 @@ public class SceneHints : MonoBehaviour
         // Registramos las pistas para esta puerta
         hintProvider.RegisterPuzzleHints(0, nameof(CriptexCodePanel), new List<string>
         {
-               "En la nota arriba de la caja encontraras la respuesta",
-                "Cuenta la cantidad de cuadros en la pared, alfombras en el suelo y arañas de techo",
+               "hint_museum_criptex_1",
+               "hint_museum_criptex_2",
         });
         // Registramos las pistas para esta puerta
         hintProvider.RegisterPuzzleHints(1, nameof(SlidingPuzzleManager), new List<string>
         {
-                "Recoje las fotos para activar el rompecabezas",
-                "Las piezas estan en las vitrinas y biblioteca",
+                "hint_museum_sliding_1",
+                "hint_museum_sliding_2",
         });
         // Registramos las pistas para esta puerta
         hintProvider.RegisterPuzzleHints(2, nameof(DoorLockByPadlock), new List<string>
         {
-                "Ve al mueble donde esta el televisor, debajo encontraras una carta.",
-                "el reloj que esta al lado de la puerta es la clave para abrir el candado.",
+                "hint_museum_padlock_1",
+                "hint_museum_padlock_2",
         });
         // Registramos las pistas para esta puerta
         hintProvider.RegisterPuzzleHints(3, nameof(RitualBoxManager), new List<string>
         {
-                "Necesitas el rosario, la calavera y el reloj.",
-                "usa la llave para abrir la puerta de salida.",
+                "hint_museum_ritual_1",
+                "hint_museum_ritual_2",
         });
     }
     private void Morgue()
     {   // Registramos las pistas para esta puerta
         hintProvider.RegisterPuzzleHints(0, nameof(PcController), new List<string>
         {
-                "Esos objetos que se repiten en la habitación... ¿no te suenan de los posters?",
-                "Contá cuántas veces aparece cada objeto del poster en la sala.",
-                "Poné los números en el mismo orden en el que están los posters."
+                "hint_morgue_pc_1",
+                "hint_morgue_pc_2",
+                "hint_morgue_pc_3"
         });
         // Registramos las pistas para esta puerta
         hintProvider.RegisterPuzzleHints(1, nameof(PowerBoxCover), new List<string>
             {
-                "Parece que hay una secuencia numérica en esa grabación...",
-                "Ese audio no está ahí por casualidad. Presta atención a los detalles.",
+                "hint_morgue_powerbox_1",
+                "hint_morgue_powerbox_2",
 
             });
 
         // Registramos las pistas para esta puerta
         hintProvider.RegisterPuzzleHints(2, nameof(Keypad), new List<string>
             {
-                "Con la linterna mira las paredes",
-                "Conta las cosas en la pared",
-                "De menor a mayor los numeros que te muestra"
+                "hint_morgue_keypad_1",
+                "hint_morgue_keypad_2",
+                "hint_morgue_keypad_3"
             });
     }
 

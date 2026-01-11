@@ -513,16 +513,21 @@ namespace DialogueEditor
             {
                 if (ScrollText)
                 {
-                    DialogueText.text = speech.Text;
-                    m_targetScrollTextCount = speech.Text.Length + 1;
+                    //DialogueText.text = speech.Text;
+
+                    string finalText = GetLocalizedText(speech.Text);
+                    DialogueText.text = finalText;
+                    m_targetScrollTextCount = finalText.Length + 1;
                     DialogueText.maxVisibleCharacters = 0;
                     m_elapsedScrollTime = 0f;
                     m_scrollIndex = 0;
                 }
                 else
                 {
-                    DialogueText.text = speech.Text;
-                    DialogueText.maxVisibleCharacters = speech.Text.Length;
+                    // DialogueText.text = speech.Text;
+                    string finalText = GetLocalizedText(speech.Text);
+                    DialogueText.text = finalText;
+                    DialogueText.maxVisibleCharacters = finalText.Length;
                 }
             }
 
@@ -556,6 +561,20 @@ namespace DialogueEditor
         //--------------------------------------
         // Option Selected
         //--------------------------------------
+        public string GetLocalizedText(string rawText)
+        {
+            if (LocalizationManager.Instance == null)
+                return rawText;
+
+            // Detectar si es una clave (opcionalmente podrías hacer algo más elaborado)
+            if (rawText.StartsWith("dialogue_")|| rawText.StartsWith("option_"))
+            {
+                return LocalizationManager.Instance.GetText(rawText);
+            }
+
+            // Si no es clave, devolver el texto tal cual
+            return rawText;
+        }
 
         public void SpeechSelected(SpeechNode speech)
         {
@@ -663,7 +682,10 @@ namespace DialogueEditor
                     if (ConditionsMet(connection))
                     {
                         UIConversationButton uiOption = CreateButton();
-                        uiOption.SetupButton(UIConversationButton.eButtonType.Option, connection.OptionNode);
+                        var localizedOptionNode = connection.OptionNode;
+                        localizedOptionNode.Text = GetLocalizedText(localizedOptionNode.Text);
+                        //uiOption.SetupButton(UIConversationButton.eButtonType.Option, connection.OptionNode);
+                        uiOption.SetupButton(UIConversationButton.eButtonType.Option, localizedOptionNode);
                     }
                 }
             }

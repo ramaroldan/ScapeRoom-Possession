@@ -5,10 +5,10 @@ public class DificultySelectorUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI legendText;
 
-    public void ShowLegend(string message)
+    public void ShowLegend(string localizationKey)
     {
-        if (legendText != null)
-            legendText.text = message;
+        string localizedText = LocalizationManager.Instance.GetText(localizationKey);
+        legendText.text = localizedText;
     }
 
     public void ClearLegend()

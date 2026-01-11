@@ -109,7 +109,7 @@ public class HintGameManager : MonoBehaviour
         var tmp = hintGO.GetComponent<TextMeshProUGUI>();
         if (tmp != null)
         {
-            tmp.text = hintText;
+            tmp.text = LocalizationManager.Instance.GetText(hintText); //hintText;
         }
     }
     public void ClearHints()
@@ -132,7 +132,7 @@ public class HintGameManager : MonoBehaviour
 
     private IEnumerator HintDisplayRoutine(string message)
     {
-        hintText.text = message;
+        hintText.text = LocalizationManager.Instance.GetText(message); //message;
         hintUIObject.SetActive(true);
 
         yield return new WaitForSeconds(6f); // Mostrar 6 segundos

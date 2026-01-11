@@ -140,7 +140,7 @@ public class GrabbableObject : MonoBehaviour {
         over = true;
         StartCoroutine(Fadeout());
         if (!beingCarried)
-            InteractionScript.message = prompts[0];
+            InteractionScript.message = LocalizationManager.Instance.GetText(prompts[0]);// prompts[0];
     }
     public void Interacting()
     {
@@ -170,7 +170,7 @@ public class GrabbableObject : MonoBehaviour {
             source.Play();
             objectReset = false;
         }
-        InteractionScript.message = prompts[1];
+        InteractionScript.message = LocalizationManager.Instance.GetText(prompts[1]);// prompts[1];
         InteractionScript.CrosshairUI.SetActive(false);
     }
 

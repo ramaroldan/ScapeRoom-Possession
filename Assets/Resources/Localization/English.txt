@@ -1,0 +1,128 @@
+# --- MenuPrincipal ---
+menu_play;Play
+menu_settings;Settings
+menu_exit;Exit
+config_title;Settings
+config_language;Language
+config_spanish;Spanish
+config_english;English
+config_sensitivity;Sensitivity
+config_volume;Sound
+controls_move;Movement
+controls_inventory;Press I for Inventory
+controls_hints;Press P for Hints
+difficulty_easy;Easy
+difficulty_normal;Normal
+difficulty_hard;Hard
+difficulty_nightmare;Nightmare
+legend_easy;10 hints available
+legend_normal;5 hints available
+legend_hard;2 hints available
+legend_nightmare;0 hints available
+
+# =========================
+# INVENTORY - GENERAL
+# =========================
+inventory_title;Inventory
+inventory_items;Items
+inventory_scenes;Scenes
+inventory_hints;Hints
+inventory_item_label;Item
+inventory_btnuseItem;Use Item
+inventory_description_label;Description
+hospital_info_text;You've arrived at the hospital. Explore to find clues.
+morge_info_text;You've arrived at the morgue. Explore to find clues.
+museum_info_text;You've arrived at the museum. Explore to find clues.
+
+# =========================
+# PAUSE
+# =========================
+pause_title;Pause
+pause_resume;Resume
+pause_main_menu;Main Menu
+pause_exit_desktop;Exit to Desktop
+
+# =========================
+# --- PISTAS ---
+# =========================
+# --- hospital ---
+hint_patient_decline;The patient's health deteriorates every hour. He can no longer even get up to go to the bathroom.
+hint_nurse_steals;Better that the patient hasn't forgotten anything, or the nurse will keep it.
+hint_bathroom;Did they forget something in the bathroom?
+
+hint_hospital_tv_1;That damn static noise makes it hard to concentrate.
+hint_hospital_tv_2;If only there were a way to silence it...
+
+hint_hospital_drawer_1;There must be some information about the patient... but where is it?
+hint_hospital_drawer_2;You need to check everything!
+
+hint_hospital_dripper_1;Where could the IV be useful?
+hint_hospital_dripper_2;Somewhere to place that IV...
+
+# --- museum ---
+hint_museum_criptex_1;The note above the box holds the answer.
+hint_museum_criptex_2;Count the paintings on the walls, carpets on the floor, and chandeliers on the ceiling.
+
+hint_museum_sliding_1;Collect the photos to activate the puzzle.
+hint_museum_sliding_2;The pieces are inside the showcases and the library.
+
+hint_museum_padlock_1;Go to the cabinet where the TV is; underneath you'll find a letter.
+hint_museum_padlock_2;The clock next to the door is the key to opening the padlock.
+
+hint_museum_ritual_1;You need the rosary, the skull, and the clock.
+hint_museum_ritual_2;Use the key to open the exit door.
+
+# --- morgue ---
+hint_morgue_pc_1;Those objects repeating around the room... don't they remind you of the posters?
+hint_morgue_pc_2;Count how many times each poster object appears in the room.
+hint_morgue_pc_3;Enter the numbers in the same order as the posters.
+
+hint_morgue_powerbox_1;There seems to be a numeric sequence in that recording...
+hint_morgue_powerbox_2;That audio isn't there by chance. Pay close attention.
+
+hint_morgue_keypad_1;Use the flashlight to look at the walls.
+hint_morgue_keypad_2;Count the objects shown on the wall.
+hint_morgue_keypad_3;Arrange the numbers from lowest to highest.
+
+# =========================
+# --- LOBBY ---
+# =========================
+pickup_mug;Pick up mug
+pickup_mug_alt;Inspect mug
+dialogue_braian_intro;Good evening, are you ready to enter the room?
+option_braian_yes;Yes, I'm ready
+option_braian_no;No, not yet
+dialogue_braian_01;Great, this is the most difficult and realistic room we have.
+dialogue_braian_02;The Warrens chose you for your dual profile: science and occultism.
+dialogue_braian_03;You will have 60 minutes to reconstruct the victim's final hours, read the signs others overlook, and track the responsible entity before it takes another life.
+dialogue_braian_04;You can request hints by pressing the P key.
+dialogue_braian_05;You will also have an inventory. Press the I key. Make sure to grab the flashlight to enter the room.
+option_braian_press_i;Press the I key
+pickup_flashlight;Pick up flashlight
+item_flashlight_description;A basic flashlight to illuminate dark areas.
+
+# =========================
+# --- EN COMUN	 ---
+# =========================
+open_door;Open door
+close_door;Close door
+empty_text; 
+
+# =========================
+# --- ESCENA HOSPITAL ---
+# =========================
+hospital_mirror_door_0;Open small door
+hospital_mirror_door_1;Close small door
+Pocket_Watch;take Watch
+MedicalChart;Review Medical Chart
+Remote;Use Remote
+Remote_description;It seems to be for a TV
+Catheter_Wire;Take IV
+Catheter_Wire_description;An intravenous catheter used for administering fluids and medications.
+tv_screen_Cube;Turn off
+Dripper_Main;Place IV
+LanyardKey;Take Key
+LanyardKey_description;Unlocks Exit Door
+hospital_door;Open Exit Door
+Padlock_Interactable_A1;Unlock Padlock
+
