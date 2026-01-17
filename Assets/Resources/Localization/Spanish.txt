@@ -96,8 +96,7 @@ hint_morgue_keypad_3;Ordená los números de menor a mayor.
 # =========================
 # --- Lobby ---
 # =========================
-pickup_mug;Levantar taza
-pickup_mug_alt;Inspeccionar taza
+
 dialogue_braian_intro;Buenas Noches, ¿estas listo para entrar a la sala?
 option_braian_yes;Sí, Estoy Listo
 option_braian_no;No, Todavia No
@@ -113,8 +112,18 @@ item_flashlight_description;Una linterna básica para iluminar áreas oscuras.
 # =========================
 # --- EN COMUN	 ---
 # =========================
+pickup_mug;Levantar taza
+pickup_mug_alt;Inspeccionar taza
 open_door;Abrir puerta
 close_door;Cerrar puerta
+Nota;Lee la nota
+Carta;Lee la carta
+Padlock_Interactable_A1;Abrir candado
+BtnSalir;Salir	
+Aceptar;Aceptar
+Prender_Luz;Encender luz
+Apagar_Luz;Apagar luz
+Objeto;Agarrar objeto
 
 # =========================
 # --- ESCENA HOSPITAL ---
@@ -132,4 +141,26 @@ Dripper_Main;Colocar suero
 LanyardKey;Tomar Llave
 LanyardKey_description;Llave de identificación del hospital
 hospital_door;Ir a próxima sala
-Padlock_Interactable_A1;Abrir candado
+
+# =========================
+# --- ESCENA MORGUE ---
+# =========================
+Monitor;Usar Computadora
+Apagar_Radio;Apagar Radio
+Prender_Radio;Prender Radio
+Computer_Login;Iniciar Sesión
+Password;Ingresar contraseña...
+Btn_Play;Reproducir
+
+# =========================
+# ESCENA MUSEUM
+# =========================
+Criptexx;Ingresa el codigo
+Slidingpuzzle2;Realiza el rompecabezas
+polySurface13;Guarda la foto
+Skull;Tomar calavera
+CubeReloj;Tomar reloj
+SphereRosario;Tomar rosario
+InstruccionText;Introduce el código de tres cifras
+Resolver;Resolver
+

@@ -1168,6 +1168,7 @@ GameObject:
   - component: {fileID: 68364771}
   - component: {fileID: 68364773}
   - component: {fileID: 68364772}
+  - component: {fileID: 68364774}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1293,6 +1294,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 68364770}
   m_CullTransparentMesh: 1
+--- !u!114 &68364774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68364770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f3e15ffc72ace4abcc540efe3b6618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: BtnSalir
 --- !u!1001 &69427774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2771,7 +2785,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ab262cdae3cea8242b89e60b174ea7a7, type: 3}
   - {fileID: 8300000, guid: 1c630c6672daa624992602b5623a2320, type: 3}
   prompts:
-  - Usar candado
+  - Padlock_Interactable_A1
   - 
   padlockController: {fileID: 125442618}
   padlockCamera: {fileID: 0}
@@ -4918,7 +4932,7 @@ MonoBehaviour:
   source: {fileID: 0}
   clips: []
   prompts:
-  - Toma el reloj
+  - CubeReloj
   - 
   itemData: {fileID: 274757010}
   disableWorldObject: 1
@@ -8532,7 +8546,7 @@ MonoBehaviour:
   source: {fileID: 0}
   clips: []
   prompts:
-  - Ingresa el codigo
+  - Criptexx
   - 
   panelUI: {fileID: 1254275268}
   targetImage: {fileID: 0}
@@ -10394,6 +10408,7 @@ GameObject:
   - component: {fileID: 560425594}
   - component: {fileID: 560425596}
   - component: {fileID: 560425595}
+  - component: {fileID: 560425597}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -10519,6 +10534,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560425593}
   m_CullTransparentMesh: 1
+--- !u!114 &560425597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560425593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f3e15ffc72ace4abcc540efe3b6618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: Resolver
 --- !u!1001 &571142352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11980,7 +12008,7 @@ MonoBehaviour:
   source: {fileID: 0}
   clips: []
   prompts:
-  - Guarda la foto
+  - polySurface13
   - 
   itemData: {fileID: 639208874}
   disableWorldObject: 1
@@ -13895,7 +13923,7 @@ MonoBehaviour:
   source: {fileID: 0}
   clips: []
   prompts:
-  - Guarda la foto
+  - polySurface13
   - 
   itemData: {fileID: 711530425}
   disableWorldObject: 1
@@ -15947,7 +15975,7 @@ MonoBehaviour:
   source: {fileID: 0}
   clips: []
   prompts:
-  - Toma el rosario
+  - SphereRosario
   - 
   itemData: {fileID: 823087020}
   disableWorldObject: 1
@@ -16699,7 +16727,7 @@ MonoBehaviour:
   source: {fileID: 0}
   clips: []
   prompts:
-  - Toma la calavera
+  - Skull
   - 
   itemData: {fileID: 827963279}
   disableWorldObject: 1
@@ -18193,7 +18221,7 @@ MonoBehaviour:
   source: {fileID: 0}
   clips: []
   prompts:
-  - Realiza el rompecabezas
+  - Slidingpuzzle2
   - 
   panelUI: {fileID: 2105723291}
   targetImage: {fileID: 0}
@@ -18871,7 +18899,7 @@ MonoBehaviour:
   source: {fileID: 0}
   clips: []
   prompts:
-  - Guarda la foto
+  - polySurface13
   - 
   itemData: {fileID: 946854900}
   disableWorldObject: 1
@@ -19400,7 +19428,7 @@ MonoBehaviour:
   source: {fileID: 0}
   clips: []
   prompts:
-  - Guarda la foto
+  - polySurface13
   - 
   itemData: {fileID: 971248465}
   disableWorldObject: 1
@@ -23421,6 +23449,7 @@ GameObject:
   - component: {fileID: 1148616354}
   - component: {fileID: 1148616356}
   - component: {fileID: 1148616355}
+  - component: {fileID: 1148616357}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -23546,6 +23575,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148616353}
   m_CullTransparentMesh: 1
+--- !u!114 &1148616357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148616353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f3e15ffc72ace4abcc540efe3b6618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: BtnSalir
 --- !u!1001 &1152319918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25102,7 +25144,7 @@ MonoBehaviour:
   source: {fileID: 0}
   clips: []
   prompts:
-  - Toma la calavera
+  - Skull
   - 
   itemData: {fileID: 1239033249}
   disableWorldObject: 1
@@ -30305,7 +30347,7 @@ MonoBehaviour:
   source: {fileID: 0}
   clips: []
   prompts:
-  - Lee la carta
+  - Carta
   - 
   notaPanel: {fileID: 1615274211}
   notaImage: {fileID: 1615274213}
@@ -32245,7 +32287,7 @@ MonoBehaviour:
   source: {fileID: 0}
   clips: []
   prompts:
-  - Guarda la foto
+  - polySurface13
   - 
   itemData: {fileID: 1617935084}
   disableWorldObject: 1
@@ -32510,6 +32552,7 @@ GameObject:
   - component: {fileID: 1619377138}
   - component: {fileID: 1619377140}
   - component: {fileID: 1619377139}
+  - component: {fileID: 1619377141}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -32635,6 +32678,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619377137}
   m_CullTransparentMesh: 1
+--- !u!114 &1619377141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619377137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f3e15ffc72ace4abcc540efe3b6618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: BtnSalir
 --- !u!1001 &1620537928
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35474,6 +35530,7 @@ GameObject:
   - component: {fileID: 1804344263}
   - component: {fileID: 1804344265}
   - component: {fileID: 1804344264}
+  - component: {fileID: 1804344266}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -35599,6 +35656,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804344262}
   m_CullTransparentMesh: 1
+--- !u!114 &1804344266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804344262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f3e15ffc72ace4abcc540efe3b6618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: BtnSalir
 --- !u!1001 &1812521790
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37263,7 +37333,7 @@ MonoBehaviour:
   source: {fileID: 0}
   clips: []
   prompts:
-  - Guarda la foto
+  - polySurface13
   - 
   itemData: {fileID: 1873574430}
   disableWorldObject: 1
@@ -38578,7 +38648,7 @@ MonoBehaviour:
   source: {fileID: 0}
   clips: []
   prompts:
-  - Lee la nota
+  - Nota
   - 
   notaPanel: {fileID: 1880711989}
   notaImage: {fileID: 1211753782}
@@ -39651,6 +39721,7 @@ GameObject:
   - component: {fileID: 2014280957}
   - component: {fileID: 2014280959}
   - component: {fileID: 2014280958}
+  - component: {fileID: 2014280960}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -39776,6 +39847,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2014280956}
   m_CullTransparentMesh: 1
+--- !u!114 &2014280960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014280956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f3e15ffc72ace4abcc540efe3b6618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: Aceptar
 --- !u!1 &2021929747 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2619997981936644809, guid: dbbe5fa85d4d5e642bcdefc9738dffd0, type: 3}
@@ -40147,7 +40231,7 @@ MonoBehaviour:
   source: {fileID: 0}
   clips: []
   prompts:
-  - Guarda la foto
+  - polySurface13
   - 
   itemData: {fileID: 2030631088}
   disableWorldObject: 1
@@ -40620,6 +40704,7 @@ GameObject:
   - component: {fileID: 2063394381}
   - component: {fileID: 2063394383}
   - component: {fileID: 2063394382}
+  - component: {fileID: 2063394384}
   m_Layer: 0
   m_Name: InstruccionText
   m_TagString: Untagged
@@ -40745,6 +40830,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2063394380}
   m_CullTransparentMesh: 1
+--- !u!114 &2063394384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063394380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f3e15ffc72ace4abcc540efe3b6618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: InstruccionText
 --- !u!1001 &2064060864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41535,7 +41633,7 @@ MonoBehaviour:
   source: {fileID: 0}
   clips: []
   prompts:
-  - Guarda la foto
+  - polySurface13
   - 
   itemData: {fileID: 2086489609}
   disableWorldObject: 1

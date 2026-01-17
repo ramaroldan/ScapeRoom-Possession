@@ -64,9 +64,9 @@ public class Lightswitch : MonoBehaviour {
         over = true;
         StartCoroutine(Fadeout());
         if (!turnedOn)
-            InteractionScript.message = prompts[0];
+            InteractionScript.message = LocalizationManager.Instance.GetText(prompts[0]);
         else if (turnedOn)
-            InteractionScript.message = prompts[1];
+            InteractionScript.message = LocalizationManager.Instance.GetText(prompts[1]);
     }
 
     public void Interacting()
@@ -76,14 +76,14 @@ public class Lightswitch : MonoBehaviour {
             if (!turnedOn)
             {
                 Source.clip = clips[0];
-                InteractionScript.message = prompts[1];
+                InteractionScript.message = LocalizationManager.Instance.GetText(prompts[1]);
                 StartCoroutine(ToggleLight());
                 rend.gameObject.transform.localRotation = Quaternion.Euler(switchRotations[1]);
             }
             else if (turnedOn)
             {
                 Source.clip = clips[1];
-                InteractionScript.message = prompts[0];
+                InteractionScript.message = LocalizationManager.Instance.GetText(prompts[0]);
                 StartCoroutine(ToggleLight());
                 rend.gameObject.transform.localRotation = Quaternion.Euler(switchRotations[0]);
             }

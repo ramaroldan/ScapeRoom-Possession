@@ -107,6 +107,14 @@ item_flashlight_description;A basic flashlight to illuminate dark areas.
 open_door;Open door
 close_door;Close door
 empty_text; 
+Nota;Read the note
+Carta;Read the letter
+Padlock_Interactable_A1;Unlock Padlock
+BtnSalir;Exit
+Aceptar;Accept
+Prender_Luz;Turn Light On
+Apagar_Luz;Turn Light Off
+Objeto;Grab Object
 
 # =========================
 # --- ESCENA HOSPITAL ---
@@ -124,5 +132,28 @@ Dripper_Main;Place IV
 LanyardKey;Take Key
 LanyardKey_description;Unlocks Exit Door
 hospital_door;Open Exit Door
-Padlock_Interactable_A1;Unlock Padlock
+
+# =========================
+# --- ESCENA MORGUE ---
+# =========================
+Monitor;Use Computer
+Apagar_Radio;Turn Off Radio
+Prender_Radio;Turn On Radio
+Computer_Login;Log In
+Password;Enter password...
+Btn_Play;Play Audio
+
+
+
+# =========================
+# ESCENA MUSEUM
+# =========================
+Criptexx;Enter Code
+Slidingpuzzle2;Solve the Puzzle
+polySurface13;Save Photo
+Skull;Take Skull
+CubeReloj;Take Clock
+SphereRosario;Take Rosary
+InstruccionText;Enter the three-digit code
+Resolver;Solve
 

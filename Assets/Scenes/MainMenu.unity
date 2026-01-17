@@ -3885,6 +3885,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CustomCreature
       objectReference: {fileID: 0}
+    - target: {fileID: 5758291689317226245, guid: eed1910c309cc11438f9ac5b372b593f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
