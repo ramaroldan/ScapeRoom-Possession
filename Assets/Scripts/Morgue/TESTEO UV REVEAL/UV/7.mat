@@ -133,8 +133,8 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LightDirection: {r: 0.17239846, g: 0.15644565, b: 0.97252446, a: 0}
-    - _LightPosition: {r: 31.222452, g: 1.589731, b: -23.7362, a: 0}
+    - _LightDirection: {r: 0.14713055, g: 0.14350134, b: 0.978652, a: 0}
+    - _LightPosition: {r: 31.174297, g: 1.5942374, b: -23.743864, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
