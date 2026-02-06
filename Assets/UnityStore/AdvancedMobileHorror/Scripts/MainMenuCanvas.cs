@@ -66,7 +66,7 @@ namespace AdvancedHorrorFPS
             while (progress <= 1f)
             {
                 image_Progress.fillAmount = progress;
-                text_Progress.text = "%" + Mathf.Round(progress * 100f);
+                text_Progress.text = Mathf.Round(progress * 100f) + "%";
                 progress += .01f;
                 yield return new WaitForSeconds(.01f);
             }
