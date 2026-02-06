@@ -13,7 +13,7 @@ public class HUDManager : MonoBehaviour
 
     [Header("Timer Settings")]
     [SerializeField] TextMeshProUGUI timerText;
-    [SerializeField] int startingMinutes = 30;
+    [SerializeField] int startingMinutes = 60;
     private float timeRemaining;
     private bool timerRunning = false;
     private bool gameEnded = false;
