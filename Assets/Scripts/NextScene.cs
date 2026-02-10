@@ -16,20 +16,20 @@ public class NextScene:MonoBehaviour
     {
         if (other.CompareTag(playerTag))
         {
-
-            string sceneToLoad = SceneManager.GetActiveScene().name;
-           // TransitionEffect effectToUse = transitionEffects[currentSceneIndex];
-
-            // Call the SceneTransitioner to start the transition.
-            SceneTransitioner.Instance.LoadScene(nextSceneName, null);
+            SiguienteEscena();
+            
         }
     }
 
     public void SiguienteEscena()
     {
-        
-        SceneManager.LoadScene(nextSceneName);
-        
+
+        string sceneToLoad = SceneManager.GetActiveScene().name;
+        // TransitionEffect effectToUse = transitionEffects[currentSceneIndex];
+
+        // Call the SceneTransitioner to start the transition.
+        SceneTransitioner.Instance.LoadScene(nextSceneName, null);
+
     }
 
     

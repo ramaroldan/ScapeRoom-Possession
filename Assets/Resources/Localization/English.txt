@@ -123,7 +123,7 @@ hospital_mirror_door_0;Open small door
 hospital_mirror_door_1;Close small door
 Pocket_Watch;take Watch
 MedicalChart;Review Medical Chart
-Remote;Use Remote
+Remote;Grab Remote
 Remote_description;It seems to be for a TV
 Catheter_Wire;Take IV
 Catheter_Wire_description;An intravenous catheter used for administering fluids and medications.
