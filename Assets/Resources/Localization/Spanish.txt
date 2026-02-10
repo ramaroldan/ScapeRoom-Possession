@@ -163,4 +163,5 @@ CubeReloj;Tomar reloj
 SphereRosario;Tomar rosario
 InstruccionText;Introduce el código de tres cifras
 Resolver;Resolver
+Museo_Nota_Tittle1;Nada en este Museo esta realmente muerto
 

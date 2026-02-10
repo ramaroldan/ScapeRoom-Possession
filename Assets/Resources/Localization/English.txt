@@ -156,4 +156,6 @@ CubeReloj;Take Clock
 SphereRosario;Take Rosary
 InstruccionText;Enter the three-digit code
 Resolver;Solve
+Museo_Nota_Tittle1;Nothing in this Museum is truly dead
+
 
