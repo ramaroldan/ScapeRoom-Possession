@@ -4249,6 +4249,7 @@ GameObject:
   - component: {fileID: 254355686}
   - component: {fileID: 254355688}
   - component: {fileID: 254355687}
+  - component: {fileID: 254355689}
   m_Layer: 0
   m_Name: Text (TMP) (3)
   m_TagString: Untagged
@@ -4375,6 +4376,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254355685}
   m_CullTransparentMesh: 1
+--- !u!114 &254355689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254355685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f3e15ffc72ace4abcc540efe3b6618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: Museo_Nota_3
 --- !u!1 &254799249
 GameObject:
   m_ObjectHideFlags: 0
@@ -7459,6 +7473,7 @@ GameObject:
   - component: {fileID: 395297187}
   - component: {fileID: 395297189}
   - component: {fileID: 395297188}
+  - component: {fileID: 395297190}
   m_Layer: 0
   m_Name: Text (TMP) (3)
   m_TagString: Untagged
@@ -7585,6 +7600,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 395297186}
   m_CullTransparentMesh: 1
+--- !u!114 &395297190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395297186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f3e15ffc72ace4abcc540efe3b6618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: Carta_3
 --- !u!1 &399945611
 GameObject:
   m_ObjectHideFlags: 0
@@ -10214,6 +10242,7 @@ GameObject:
   - component: {fileID: 514766922}
   - component: {fileID: 514766924}
   - component: {fileID: 514766923}
+  - component: {fileID: 514766925}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -10340,6 +10369,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 514766921}
   m_CullTransparentMesh: 1
+--- !u!114 &514766925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514766921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f3e15ffc72ace4abcc540efe3b6618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: Museo_Nota_0
 --- !u!1001 &543131558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19756,6 +19798,7 @@ GameObject:
   - component: {fileID: 965911799}
   - component: {fileID: 965911801}
   - component: {fileID: 965911800}
+  - component: {fileID: 965911802}
   m_Layer: 0
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
@@ -19882,6 +19925,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 965911798}
   m_CullTransparentMesh: 1
+--- !u!114 &965911802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965911798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f3e15ffc72ace4abcc540efe3b6618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: Carta_1
 --- !u!1 &967534818
 GameObject:
   m_ObjectHideFlags: 0
@@ -23937,7 +23993,7 @@ GameObject:
   - component: {fileID: 1139462421}
   - component: {fileID: 1139462423}
   m_Layer: 0
-  m_Name: Text (TMP) (1)
+  m_Name: Text (TMP) Tittle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36378,6 +36434,7 @@ GameObject:
   - component: {fileID: 1786086209}
   - component: {fileID: 1786086211}
   - component: {fileID: 1786086210}
+  - component: {fileID: 1786086212}
   m_Layer: 0
   m_Name: Text (TMP) (4)
   m_TagString: Untagged
@@ -36504,6 +36561,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1786086208}
   m_CullTransparentMesh: 1
+--- !u!114 &1786086212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786086208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f3e15ffc72ace4abcc540efe3b6618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: Carta_4
 --- !u!1 &1797172381
 GameObject:
   m_ObjectHideFlags: 0
@@ -38507,8 +38577,8 @@ RectTransform:
   m_Children:
   - {fileID: 1211753781}
   - {fileID: 677081621}
-  - {fileID: 514766922}
   - {fileID: 1139462420}
+  - {fileID: 514766922}
   - {fileID: 2106860296}
   - {fileID: 254355686}
   - {fileID: 555716816}
@@ -41610,6 +41680,7 @@ GameObject:
   - component: {fileID: 2039084652}
   - component: {fileID: 2039084654}
   - component: {fileID: 2039084653}
+  - component: {fileID: 2039084655}
   m_Layer: 0
   m_Name: Text (TMP) (2)
   m_TagString: Untagged
@@ -41736,6 +41807,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2039084651}
   m_CullTransparentMesh: 1
+--- !u!114 &2039084655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039084651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f3e15ffc72ace4abcc540efe3b6618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: Carta_2
 --- !u!1001 &2042370332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43148,6 +43232,7 @@ GameObject:
   - component: {fileID: 2106860296}
   - component: {fileID: 2106860298}
   - component: {fileID: 2106860297}
+  - component: {fileID: 2106860299}
   m_Layer: 0
   m_Name: Text (TMP) (2)
   m_TagString: Untagged
@@ -43274,6 +43359,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106860295}
   m_CullTransparentMesh: 1
+--- !u!114 &2106860299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106860295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f3e15ffc72ace4abcc540efe3b6618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: Museo_Nota_2
 --- !u!4 &2119317458 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4023280924874917484, guid: f2ba42f500ecac84784ec156186c1029, type: 3}
@@ -43480,6 +43578,7 @@ GameObject:
   - component: {fileID: 2134593288}
   - component: {fileID: 2134593290}
   - component: {fileID: 2134593289}
+  - component: {fileID: 2134593291}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -43605,6 +43704,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134593287}
   m_CullTransparentMesh: 1
+--- !u!114 &2134593291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134593287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f3e15ffc72ace4abcc540efe3b6618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: Carta_0
 --- !u!4 &2136160760 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 395431994005734291, guid: c994195bbfbf8814ca32ab6b71e252d3, type: 3}

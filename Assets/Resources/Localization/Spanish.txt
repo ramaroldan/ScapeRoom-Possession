@@ -164,4 +164,15 @@ SphereRosario;Tomar rosario
 InstruccionText;Introduce el código de tres cifras
 Resolver;Resolver
 Museo_Nota_Tittle1;Nada en este Museo esta realmente muerto
+Museo_Nota_0;I- El primer numero es la cantidad de testigos enmarcados que te observan desde la pared.
+Museo_Nota_2;II- El segundo número es la cantidad de pieles silenciosas que yacen bajo tus pies.
+Museo_Nota_3;III- El tercer número es la cantidad de luces ahorcadas que cuelgan del techo, esperando que se apague la última.
+Museo_Nota_4;Solo cuando aceptes que todos te miran, el camino se abrirá...
+Carta_0;El tiempo no te mira... pero te persigue.
+Carta_1;Dos relojes guardan los últimos latidos de dos almas distintas. Y sus agujas están fijas desde su muerte.
+Carta_2;El primer guardián muestra la hora en que todo comenzó. El segundo guardian marca el minuto en que todo terminó.
+Carta_3;Observa sus agujas sin miedo... porque los números que ellas revelan son la llave para abrir aquello que nunca debío ser abierto.
+Carta_4;Ellos aún están aqui... esperando que alguien vuelva a mover las agujas.
+
+
 
