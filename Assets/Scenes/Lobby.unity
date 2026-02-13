@@ -10838,11 +10838,11 @@ PrefabInstance:
       objectReference: {fileID: 361899309}
     - target: {fileID: 3448642277707935112, guid: 1443ad59d3410fa4a847fc1d2c5b13f5, type: 3}
       propertyPath: m_SpotAngle
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3448642277707935112, guid: 1443ad59d3410fa4a847fc1d2c5b13f5, type: 3}
       propertyPath: m_InnerSpotAngle
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3448642277707935112, guid: 1443ad59d3410fa4a847fc1d2c5b13f5, type: 3}
       propertyPath: m_Shadows.m_Type
@@ -26355,7 +26355,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 331975135888247207, guid: 6f9628dd1f3904043b5e264e48f97af8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 16
+      value: 15.9999695
       objectReference: {fileID: 0}
     - target: {fileID: 336366007108794211, guid: 6f9628dd1f3904043b5e264e48f97af8, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
@@ -26475,7 +26475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 986626506388756665, guid: 6f9628dd1f3904043b5e264e48f97af8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 6
+      value: 5.9999695
       objectReference: {fileID: 0}
     - target: {fileID: 1197586544420073377, guid: 6f9628dd1f3904043b5e264e48f97af8, type: 3}
       propertyPath: m_text

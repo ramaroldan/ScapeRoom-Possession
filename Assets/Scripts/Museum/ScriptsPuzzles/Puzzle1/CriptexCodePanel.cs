@@ -26,6 +26,10 @@ public class CriptexCodePanel : MonoBehaviour
     [Tooltip("Fotos repartidas por el escenario que deben aparecer tras resolver el Criptex")]
     public GameObject[] fotoPieces;
 
+    [Header("Colliders a desactivar")]
+    [Tooltip("Objetos cuyos colliders (3D y 2D) se desactivarán al introducir el código correcto. Se recorrerán también los hijos.")]
+    public GameObject[] objectsToDisableColliders;
+
     [Header("Eventos")]
     [Tooltip("Eventos que se disparan cuando el código es correcto (ej: jumpscare)")]
     public UnityEvent onCorrectCode;
@@ -78,6 +82,31 @@ public class CriptexCodePanel : MonoBehaviour
                 {
                     if (go != null)
                         go.SetActive(true);
+                }
+            }
+
+            // Desactivar colliders configurados (soporta Collider 3D y Collider2D, incluyendo hijos)
+            if (objectsToDisableColliders != null)
+            {
+                foreach (var obj in objectsToDisableColliders)
+                {
+                    if (obj == null) continue;
+
+                    // Colliders 3D en el objeto y sus hijos
+                    var colliders3D = obj.GetComponentsInChildren<Collider>(true);
+                    foreach (var c in colliders3D)
+                    {
+                        if (c != null)
+                            c.enabled = false;
+                    }
+
+                    // Colliders 2D en el objeto y sus hijos
+                    var colliders2D = obj.GetComponentsInChildren<Collider2D>(true);
+                    foreach (var c2 in colliders2D)
+                    {
+                        if (c2 != null)
+                            c2.enabled = false;
+                    }
                 }
             }
 
