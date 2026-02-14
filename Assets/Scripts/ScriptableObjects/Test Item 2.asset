@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Test Item 2
   m_EditorClassIdentifier: 
   worldRepresentation: {fileID: 0}
-  ID: 0
-  Type: 
-  Description: 
+  ID: 1
+  Type: Saraza
+  Description: Un item saraza 2
   Icon: {fileID: 0}
-  MaxStackSize: 0
+  MaxStackSize: 1
   pickedUp: 0
   equipped: 0
   toolManager: {fileID: 0}

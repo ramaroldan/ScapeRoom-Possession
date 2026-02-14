@@ -12,3 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44d191d81ee49f74591d4049792fb979, type: 3}
   m_Name: Test Item 1
   m_EditorClassIdentifier: 
+  worldRepresentation: {fileID: 0}
+  ID: 0
+  Type: Saraza
+  Description: Un item saraza 1
+  Icon: {fileID: 0}
+  MaxStackSize: 1
+  pickedUp: 0
+  equipped: 0
+  toolManager: {fileID: 0}
+  tool: {fileID: 0}
+  playerTool: 1
