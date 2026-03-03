@@ -19,6 +19,7 @@ legend_easy;10 hints available
 legend_normal;5 hints available
 legend_hard;2 hints available
 legend_nightmare;0 hints available
+menu_creditos;Credits
 
 # =========================
 # INVENTORY - GENERAL
@@ -115,6 +116,7 @@ Aceptar;Accept
 Prender_Luz;Turn Light On
 Apagar_Luz;Turn Light Off
 Objeto;Grab Object
+gameover;Game Over
 
 # =========================
 # --- ESCENA HOSPITAL ---
@@ -166,5 +168,6 @@ Carta_1;Two clocks hold the last heartbeats of two different souls. And their ha
 Carta_2;The first guardian shows the hour when it all began. The second guardian marks the minute when it all ended.
 Carta_3;Observe its hands without fear... because the numbers they reveal are the key to opening what should never have been opened.
 Carta_4;They're still here... waiting for someone to move the needle again.
+ExitKey; Take key
 
 

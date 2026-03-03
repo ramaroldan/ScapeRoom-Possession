@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Museum.unity
     guid: 25fbea103dfb3104fa16259f3a4c0b7a
+  - enabled: 1
+    path: Assets/Scenes/EndGame.unity
+    guid: f408a595f699f1c4eaed28725071fa5f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

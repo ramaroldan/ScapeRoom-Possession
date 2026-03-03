@@ -1,4 +1,4 @@
-using PixeLadder.EasyTransition;
+﻿using PixeLadder.EasyTransition;
 using System.Collections;
 using System.Threading;
 using TMPro;
@@ -210,7 +210,7 @@ public class HUDManager : MonoBehaviour
         // Mostrar/ocultar el panel de inventario
         panelInventory.SetActive(isInventoryOpen);
 
-        // Pausar el juego mientras el inventario est� abierto
+        // Pausar el juego mientras el inventario está abierto
         // Time.timeScale = isInventoryOpen ? 0f : 1f;
         // bloquear control del player
         mouseLookPlayer.working = !isInventoryOpen;
@@ -219,7 +219,7 @@ public class HUDManager : MonoBehaviour
         if (playerScript != null)
             playerScript.SetWorking(!isInventoryOpen);
 
-        // bloquear el Interact para que no detecte raycasts mientras UI est� abierta
+        // bloquear el Interact para que no detecte raycasts mientras UI está abierta
         if (interactScript != null)
             interactScript.enabled = !isInventoryOpen;
 
@@ -231,18 +231,34 @@ public class HUDManager : MonoBehaviour
 
     private void GameOver()
     {
+        ////gameEnded = true;
+        //isPaused = !isPaused;
+        //hudPanel.SetActive(!isPaused);
+        ////if (panelDerrota != null)
+        ////    panelDerrota.SetActive(true);
+
+        //Time.timeScale = 0f; // Pausamos todo
+
+        //SetPlayerControl(gameEnded);
+        //gameEnded = true;
+        //timerRunning = false;
+        //PlayerPrefs.SetInt("EndGameResult", 0); // 0 = derrota
+        //Destroy(Player);
+        //Destroy(gameObject);
+        //SceneTransitioner.Instance.LoadScene("EndGame", null);
+        if (gameEnded) return; // evita doble llamada
         gameEnded = true;
-        isPaused = !isPaused;
-        hudPanel.SetActive(!isPaused);
-        if (panelDerrota != null)
-            panelDerrota.SetActive(true);
+        timerRunning = false;
 
-        Time.timeScale = 0f; // Pausamos todo
+        Time.timeScale = 1f; // ← importante! que el SceneTransitioner pueda correr
 
-        //cameraControlScript.enabled = !isPaused;
-        SetPlayerControl(gameEnded);
-        //Cursor.visible = isPaused;
-        //Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
+        PlayerPrefs.SetInt("EndGameResult", 0);
+
+        SetPlayerControl(true);
+        hudPanel.SetActive(false);
+
+        // NO destruyas el gameObject acá, dejá que la escena lo maneje
+        SceneTransitioner.Instance.LoadScene("EndGame", null);
     }
 
    
@@ -257,8 +273,13 @@ public class HUDManager : MonoBehaviour
         HideHUD(); // Oculta el HUD normal (timer, etc)
         SetPlayerControl(true);
 
-        if (panelVictoria != null)
-            panelVictoria.SetActive(true);
+        //if (panelVictoria != null)
+        //    panelVictoria.SetActive(true);
+        SaveVictoryTime();
+        PlayerPrefs.SetInt("EndGameResult", 1); // 1 = victoria
+        StopTimer();
+        SetPlayerControl(true);
+        SceneTransitioner.Instance.LoadScene("EndGame", null);
     }
     public void Click_Exit()
     {

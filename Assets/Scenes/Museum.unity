@@ -41825,7 +41825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1018f842227231147b04c1d1d24f3818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  victorySceneName: Lobby
+  victorySceneName: EndGame
 --- !u!114 &2081945094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44273,7 +44273,7 @@ MonoBehaviour:
   source: {fileID: 0}
   clips: []
   prompts:
-  - Toma la llave
+  - ExitKey
   - 
   itemData: {fileID: 8507733798351888495}
   disableWorldObject: 1

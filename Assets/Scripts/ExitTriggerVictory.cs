@@ -18,9 +18,11 @@ public class ExitTriggerVictory : MonoBehaviour
             if (HUDManager.Instance != null && HUDManager.Instance.TimeRemaining > 0f)
             {
                 // Guardar tiempo y pasar de escena
-                HUDManager.Instance.SaveVictoryTime();
+                //HUDManager.Instance.SaveVictoryTime();                
+                //PlayerPrefs.SetInt("EndGameResult", 1); // 1 = victoria
+                //HUDManager.Instance.StopTimer();                        
+                //SceneTransitioner.Instance.LoadScene("EndGame", null);
                 HUDManager.Instance.ShowVictoryPanel();
-                SceneTransitioner.Instance.LoadScene(victorySceneName, null);
             }
             else
             {

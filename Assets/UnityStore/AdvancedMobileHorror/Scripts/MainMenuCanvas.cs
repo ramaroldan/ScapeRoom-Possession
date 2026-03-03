@@ -11,6 +11,7 @@ namespace AdvancedHorrorFPS
         public GameObject Panel_MainMenu;
         public GameObject Panel_Settings;
         public GameObject Panel_DificultySelector;
+        public GameObject Panel_Credits;
 
         public Image image_Progress;
         public GameObject Panel_Loading;
@@ -86,9 +87,16 @@ namespace AdvancedHorrorFPS
             Panel_MainMenu.SetActive(false);
         }
 
+        public void Click_Credits()
+        {
+            Panel_Credits.SetActive(true);
+            Panel_MainMenu.SetActive(false);
+        }
+
         public void Click_Close_Settings()
         {
             Panel_Settings.SetActive(false);
+            Panel_Credits.SetActive(false);
             Panel_MainMenu.SetActive(true);
         }
         public void SetLanguageToSpanish()

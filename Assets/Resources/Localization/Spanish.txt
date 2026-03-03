@@ -21,6 +21,7 @@ legend_easy;10 pistas disponibles
 legend_normal;5 pistas disponibles
 legend_hard;2 pistas disponibles
 legend_nightmare;0 pistas disponibles
+menu_creditos;Creditos
 
 # =========================
 # INVENTARIO - GENERAL
@@ -124,6 +125,7 @@ Aceptar;Aceptar
 Prender_Luz;Encender luz
 Apagar_Luz;Apagar luz
 Objeto;Agarrar objeto
+gameover;Perdiste
 
 # =========================
 # --- ESCENA HOSPITAL ---
@@ -173,6 +175,6 @@ Carta_1;Dos relojes guardan los últimos latidos de dos almas distintas. Y sus ag
 Carta_2;El primer guardián muestra la hora en que todo comenzó. El segundo guardian marca el minuto en que todo terminó.
 Carta_3;Observa sus agujas sin miedo... porque los números que ellas revelan son la llave para abrir aquello que nunca debío ser abierto.
 Carta_4;Ellos aún están aqui... esperando que alguien vuelva a mover las agujas.
-
+ExitKey;Tomar llave de salida
 
 
