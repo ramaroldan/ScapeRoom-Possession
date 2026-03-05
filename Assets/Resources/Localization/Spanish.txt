@@ -2,7 +2,7 @@
 # --- MenuPrincipal ---
 # =========================
 menu_play;Jugar
-menu_settings;Configuraciones
+menu_settings;Configuracion
 menu_exit;Salir
 config_title;Configuracion
 config_language;Lenguaje
@@ -126,6 +126,7 @@ Prender_Luz;Encender luz
 Apagar_Luz;Apagar luz
 Objeto;Agarrar objeto
 gameover;Perdiste
+victory_text;¡Ganaste!
 
 # =========================
 # --- ESCENA HOSPITAL ---

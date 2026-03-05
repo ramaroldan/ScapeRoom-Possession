@@ -33,6 +33,7 @@ namespace AdvancedHorrorFPS
         private void Start()
         {
             Time.timeScale = 1;
+            
         }
 
         public void Click_Exit()

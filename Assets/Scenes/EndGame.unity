@@ -4269,6 +4269,7 @@ GameObject:
   - component: {fileID: 1363555440}
   - component: {fileID: 1363555442}
   - component: {fileID: 1363555441}
+  - component: {fileID: 1363555443}
   m_Layer: 5
   m_Name: Time
   m_TagString: Untagged
@@ -4315,7 +4316,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game Over
+  m_text: You win!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 30560a266cb918148a4e5a9e8d27582c, type: 2}
   m_sharedMaterial: {fileID: 3168781738112040259, guid: 30560a266cb918148a4e5a9e8d27582c, type: 2}
@@ -4394,6 +4395,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363555439}
   m_CullTransparentMesh: 1
+--- !u!114 &1363555443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363555439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f3e15ffc72ace4abcc540efe3b6618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: victory_text
 --- !u!1001 &1411453689
 PrefabInstance:
   m_ObjectHideFlags: 0

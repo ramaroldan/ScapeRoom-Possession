@@ -117,6 +117,7 @@ Prender_Luz;Turn Light On
 Apagar_Luz;Turn Light Off
 Objeto;Grab Object
 gameover;Game Over
+victory_text;You Win!
 
 # =========================
 # --- ESCENA HOSPITAL ---

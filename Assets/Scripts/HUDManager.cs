@@ -68,6 +68,10 @@ public class HUDManager : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1;
+
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player != null)
+            player.SetActive(true);
     }
 
 
@@ -117,9 +121,10 @@ public class HUDManager : MonoBehaviour
     {
         string sceneName = scene.name;
 
-        if (sceneName == "Main Menu" || sceneName=="Lobby")
+        if (sceneName == "MainMenu" || sceneName=="Lobby")
         {
             HideHUD();
+            if (sceneName == "MainMenu") panelPausa.SetActive(false);
         }
         else if (sceneName == "HospitalRoom")
         {
@@ -174,7 +179,23 @@ public class HUDManager : MonoBehaviour
 
         // Mostrar/ocultar paneles
         panelPausa.SetActive(isPaused);
-        hudPanel.SetActive(!isPaused);
+        //hudPanel.SetActive(!isPaused);
+
+        // Pausar o reanudar el tiempo
+        Time.timeScale = isPaused ? 0f : 1f;
+
+        SetPlayerControl(isPaused);
+
+    }
+    public void Pause()
+    {
+        if (gameEnded) return;
+
+        isPaused = !isPaused;
+
+        // Mostrar/ocultar paneles
+        panelPausa.SetActive(isPaused);
+       // hudPanel.SetActive(!isPaused);
 
         // Pausar o reanudar el tiempo
         Time.timeScale = isPaused ? 0f : 1f;
@@ -231,21 +252,6 @@ public class HUDManager : MonoBehaviour
 
     private void GameOver()
     {
-        ////gameEnded = true;
-        //isPaused = !isPaused;
-        //hudPanel.SetActive(!isPaused);
-        ////if (panelDerrota != null)
-        ////    panelDerrota.SetActive(true);
-
-        //Time.timeScale = 0f; // Pausamos todo
-
-        //SetPlayerControl(gameEnded);
-        //gameEnded = true;
-        //timerRunning = false;
-        //PlayerPrefs.SetInt("EndGameResult", 0); // 0 = derrota
-        //Destroy(Player);
-        //Destroy(gameObject);
-        //SceneTransitioner.Instance.LoadScene("EndGame", null);
         if (gameEnded) return; // evita doble llamada
         gameEnded = true;
         timerRunning = false;
@@ -288,12 +294,14 @@ public class HUDManager : MonoBehaviour
 
     public void Click_MenuPrincial()
     {
- 
-        Destroy(Player);       
-        Destroy(gameObject);
+        // hudPanel.SetActive(false);
+        // Destroy(Player);
+        Player.SetActive(false);
+        //
+        //Destroy(gameObject);
+        Time.timeScale = 1f;
         SceneTransitioner.Instance.LoadScene("MainMenu", null);
-       // SceneManager.LoadScene();
-        //StartCoroutine(StartToLoadTheMenu());
+      
     }
     IEnumerator StartToLoadTheMenu()
     {
