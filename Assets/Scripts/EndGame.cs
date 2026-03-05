@@ -36,12 +36,20 @@ public class EndGame : MonoBehaviour
     }
     private void MostrarTiempoVictoria()
     {
+        //if (textTiempoVictoria == null) return;
+
+        //float victoryTime = PlayerPrefs.GetFloat("VictoryTime", 0f);
+        //int minutes = Mathf.FloorToInt(victoryTime / 60f);
+        //int seconds = Mathf.FloorToInt(victoryTime % 60f);
+
+        //textTiempoVictoria.text = $"{minutes:00}:{seconds:00}";
         if (textTiempoVictoria == null) return;
-
         float victoryTime = PlayerPrefs.GetFloat("VictoryTime", 0f);
-        int minutes = Mathf.FloorToInt(victoryTime / 60f);
-        int seconds = Mathf.FloorToInt(victoryTime % 60f);
+        float totalTime = 60f * 60f; // 60 minutos en segundos
+        float tiempoTranscurrido = totalTime - victoryTime;
 
+        int minutes = Mathf.FloorToInt(tiempoTranscurrido / 60f);
+        int seconds = Mathf.FloorToInt(tiempoTranscurrido % 60f);
         textTiempoVictoria.text = $"{minutes:00}:{seconds:00}";
     }
     public void Click_MainMenu()
