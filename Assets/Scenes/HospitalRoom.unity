@@ -1443,7 +1443,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &241557292
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1555,9 +1555,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 241557292}
   clips:
-  - {fileID: 8300000, guid: 0785f17306f904f9ab917dae5d04236d, type: 3}
-  - {fileID: 8300000, guid: 21714c9dddf004b5186158d545e98c96, type: 3}
-  - {fileID: 8300000, guid: b9dcb6af2ba767b4388104893ee2da1e, type: 3}
+  - {fileID: 8300000, guid: 62d07dd54c62c7d479e2da8aa8604efe, type: 3}
+  - {fileID: 8300000, guid: 56430410371070844a162d1711565958, type: 3}
+  - {fileID: 8300000, guid: f272307ce2cda0743b74f79cf64aac31, type: 3}
   minDelay: 60
   maxDelay: 200
   playOnStart: 1
